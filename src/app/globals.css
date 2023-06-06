@@ -18,8 +18,8 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color:hsla(142,100%,86%,1);
-  background-image: linear-gradient(50deg, rgba(253, 219, 146, 1), rgba(209, 253, 254, 1));
+  background-color:rgb(255, 255, 255);
+  /* background-image: linear-gradient(50deg, rgba(253, 219, 146, 1), rgba(209, 253, 254, 1)); */
 }
 
 @layer components {
