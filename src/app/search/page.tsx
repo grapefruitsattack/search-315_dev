@@ -2,19 +2,37 @@
 import { NextPage } from 'next'
 import { useSearchParams } from 'next/navigation'
 import songInfo from '../../data/songInfo.json';
-export default function Search() {
+import type { SongMaster, SongInfo } from '../../data/types';
+import getTotalPage from '../../features/utils/GetTotalPage';
+import HeaderAndFooter from "../../components/HeaderAndFooter";
+import SongBlock from "../../components/SongBlock";
+import Pagination from "../../components/Pagination";
+
+export default function Search({ params }: { params: { id: string } }) {
     const searchParams = useSearchParams();
     const search :string | null = searchParams.get('search');
-    const result = songInfo.filter(data => data.singingInfoId === search);
+    const page :number = Number(searchParams.get('page')) || 1;
+    const results = songInfo.filter(data => data.singingInfoId === search);
+
+    const totalPage: number = getTotalPage(searchParams.get('page'),results.length,'search?search='+search);
+
+    const displayResults : SongInfo[] = results.slice(18*(page - 1),18*page);
+    
     return (
-      <div>
-        <h1>test</h1>
-        <h1>{search}</h1>
-      <ul>
-        {result.map((data) => (
-          <li key={data.albumId+data.trackNo+data.singingInfoId}>{data.albumId},{data.trackNo},{data.singingInfoId}</li>
-        ))}
-      </ul>
-      </div>
+      <main className=" min-h-screen">
+      <HeaderAndFooter />
+      <section className="pt-24 ">
+  
+      <Pagination currentPage={page} totalPage={totalPage}/>
+      </section>
+      <section className="grid items-start pb-24 px-12 lg:px-36 gap-4 grid-cols-1 lg:grid-cols-3 ">
+  
+          {displayResults.length===0 
+          ? <div>結果なし</div>
+          :displayResults.map((result) => (
+          <SongBlock key={result.albumId + result.trackNo} albumId={result.albumId} trackNo={result.trackNo} />
+          ))}
+      </section>
+      </main>
     );
   }

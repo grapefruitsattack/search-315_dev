@@ -25,7 +25,7 @@ export default function SongBlock({ albumId,trackNo }: { albumId: string, trackN
           </div>
           <a 
             className ="row-span-1 text-xl font-sans hover:border-gray-300 hover:bg-gray-100"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+            href={`../song/` + song?.songId}
             target="_blank"
             rel="noopener noreferrer"
             >{song?.songTitle}</a>
