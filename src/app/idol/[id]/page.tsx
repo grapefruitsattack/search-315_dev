@@ -9,7 +9,7 @@ export function generateStaticParams() {
       { id: "JUP03" },
     ];
   }
-  const IdolPage = dynamic(() => import("../../../features/idol/IdolPage"), { ssr: false });
+  const IdolPage = dynamic(() => import("../../../features/app/idol/IdolPage"), { ssr: false });
   export default function Page({ params }: { params: { id: string } }) {
 
     return (

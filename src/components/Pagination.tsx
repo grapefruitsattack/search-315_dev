@@ -6,7 +6,6 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
       const params = new URLSearchParams(useSearchParams().toString());
       params.delete('page');
       const otherParams: String =params.size === 0?'':'&' + params.toString();
-      console.log(otherParams);
 
       return (
         // https://tailwindcomponents.com/component/tailwind-css-pagination-gradient

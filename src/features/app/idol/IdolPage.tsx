@@ -1,11 +1,11 @@
 'use client'
-import songInfos from '../../data/songInfo.json';
-import type { SongMaster, SongInfo } from '../../data/types';
-import HeaderAndFooter from "../../components/HeaderAndFooter";
-import SongBlock from "../../components/SongBlock";
-import Pagination from "../../components/Pagination";
+import songInfos from '../../../data/songInfo.json';
+import type { SongMaster, SongInfo } from '../../../data/types';
+import HeaderAndFooter from "../../../components/HeaderAndFooter";
+import SongBlock from "../../../components/SongBlock";
+import Pagination from "../../../components/Pagination";
 import { useSearchParams  } from 'next/navigation'
-import GetTotalPage from '../utils/GetTotalPage';
+import GetTotalPage from '../../utils/GetTotalPage';
 
 export default function IdolPage({ id }: { id: string  }) {
     const searchParams = useSearchParams();
@@ -21,7 +21,7 @@ export default function IdolPage({ id }: { id: string  }) {
     <main className=" min-h-screen">
     <HeaderAndFooter />
 
-    <section className="pt-24 ">
+    <section className="pt-24">
     <Pagination currentPage={page} totalPage={totalPage}/>
     </section>
     <section className="grid items-start pb-24 px-12 lg:px-36 gap-4 grid-cols-1 lg:grid-cols-3 ">
