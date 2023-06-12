@@ -5,24 +5,14 @@ import HeaderAndFooter from "../../components/HeaderAndFooter";
 import SongBlock from "../../components/SongBlock";
 import Pagination from "../../components/Pagination";
 import { useSearchParams  } from 'next/navigation'
-import GetTotalPage from '../../features/utils/GetTotalPage';
-import {useState} from 'react';
-import { useEffect } from 'react';
+import GetTotalPage from '../utils/GetTotalPage';
 
-export function generateStaticParams() {
-    return [
-      { id: "JUP00" },
-      { id: "JUP01" },
-      { id: "JUP02" },
-      { id: "JUP03" },
-    ];
-  }
-  export default function Home({ params }: { params: { id: string } }) {
+export default function IdolPage({ id }: { id: string  }) {
     const searchParams = useSearchParams();
     const page :number = Number(searchParams.get('page')) || 1;
 
-    const results : SongInfo[] = songInfos.filter(data => data.singingInfoId === params.id);
-    const totalPage: number = GetTotalPage(searchParams.get('page'),results.length,params.id);
+    const results : SongInfo[] = songInfos.filter(data => data.singingInfoId === id);
+    const totalPage: number = GetTotalPage(searchParams.get('page'),results.length,id);
 
     const displayResults : SongInfo[] = results.slice(18*(page - 1),18*page);
     
@@ -30,8 +20,8 @@ export function generateStaticParams() {
     return (
     <main className=" min-h-screen">
     <HeaderAndFooter />
-    <section className="pt-24 ">
 
+    <section className="pt-24 ">
     <Pagination currentPage={page} totalPage={totalPage}/>
     </section>
     <section className="grid items-start pb-24 px-12 lg:px-36 gap-4 grid-cols-1 lg:grid-cols-3 ">

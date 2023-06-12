@@ -14,7 +14,7 @@ export default function IdolBlock({ id }: { id: string }) {
     return (
         <a
           style={style}
-          href={`/` + id}
+          href={`/idol/` + id}
           // className={`group idol-block border-`+id}
           className={`group ` + borderHover.idol}
         >
