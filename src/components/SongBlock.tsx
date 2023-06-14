@@ -1,3 +1,4 @@
+'use client'
 import type { SongMaster, Albums } from '../data/types';
 import songMasters from '../data/songMaster.json';
 import albamMasters from '../data/albamMaster.json';

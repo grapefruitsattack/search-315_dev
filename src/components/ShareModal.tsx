@@ -1,3 +1,4 @@
+'use client'
 import { useModal } from "react-hooks-use-modal";
 
 export const ShareModal: React.VFC = () => {
