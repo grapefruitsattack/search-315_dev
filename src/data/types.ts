@@ -1,13 +1,15 @@
 export type Albums = {
-  album_id: string;
-  album_title_full: string;
-  album_title: string;
-  release_date: string;
-  youtube_url: string;
-  release_page: string;
+  sereisId: string;
+  albumId: string;
+  albumTitleFull: string;
+  colleFlg: number;
+  releaseDate: string;
+  displayArtist: string;
+  releasePage: string;
+  youtubeId: string;
 };
 
-export type SingingInfo = {
+export type SingingMaster = {
   singingInfoId: string;
   personFlg: number;
   singingInfoName: string;
@@ -17,14 +19,19 @@ export type SingingInfo = {
 export type SongInfo = {
   albumId: string;
   trackNo: number;
+  songId: string;
   singingInfoId: string;
 };
 
 export type SongMaster = {
-  albumId: string;
   trackNo: number;
+  albumId: string;
+  songId: string;
   songTitle: string;
   displayArtist: string;
-  youtubeId: string;
   commonSong: string;
+  youtubeId: string;
+  trialYoutubeId: string;
+  colleFlg: number;
+  releaseDate: string;
 };

@@ -1,5 +1,5 @@
 
-import singingInfo from '../data/singingInfo.json';
+import singingMaster from '../data/singingMaster.json';
 import borderHover from '../app/border-hover.module.css';
 
 interface ItemCSS extends React.CSSProperties{
@@ -7,7 +7,7 @@ interface ItemCSS extends React.CSSProperties{
 }
 
 export default function UnitBlock({ id }: { id: string }) {
-  const color = singingInfo.find(data => data.singingInfoId === id)?.color;
+  const color = singingMaster.find(data => data.singingInfoId === id)?.color;
   const colorStr:string = color ===undefined ?'' : color;
     return (
         <a
@@ -27,7 +27,7 @@ export default function UnitBlock({ id }: { id: string }) {
         >
         <span className={`inline-block justify-items-center items-center transition-transform group-hover:-skew-y-3 group-hover:text-gray-600 motion-reduce:transform-none text-gray-100 `}>
         <h2 className={`my-px text-2xl lg:text-4xl break-all lg:break-normal font-mono m-0 max-w-[30ch]`}>
-              {''}{singingInfo.find(data => data.singingInfoId === id)?.singingInfoName}
+              {''}{singingMaster.find(data => data.singingInfoId === id)?.singingInfoName}
           </h2>
             </span>
         </a>
