@@ -20,6 +20,7 @@ export default function RootLayout({
     <body className={inter.className}>{children}
       <Script id="holder-js" src="//cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.js" strategy="lazyOnload">
       </Script>
+  <div id="root"></div>
       </body>
     </html>
   )

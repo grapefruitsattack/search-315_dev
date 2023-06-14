@@ -68,13 +68,13 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
                               };
                             };
                             list.push(
-                              <li><div className="cursor-default mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" >
+                              <li key={5}><div className="cursor-default mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" >
                                   ･･･</div></li>
                             );
                             list.push(
                               <li key={totalPage - 1}>
                               <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${totalPage - 1}otherParams`}>
+                              href={`?page=${totalPage - 1}`+otherParams}>
                                 {totalPage - 1}
                               </a>
                               </li>
@@ -82,7 +82,7 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
                             list.push(
                               <li key={totalPage}>
                               <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${totalPage}otherParams`}>
+                              href={`?page=${totalPage}`+otherParams}>
                                 {totalPage}
                               </a>
                               </li>
@@ -91,19 +91,19 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
                             list.push(
                               <li key={1}>
                               <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${1}otherParams`}>
+                              href={`?page=${1}`+otherParams}>
                                 {1}
                               </a>
                               </li>
                             );
                             list.push(
-                              <li><div className="cursor-default mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" >
+                              <li key={2}><div className="cursor-default mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" >
                                   ･･･</div></li>
                             );
                             list.push(
                               <li key={currentPage - 1}>
                               <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${currentPage - 1}otherParams`}>
+                              href={`?page=${currentPage - 1}`+otherParams}>
                                 {currentPage - 1}
                               </a>
                               </li>
@@ -111,7 +111,7 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
                             list.push(
                               <li key={currentPage}>
                               <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  bg-gradient-to-tr from-pink-600 to-pink-400 p-0 text-sm text-white shadow-md shadow-pink-500/20 transition duration-150 ease-in-out" 
-                              href={`?page=${currentPage}otherParams`}>
+                              href={`?page=${currentPage}`+otherParams}>
                                 {currentPage}
                               </a>
                               </li>
@@ -119,19 +119,19 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
                             list.push(
                               <li key={currentPage + 1}>
                               <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${currentPage + 1}otherParams`}>
+                              href={`?page=${currentPage + 1}`+otherParams}>
                                 {currentPage + 1}
                               </a>
                               </li>
                             );
                             list.push(
-                              <li><div className="cursor-default mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" >
+                              <li key={currentPage + 2}><div className="cursor-default mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" >
                                   ･･･</div></li>
                             );
                             list.push(
                               <li key={totalPage}>
                               <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${totalPage}otherParams`}>
+                              href={`?page=${totalPage}`+otherParams}>
                                 {totalPage}
                               </a>
                               </li>
@@ -140,7 +140,7 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
                             list.push(
                               <li key={1}>
                               <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${1}otherParams`}>
+                              href={`?page=${1}`+otherParams}>
                                 {1}
                               </a>
                               </li>
@@ -148,13 +148,13 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
                             list.push(
                               <li key={2}>
                               <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${2}otherParams`}>
+                              href={`?page=${2}`+otherParams}>
                                 {2}
                               </a>
                               </li>
                             );
                             list.push(
-                              <li><div className="cursor-default mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" >
+                              <li key={3}><div className="cursor-default mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" >
                                   ･･･</div></li>
                             );
                             for (let i: number = totalPage - 3; i <= totalPage; i++) {

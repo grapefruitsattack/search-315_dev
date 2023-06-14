@@ -1,12 +1,15 @@
 import type { SongMaster, Albums } from '../data/types';
 import songMasters from '../data/songMaster.json';
 import albamMasters from '../data/albamMaster.json';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShare,faGamepad } from "@fortawesome/free-solid-svg-icons";
+import { useModal } from 'react-hooks-use-modal';
+import {ShareModal} from "./ShareModal";
+import youtubeModal from '../app/youtube-modal.module.css'
+
 
 export default function SongBlock({ albumId,trackNo }: { albumId: string, trackNo: number}) {
   const song = songMasters.find(data => data.albumId === albumId && data.trackNo === trackNo);
   const albam = albamMasters.find(data => data.albumId === song?.albumId);
+
 
     return (
       
@@ -33,7 +36,7 @@ export default function SongBlock({ albumId,trackNo }: { albumId: string, trackN
           <div className ="row-span-1 col-span-2 text-sm">
           {song?.displayArtist}
           </div>
-          <div className ="row-span-1 col-span-2 ">
+          <div className ="row-span-1 col-span-2 leading-none">
             <a 
               className ="text-xs text-gray-500 hover:underline "
               href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
@@ -51,11 +54,9 @@ export default function SongBlock({ albumId,trackNo }: { albumId: string, trackN
           <summary>Youtubeで聴く</summary>
           <iframe className="w-full aspect-square" loading="lazy" src={`https://www.youtube.com/embed/`+song?.youtubeId + `?mute=1&modestbranding=1`} allow="fullscreen"></iframe>
           </details>
-          <details className ="">
-          <summary>シェア
-            {/* <FontAwesomeIcon icon={faShare} /> */}
-          </summary>
-          </details>
+          <div>
+          <ShareModal/>
+ </div>
       </div>
     </section>
     )}

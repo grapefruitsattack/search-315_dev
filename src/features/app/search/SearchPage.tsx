@@ -11,13 +11,23 @@ import Pagination from "../../../components/Pagination";
 export default function SearchPage() {
     const searchParams = useSearchParams();
     const search :string[] | undefined = searchParams.get('search')?.split(' ');
-    console.log(searchParams.get('search'))
+   
     const page :number = Number(searchParams.get('page')) || 1;
-    const results = songInfo.filter(data => search?.includes(data.singingInfoId));
-
+    const songInfoResults = songInfo.filter(data => search?.includes(data.singingInfoId));
+    const results2 = Array.from(new Set(songInfoResults.map(data => {
+        return data.albumId+String(data.trackNo);
+      })));
+    const results = results2.map(data => {
+        return {
+            albumId: data.slice(0,4),
+            trackNo: Number(data.slice(4))
+        };
+      });
     const totalPage: number = getTotalPage(searchParams.get('page'),results.length,'search?search='+search);
 
-    const displayResults : SongInfo[] = results.slice(18*(page - 1),18*page);
+    let displayResults = results != null
+    ?results.slice(18*(page - 1),18*page):[];
+    displayResults = displayResults != null ?displayResults :[];
 
     return (
         <main className="min-h-screen">
@@ -29,8 +39,8 @@ export default function SearchPage() {
     
             {displayResults.length===0 
             ? <div>結果なし</div>
-            :displayResults.map((result) => (
-            <SongBlock key={result.albumId + result.trackNo} albumId={result.albumId} trackNo={result.trackNo} />
+            :displayResults.map((result, index) => (
+            <SongBlock key={index} albumId={result.albumId} trackNo={result.trackNo} />
             ))}
         </section>
         </main>
