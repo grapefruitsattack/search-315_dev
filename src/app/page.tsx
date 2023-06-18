@@ -1,9 +1,12 @@
-//import Image from 'next/image'
+"use client"
 import HeaderAndFooter from "../components/HeaderAndFooter";
 import singingMaster from '../data/singingMaster.json';
 import IdolBlock from "../components/IdolBlock";
 import UnitBlock from "../components/UnitBlock";
 import borderHover from './border-hover.module.css'
+import { motion,AnimatePresence } from 'framer-motion'
+import Link from "next/link";
+
 
 interface ItemCSS extends React.CSSProperties{
   '--c':string
@@ -86,7 +89,14 @@ export default function Home() {
   `}>
 </p>
 
-<div className="mt-5 mb-32 grid text-center align-middle grid-cols-2 lg:mb-0 lg:grid-cols-4 gap-3">
+<AnimatePresence mode="wait">
+  <motion.div
+    key={'Home'}
+    initial={{ opacity: 0 }} // 初期状態
+    animate={{ opacity: 1 }} // マウント時
+    exit={{ opacity: 0 }}    // アンマウント時
+  >
+<section className="mt-5 mb-32 grid text-center align-middle grid-cols-2 lg:mb-0 lg:grid-cols-4 gap-3">
         
         <UnitBlock id="JUP00" />
         <IdolBlock id="JUP01" />
@@ -134,9 +144,9 @@ export default function Home() {
         <UnitBlock id="CFP00" />
         <IdolBlock id="CFP01" />
         <IdolBlock id="CFP02" />
-        <a
+        <Link
           style={ {"--c": '#6664C6'} as ItemCSS}
-          href={`/songs/` + "CFP03"}
+          href={{ pathname: '/search', query: {search: 'CFP03' }}}
           className={`group idol-block border-`+"CFP03"+ ` ` + borderHover.idol}
         >
         <span className={`unit-idol-text-area`}>
@@ -147,7 +157,7 @@ export default function Home() {
           {singingMaster.find(data => data.singingInfoId === "CFP03")?.singingInfoRomajiName}
           </p>
             </span>
-        </a>
+        </Link>
         <div className="hidden lg:inline-block"></div>
         <IdolBlock id="CFP04" />
         <IdolBlock id="CFP05" />
@@ -181,7 +191,9 @@ export default function Home() {
 
 
 
-      </div>
+      </section>
+        </motion.div>
+  </AnimatePresence>
     </main>
   )
 }

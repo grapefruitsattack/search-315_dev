@@ -1,11 +1,20 @@
-
-import { useSearchParams } from 'next/navigation'
+'use client'
+import { usePathname,useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import { Url } from 'next/dist/shared/lib/router/router';
 
 export default function Pagination({ currentPage,totalPage }: { currentPage: number, totalPage: number }) {
       const omitFlg: boolean = totalPage >= 8;
       const params = new URLSearchParams(useSearchParams().toString());
       params.delete('page');
+      let urlParams: {[key: string]: string}= {};
+      params.forEach(function(value: string, key: string) {
+        urlParams[key] = value;
+      });
       const otherParams: String =params.size === 0?'':'&' + params.toString();
+      
+      const params2 = useSearchParams().getAll;
+      const currentPath: string = usePathname();
 
       return (
         // https://tailwindcomponents.com/component/tailwind-css-pagination-gradient
@@ -32,13 +41,13 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
                         }else{
                           list.push(
                             <li key={0}>
-                            <a className=
+                            <Link className=
                                 {`mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300`}
-                              href={"?page="+String(currentPage-1)+otherParams}
+                              href={{ pathname: currentPath, query: {...urlParams, page: String(currentPage-1)} }}
                               aria-label="Previous">
                                 <span className={`text-sm`}>
                                 <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" fillRule="evenodd"></path></svg>                              </span>
-                            </a>
+                            </Link>
                             </li>
                           );
                         };
@@ -49,21 +58,11 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
                             for (let i: number = 1; i <= 4; i++) {
                               if(i === currentPage){
                                 list.push(
-                                  <li key={i}>
-                                  <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  bg-gradient-to-tr from-pink-600 to-pink-400 p-0 text-sm text-white shadow-md shadow-pink-500/20 transition duration-150 ease-in-out" 
-                                  href={"?page="+i+otherParams}>
-                                    {i}
-                                  </a>
-                                  </li>
+                                  pagenationNumberCurrent(i,{ pathname: currentPath, query: {...urlParams, page: String(i)} })
                                 );
                               } else {
                                 list.push(
-                                  <li key={i}>
-                                  <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                                  href={"?page="+i+otherParams}>
-                                    {i}
-                                  </a>
-                                  </li>
+                                  pagenationNumber(i,{ pathname: currentPath, query: {...urlParams, page: String(i)} })
                                 );
                               };
                             };
@@ -72,86 +71,41 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
                                   ･･･</div></li>
                             );
                             list.push(
-                              <li key={totalPage - 1}>
-                              <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${totalPage - 1}`+otherParams}>
-                                {totalPage - 1}
-                              </a>
-                              </li>
+                              pagenationNumber(totalPage - 1,{ pathname: currentPath, query: {...urlParams, page: String(totalPage - 1)} })
                             );
                             list.push(
-                              <li key={totalPage}>
-                              <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${totalPage}`+otherParams}>
-                                {totalPage}
-                              </a>
-                              </li>
+                              pagenationNumber(totalPage,{ pathname: currentPath, query: {...urlParams, page: String(totalPage)} })
                             );
                           } else if(currentPage > 3 && currentPage < totalPage - 2) {
                             list.push(
-                              <li key={1}>
-                              <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${1}`+otherParams}>
-                                {1}
-                              </a>
-                              </li>
+                              pagenationNumber(1,{ pathname: currentPath, query: {...urlParams, page: '1'} })
                             );
                             list.push(
                               <li key={2}><div className="cursor-default mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" >
                                   ･･･</div></li>
                             );
                             list.push(
-                              <li key={currentPage - 1}>
-                              <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${currentPage - 1}`+otherParams}>
-                                {currentPage - 1}
-                              </a>
-                              </li>
+                              pagenationNumber(currentPage - 1,{ pathname: currentPath, query: {...urlParams, page: String(currentPage - 1)} })
                             );
                             list.push(
-                              <li key={currentPage}>
-                              <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  bg-gradient-to-tr from-pink-600 to-pink-400 p-0 text-sm text-white shadow-md shadow-pink-500/20 transition duration-150 ease-in-out" 
-                              href={`?page=${currentPage}`+otherParams}>
-                                {currentPage}
-                              </a>
-                              </li>
+                              pagenationNumberCurrent(currentPage,{ pathname: currentPath, query: {...urlParams, page: String(currentPage)} })
                             );
                             list.push(
-                              <li key={currentPage + 1}>
-                              <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${currentPage + 1}`+otherParams}>
-                                {currentPage + 1}
-                              </a>
-                              </li>
+                              pagenationNumber(currentPage + 1,{ pathname: currentPath, query: {...urlParams, page: String(currentPage + 1)} })
                             );
                             list.push(
                               <li key={currentPage + 2}><div className="cursor-default mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" >
                                   ･･･</div></li>
                             );
                             list.push(
-                              <li key={totalPage}>
-                              <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${totalPage}`+otherParams}>
-                                {totalPage}
-                              </a>
-                              </li>
+                              pagenationNumber(totalPage,{ pathname: currentPath, query: {...urlParams, page: String(totalPage)} })
                             );
                           } else if(currentPage >= totalPage - 2) {
                             list.push(
-                              <li key={1}>
-                              <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${1}`+otherParams}>
-                                {1}
-                              </a>
-                              </li>
+                              pagenationNumber(1,{ pathname: currentPath, query: {...urlParams, page: String(1)} })
                             );
                             list.push(
-                              <li key={2}>
-                              <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                              href={`?page=${2}`+otherParams}>
-                                {2}
-                              </a>
-                              </li>
+                              pagenationNumber(2,{ pathname: currentPath, query: {...urlParams, page: String(2)} })
                             );
                             list.push(
                               <li key={3}><div className="cursor-default mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" >
@@ -160,21 +114,11 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
                             for (let i: number = totalPage - 3; i <= totalPage; i++) {
                               if(i === currentPage){
                                 list.push(
-                                  <li key={i}>
-                                  <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  bg-gradient-to-tr from-pink-600 to-pink-400 p-0 text-sm text-white shadow-md shadow-pink-500/20 transition duration-150 ease-in-out" 
-                                  href={"?page="+i+otherParams}>
-                                    {i}
-                                  </a>
-                                  </li>
+                                  pagenationNumberCurrent(i,{ pathname: currentPath, query: {...urlParams, page: String(i)} })
                                 );
                               } else {
                                 list.push(
-                                  <li key={i}>
-                                  <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                                  href={"?page="+i+otherParams}>
-                                    {i}
-                                  </a>
-                                  </li>
+                                  pagenationNumber(i,{ pathname: currentPath, query: {...urlParams, page: String(i)} })
                                 );
                               };
                             };
@@ -184,21 +128,12 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
                           for (let i: number = 1; i <= totalPage; i++) {
                             if(i === currentPage){
                               list.push(
-                                <li key={i}>
-                                <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  bg-gradient-to-tr from-pink-600 to-pink-400 p-0 text-sm text-white shadow-md shadow-pink-500/20 transition duration-150 ease-in-out" 
-                                href={"?page="+i+otherParams}>
-                                  {i}
-                                </a>
-                                </li>
+                                pagenationNumberCurrent(i,{ pathname: currentPath, query: {...urlParams, page: String(i)} })
                               );
                             } else {
                               list.push(
-                                <li key={i}>
-                                <a className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
-                                href={"?page="+i+otherParams}>
-                                  {i}
-                                </a>
-                                </li>
+                                pagenationNumber(i,{ pathname: currentPath, query: {...urlParams, page: String(i)} })
+
                               );
                             };
                           }
@@ -221,14 +156,14 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
                         }else{
                           list.push(
                             <li key={totalPage + 1}>
-                            <a className=
+                            <Link className=
                                 {`mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300`}
-                              href={"?page="+String(currentPage+1)+otherParams}
+                              href={{ pathname: currentPath, query: {...urlParams, page: String(currentPage+1)} }}
                               aria-label="Next">
                               <span className="text-sm">
                               <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" fillRule="evenodd"></path></svg>
                               </span>
-                            </a>
+                            </Link>
                             </li>
                           );
                         };
@@ -243,3 +178,25 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
       </div>
       )}
   
+
+function pagenationNumberCurrent(pageNum: number, href: Url) {
+  return(
+    <li key={pageNum}>
+    <Link className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  bg-gradient-to-tr from-pink-600 to-pink-400 p-0 text-sm text-white shadow-md shadow-pink-500/20 transition duration-150 ease-in-out" 
+    href={href}>
+      {pageNum}
+    </Link>
+    </li>
+  )
+};
+
+function pagenationNumber(pageNum: number, href: Url) {
+  return(
+    <li key={pageNum}>
+   <Link className="mx-1 flex h-9 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-lg  border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300" 
+    href={href}>
+      {pageNum}
+    </Link>
+    </li>
+  )
+};

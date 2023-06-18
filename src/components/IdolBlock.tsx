@@ -1,6 +1,7 @@
 
 import singingMaster from '../data/singingMaster.json';
 import borderHover from '../app/border-hover.module.css';
+import Link from 'next/link';
 
 interface ItemCSS extends React.CSSProperties{
   '--c':string
@@ -12,9 +13,9 @@ export default function IdolBlock({ id }: { id: string }) {
     "--c": '#'+colorStr
   };
     return (
-        <a
+        <Link
           style={style}
-          href={`/idol/` + id}
+          href={{ pathname: '/search', query: {search: id }}}
           // className={`group idol-block border-`+id}
           className={`group ` + borderHover.idol}
         >
@@ -28,5 +29,5 @@ export default function IdolBlock({ id }: { id: string }) {
           </p>
         </span>
         </div>
-        </a>
+        </Link>
     )}
