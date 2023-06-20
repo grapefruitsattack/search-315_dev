@@ -11,7 +11,6 @@ import Pagination from "../../../components/Pagination";
 import TabComponent from "../../../components/TabComponent";
 import { motion } from 'framer-motion'
 import { AnimatePresence } from "framer-motion";
-import DisplayTypeSwitch from "./DisplayTypeSwitch";
 
 const cardVariant = {
     active: {
