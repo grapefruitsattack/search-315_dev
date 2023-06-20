@@ -35,3 +35,11 @@ export type SongMaster = {
   colleFlg: number;
   releaseDate: string;
 };
+
+export type Tabs = {
+  title: string;
+  id: string;
+  icon: string;
+  color: string;
+  content: JSX.Element;
+};

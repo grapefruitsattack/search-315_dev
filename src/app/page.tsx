@@ -1,4 +1,5 @@
 "use client"
+import CommonPage from "../components/CommonPage";
 import HeaderAndFooter from "../components/HeaderAndFooter";
 import singingMaster from '../data/singingMaster.json';
 import IdolBlock from "../components/IdolBlock";
@@ -15,8 +16,15 @@ interface ItemCSS extends React.CSSProperties{
 export default function Home() {
   return (
     
-    <main className="flex min-h-screen flex-col items-center justify-between py-24 px-12 lg:px-24">
-<HeaderAndFooter />
+    <CommonPage>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={'Home'}
+        initial={{ opacity: 0 }} // 初期状態
+        animate={{ opacity: 1 }} // マウント時
+        exit={{ opacity: 0 }}    // アンマウント時
+      >
+<section className="min-h-screen flex-col items-center justify-between py-24 px-12 lg:px-24">
 
 
 <p className={`
@@ -89,13 +97,6 @@ export default function Home() {
   `}>
 </p>
 
-<AnimatePresence mode="wait">
-  <motion.div
-    key={'Home'}
-    initial={{ opacity: 0 }} // 初期状態
-    animate={{ opacity: 1 }} // マウント時
-    exit={{ opacity: 0 }}    // アンマウント時
-  >
 <section className="mt-5 mb-32 grid text-center align-middle grid-cols-2 lg:mb-0 lg:grid-cols-4 gap-3">
         
         <UnitBlock id="JUP00" />
@@ -192,8 +193,10 @@ export default function Home() {
 
 
       </section>
+  </section>
         </motion.div>
   </AnimatePresence>
-    </main>
+    
+</CommonPage>
   )
 }
