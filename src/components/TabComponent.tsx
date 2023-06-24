@@ -29,11 +29,10 @@ export default function TabComponent  ({ tabs }: { tabs: Tabs[] }) {
 
     const [activeTab, setActiveTab] = useState(initTab);
 
-    console.log(currentPath);
 
 	return (
     
-    <section className="pt-24">
+    <>
     <div className="flex space-x-1">
           {tabs.map((tab,index) => (
             <button
@@ -43,8 +42,7 @@ export default function TabComponent  ({ tabs }: { tabs: Tabs[] }) {
                 params.set('tab',tab.id);
                 params.delete('page');
                 router.push(currentPath + '/?'  + params.toString());
-              }
-              }
+              }}
               className={`${
                 activeTab.id === tab.id ? "" : "hover:text-slate-800/60"
               } relative rounded-full px-3 py-1.5 text-lg font-medium text-slate-800 outline-sky-400 transition focus-visible:outline-2`}
@@ -76,6 +74,6 @@ export default function TabComponent  ({ tabs }: { tabs: Tabs[] }) {
           <div>{activeTab.content}</div>
         </motion.div>
         </AnimatePresence>
-        </section>
+        </>
     );
 }

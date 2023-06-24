@@ -27,13 +27,13 @@ body {
 
 
   .transform-lg{
-    min-height:35.994px;
+    /* min-height:35.994px; */
     font-size: 1.7rem;
     letter-spacing:-0.13em;
     line-height: 1.8rem;
   }
   .transform{
-    min-height:32px;
+    /* min-height:32px; */
     font-size: 1.5rem;
     letter-spacing:-0.1em;
     line-height: 1.7rem;

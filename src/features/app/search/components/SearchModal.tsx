@@ -1,8 +1,9 @@
 'use client'
 import { useModal } from "react-hooks-use-modal";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from 'next/link';
 
-export const ShareModal: React.VFC = () => {
+export const SearchModal: React.VFC = () => {
     const [Modal, open, close, isOpen] = useModal('root', {
     preventScroll: true,
     focusTrapOptions : { 
@@ -10,6 +11,7 @@ export const ShareModal: React.VFC = () => {
     },  
   });
   return (
+    <label className={" flex items-center relative w-max cursor-pointer select-none"}>
     <div>
       <button onClick={open}>OPEN</button>
       <Modal>
@@ -24,11 +26,15 @@ export const ShareModal: React.VFC = () => {
           <h1>Title</h1>
           <p>This is a customizable modal.</p>
           <button onClick={close}>CLOSE</button>
+          
+  <Link 
+    href={''}>Link</Link>
         </div>
         
         </motion.div>
         </AnimatePresence>
       </Modal>
     </div>
+</label>
   );
 };

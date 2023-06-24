@@ -2,13 +2,13 @@
 import type { SongMaster, Albums } from '../data/types';
 import songMasters from '../data/songMaster.json';
 import albamMasters from '../data/albamMaster.json';
-import { useModal } from 'react-hooks-use-modal';
 import {ShareModal} from "./ShareModal";
-import youtubeModal from '../app/youtube-modal.module.css'
 
 
-export default function SongBlock({ albumId,trackNo }: { albumId: string, trackNo: number}) {
-  const song = songMasters.find(data => data.albumId === albumId && data.trackNo === trackNo);
+export default function SongBlock(
+  { albumId,trackNo,results }: { albumId: string, trackNo: number, results: SongMaster}
+) {
+  const song = results;
   const albam = albamMasters.find(data => data.albumId === song?.albumId);
 
 

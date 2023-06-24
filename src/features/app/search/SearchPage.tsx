@@ -2,6 +2,8 @@
 import { NextPage } from 'next'
 import { useSearchParams } from 'next/navigation'
 import songInfo from '../../../data/songInfo.json';
+import songInfoAsc from '../../../data/songInfoAsc.json';
+import songInfoDesc from '../../../data/songInfoDesc.json';
 import type { SongMaster, SongInfo, Tabs } from '../../../data/types';
 import getTotalPage from '../../utils/GetTotalPage';
 import SearchSongForSingingInfoId from '../../utils/SearchSongForSingingInfoId';
@@ -9,36 +11,41 @@ import CommonPage from "../../../components/CommonPage";
 import SongBlock from "../../../components/SongBlock";
 import Pagination from "../../../components/Pagination";
 import TabComponent from "../../../components/TabComponent";
-import SearchPageSong from "./SearchPageSong";
+import SearchPageSong from "./components/SearchPageSong";
+import {SearchModal} from "./components/SearchModal";
 import { motion } from 'framer-motion'
 import { AnimatePresence } from "framer-motion";
 
 export default function SearchPage() {
     const searchParams = useSearchParams();
     const search :string[] | undefined = searchParams.get('search')?.split(' ');
-    const results :SongInfo[] = SearchSongForSingingInfoId(search||[],songInfo);
+    const order :string = searchParams.get('order') || 'desc';
+
    
 
 
     return (
       <CommonPage>
+      <section className="pt-24">
+
         <TabComponent 
         tabs = {[{
           title: 'song',
           id: 'song',
           icon: '',
           color: '',
-          content: (<SearchPageSong results = {results}/>)
+          content: (<SearchPageSong />)
         },
         {
           title: 'album',
           id: 'album',
           icon: '',
           color: '',
-          content: (<>結果なし</>)
+          content: (<SearchModal/>)
         }]}
         />
     
+    </section>
       </CommonPage>
       );
 }

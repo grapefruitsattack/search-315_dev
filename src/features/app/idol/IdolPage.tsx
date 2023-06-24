@@ -34,11 +34,11 @@ export default function IdolPage({ id }: { id: string  }) {
   >
     <section className="grid items-start pb-24 px-12 lg:px-36 gap-4 grid-cols-1 lg:grid-cols-3 ">
 
-        {displayResults.length===0 
+        {/* {displayResults.length===0 
         ? <div>結果なし</div>
         :displayResults.map((result) => (
         <SongBlock key={result.albumId + result.trackNo} albumId={result.albumId} trackNo={result.trackNo} />
-        ))}
+        ))} */}
     </section>
   </motion.div>
   </AnimatePresence>
