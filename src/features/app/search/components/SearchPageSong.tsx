@@ -1,8 +1,8 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
 import type { SongMaster, SongInfo, Tabs } from '../../../../data/types';
-import getTotalPage from '../../../utils/GetTotalPage';
-import SearchSongForSingingInfoId from '../../../utils/SearchSongForSingingInfoId';
+import getTotalPage from '../../../common/utils/GetTotalPage';
+import SearchSongForSingingInfoId from '../../../common/utils/SearchSongForSingingInfoId';
 import CommonPage from "../../../../components/CommonPage";
 import SongBlock from "../../../../components/SongBlock";
 import Pagination from "../../../../components/Pagination";

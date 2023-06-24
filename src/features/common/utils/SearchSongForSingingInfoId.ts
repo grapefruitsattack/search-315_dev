@@ -1,6 +1,6 @@
 
-import type { SongMaster, SongInfo, Tabs } from '../../data/types';
-import songMaster from '../../data/songMaster.json';
+import type { SongMaster, SongInfo, Tabs } from '../../../data/types';
+import songMaster from '../../../data/songMaster.json';
 
 export default function SearchSongForSingingInfoId(
   singingInfoId: string[], songInfo: SongInfo[], subscExists :number, colleFlg :number 
