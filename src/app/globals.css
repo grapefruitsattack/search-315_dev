@@ -38,4 +38,17 @@ body {
     letter-spacing:-0.1em;
     line-height: 1.7rem;
   }
+  ::-webkit-scrollbar {
+    width: 16px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-color: #717171;
+    border-radius: 100px;
+}
 }

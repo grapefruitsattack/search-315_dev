@@ -13,6 +13,7 @@ import DisplayTypeSwitch from "./DisplayTypeSwitch";
 import DisplayTypeToggle from "./DisplayTypeToggle";
 import songInfoAsc from '../../../../data/songInfoAsc.json';
 import songInfoDesc from '../../../../data/songInfoDesc.json';
+import {SearchModal} from ".//SearchModal";
 
 export default function SearchPageSong({ }: {}) {
     const searchParams = useSearchParams();
@@ -40,7 +41,8 @@ export default function SearchPageSong({ }: {}) {
 
     return (
       <>
-      <section className="w-screen flex items-center justify-center">
+      <section className="w-auto flex items-center justify-center">
+      <SearchModal/>
       <div className="flex-none w-[16rem]">
         <DisplayTypeSwitch 
           currentValue={order}

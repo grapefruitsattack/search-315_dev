@@ -3,6 +3,7 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from 'next/link';
+import router from 'next/router';
 
 export default function DisplayTypeSwitch(
   { currentValue,switchItems, paramId }

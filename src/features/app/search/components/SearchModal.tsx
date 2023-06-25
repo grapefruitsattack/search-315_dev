@@ -2,7 +2,11 @@
 import { useModal } from "react-hooks-use-modal";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from 'next/link';
+import { usePathname, useSearchParams,useRouter } from "next/navigation";
 import { useState } from "react";
+import { SearchParams } from '../class/SearchParams';
+import SearchModalCheckbox from "./SearchModalCheckbox";
+import { Url } from "next/dist/shared/lib/router/router";
 
 export const SearchModal: React.VFC = () => {
     const [Modal, open, close, isOpen] = useModal('root', {
@@ -11,11 +15,28 @@ export const SearchModal: React.VFC = () => {
         clickOutsideDeactivates : true
         },  
     });
-    const [values, setValues] = useState({
-        date: '2021-08-14',
-        title: 'initial title',
-        description: 'initial description',
-      });
+
+    const router = useRouter();
+    const currentPath: string = usePathname();
+    const urlSearchParams = useSearchParams();
+    const searchParams = new SearchParams(urlSearchParams);
+    const [values, setValues] = useState(new SearchParams(urlSearchParams));
+    let urlParams: {[key: string]: string}= {};
+    const params = new URLSearchParams(urlSearchParams.toString());
+    let href: Url = { pathname: currentPath, query: decodeURI(params.toString()) };
+    
+    function changeSearchParamsIdolId(idolId:string, onFlg: boolean): void {
+        values[idolId] = onFlg? "1": "0";
+        const tmpStr: string = params.get('search')||'';
+        const tmpStrArray: string[] = tmpStr.split(' ');
+        const newTmpStrArray: string[] = tmpStrArray.filter(str => str !== idolId);
+        if(onFlg){
+            newTmpStrArray.push(idolId);
+        };
+        params.set('search',newTmpStrArray.join(' '));
+        console.log(params.get("search"));
+    };
+    
     return (
         <label className={" flex items-center relative w-max cursor-pointer select-none"}>
         <div>
@@ -28,13 +49,37 @@ export const SearchModal: React.VFC = () => {
                 animate={{ opacity: 1 }} // マウント時
                 exit={{ opacity: 0 }}    // アンマウント時
             >
-        <div className="bg-white px-16 py-14 rounded-md text-center">
+        <div className="bg-white px-16 py-14 h-[70vh] w-[70vh] rounded-md text-center overflow-auto">
             <h1>Title</h1>
-            <p>This is a customizable modal.</p>
-            <button onClick={close}>CLOSE</button>
+        <div className='flex flex-col gap-6'>
+        <SearchModalCheckbox 
+            unitPrefix="JUP" idolNum="01" searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="JUP" idolNum="02"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="JUP" idolNum="03" searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="BEI" idolNum="01" searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        </div>
+            <button 
+                onClick={() => {
+                    setValues(new SearchParams(urlSearchParams));
+                close();
+                }}
+            >CLOSE</button>
+            <button 
+                onClick={() => {
+                router.push(currentPath + '/?'  + decodeURIComponent(params.toString()));
+                close();
+                }}
+            >SEARCH</button>
+
             
-    <Link 
-        href={''}>Link</Link>
+
             </div>
             
             </motion.div>
