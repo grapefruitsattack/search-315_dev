@@ -15,13 +15,13 @@ export default function SearchModalCheckbox(
   const [val, setVal] = useState(searchParams[idolId]==="1");
 
     return (
-        <label className='flex flex-row'>
+        <label className='flex flex-row relative'>
 
             <input 
                 type="checkbox" id={idolId} checked={val}
-                className='
+                className=' 
                 appearance-none h-6 w-6 bg-gray-400 rounded-full 
-                checked:bg-green-300 checked:scale-75
+                checked:bg-green-300 checked:scale-75 checked:border-green-300
                 transition-all duration-200 peer
                 '
                 onChange={(e) => {
@@ -29,15 +29,13 @@ export default function SearchModalCheckbox(
                     changeSearchParams(idolId,e.target.checked);
                 }}
             />
-            <div className='h-6 w-6 absolute rounded-full pointer-events-none
+            <span className='h-6 w-6 absolute rounded-full pointer-events-none
             peer-checked:border-green-300 peer-checked:border-2
             '>
-            </div>
+            </span>
             <div className={`
-                    flex flex-col 
                     justify-center px-2 
-                    underline decoration-` + unitId +` underline-offset-4
-                    peer-checked:text-JUP00`  +` 
+                    peer-checked:text-green-300`  +` 
                      
                      select-none`}>
                 {idolName}

@@ -44,8 +44,11 @@ export default function TabComponent  ({ tabs }: { tabs: Tabs[] }) {
                 router.push(currentPath + '/?'  + params.toString());
               }}
               className={`${
-                activeTab.id === tab.id ? "" : "hover:text-slate-800/60"
-              } relative rounded-full px-3 py-1.5 text-lg font-medium text-slate-800 outline-sky-400 transition focus-visible:outline-2`}
+                  activeTab.id === tab.id ? "" : "hover:text-slate-800/60 "
+                } relative rounded-full px-3 py-1.5 
+                text-lg font-medium text-slate-800 
+                outline-sky-400 transition focus-visible:outline-2
+              `}
               style={{
                 WebkitTapHighlightColor: "transparent",
               }}
@@ -53,7 +56,7 @@ export default function TabComponent  ({ tabs }: { tabs: Tabs[] }) {
             {activeTab.id === tab.id && (
               <motion.span
                 layoutId="bubble"
-                className="absolute inset-0 z-10 bg-slate-100 mix-blend-difference"
+                className="absolute inset-0 z-10 bg-slate-100 mix-blend-difference "
                 style={{ borderRadius: 9999 }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />

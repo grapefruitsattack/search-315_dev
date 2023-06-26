@@ -41,22 +41,24 @@ export default function SearchPageSong({ }: {}) {
 
     return (
       <>
-      <section className="w-auto flex items-center justify-center">
+      <section className="w-full flex flex-wrap items-center justify-center">
+      <div className="flex-none ">
       <SearchModal/>
-      <div className="flex-none w-[16rem]">
+      </div>
+      <div className="flex-none ">
         <DisplayTypeSwitch 
           currentValue={order}
           switchItems={[{label:'新しい順',id:'desc'},{label:'古い順',id:'asc'}]} 
           paramId ='order'
         />
       </div>
-      <div className="flex-none w-[16rem]">
+      <div className="flex-none ">
         <DisplayTypeToggle
           currentValue={subscExists}
           paramId ='subsc'
         />
       </div>
-      <div className="flex-none w-[16rem]">
+      <div className="flex-none ">
         <DisplayTypeToggle
           currentValue={colleFlg}
           paramId ='colle'
