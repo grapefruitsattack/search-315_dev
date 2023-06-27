@@ -15,31 +15,38 @@ export default function SearchModalCheckbox(
   const [val, setVal] = useState(searchParams[idolId]==="1");
 
     return (
-        <label className='flex flex-row relative'>
+        <label className='flex flex-row relative cursor-pointer'>
 
             <input 
                 type="checkbox" id={idolId} checked={val}
-                className=' 
-                appearance-none h-6 w-6 bg-gray-400 rounded-full 
-                checked:bg-green-300 checked:scale-75 checked:border-green-300
-                transition-all duration-200 peer
+                className='hidden peer
                 '
                 onChange={(e) => {
                     setVal(e.target.checked);
                     changeSearchParams(idolId,e.target.checked);
                 }}
             />
-            <span className='h-6 w-6 absolute rounded-full pointer-events-none
+            {/* <span className='h-6 w-6 absolute rounded-full pointer-events-none
             peer-checked:border-green-300 peer-checked:border-2
             '>
-            </span>
-            <div className={`
+            </span> */}
+            <div className={`text-left
                     justify-center px-2 
-                    peer-checked:text-green-300`  +` 
-                     
+                    text-stone-500
+                    peer-checked:text-green-400`  +` 
+                    font-sans text-sm lg:text-base 
+                    bg-stone-200/20 peer-checked:bg-stone-200/0
+                    hover:bg-green-200/20
+                    hover:text-green-400
+                    border-green-300/0 border-2
+                    peer-checked:border-green-300 peer-checked:border-2
+                    rounded-lg peer-checked:rounded-none
+                    drop-shadow-md peer-checked:drop-shadow-none
+                    transition-all duration-500 ease-out
                      select-none`}>
                 {idolName}
             </div>
+
             <p className={`
   underline decoration-JUP00 hover:bg-JUP00/50 text-JUP00
   underline decoration-DRS00 hover:bg-DRS00/50 text-DRS00

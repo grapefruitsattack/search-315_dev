@@ -1,7 +1,6 @@
 'use client'
 import { useModal } from "react-hooks-use-modal";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from 'next/link';
 import { usePathname, useSearchParams,useRouter } from "next/navigation";
 import { useState } from "react";
 import { SearchParams } from '../class/SearchParams';
@@ -52,7 +51,7 @@ export const SearchModal: React.VFC = () => {
         <div className="bg-white lg:px-14 px-8 py-14 h-[70vh] w-[70vw] rounded-md text-center overflow-auto">
             <h1>Title</h1>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-2 justify-center '>
-        <div className='flex flex-wrap p-1 gap-3 justify-center items-center  border-2 border-JUP00'>
+        <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-JUP00'>
         <SearchModalCheckbox 
             unitPrefix="JUP" idolNum="01" searchParams={values}
             changeSearchParams={changeSearchParamsIdolId} />
@@ -123,6 +122,14 @@ export const SearchModal: React.VFC = () => {
             unitPrefix="SAI" idolNum="03"  searchParams={values}
             changeSearchParams={changeSearchParamsIdolId} />
         </div>
+        <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-SSK00'>
+        <SearchModalCheckbox 
+            unitPrefix="SSK" idolNum="01" searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="SSK" idolNum="02"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        </div>
         <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-HIJ00'>
         <SearchModalCheckbox 
             unitPrefix="HIJ" idolNum="01" searchParams={values}
@@ -155,6 +162,72 @@ export const SearchModal: React.VFC = () => {
             changeSearchParams={changeSearchParamsIdolId} />
         <SearchModalCheckbox 
             unitPrefix="CFP" idolNum="05"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        </div>
+        <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-MFM00'>
+        <SearchModalCheckbox 
+            unitPrefix="MFM" idolNum="01" searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="MFM" idolNum="02"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="MFM" idolNum="03"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        </div>
+        <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-SEM00'>
+        <SearchModalCheckbox 
+            unitPrefix="SEM" idolNum="01" searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="SEM" idolNum="02"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="SEM" idolNum="03"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        </div>
+        <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-KGD00'>
+        <SearchModalCheckbox 
+            unitPrefix="KGD" idolNum="01" searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="KGD" idolNum="02"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="KGD" idolNum="03"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        </div>
+        <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-FLG00'>
+        <SearchModalCheckbox 
+            unitPrefix="FLG" idolNum="01" searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="FLG" idolNum="02"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="FLG" idolNum="03"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        </div>
+        <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-LGN00'>
+        <SearchModalCheckbox 
+            unitPrefix="LGN" idolNum="01" searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="LGN" idolNum="02"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="LGN" idolNum="03"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        </div>
+        <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-CLF00'>
+        <SearchModalCheckbox 
+            unitPrefix="CLF" idolNum="01" searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="CLF" idolNum="02"  searchParams={values}
+            changeSearchParams={changeSearchParamsIdolId} />
+        <SearchModalCheckbox 
+            unitPrefix="CLF" idolNum="03"  searchParams={values}
             changeSearchParams={changeSearchParamsIdolId} />
         </div>
         </div>

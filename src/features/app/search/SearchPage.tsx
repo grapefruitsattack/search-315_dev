@@ -26,7 +26,7 @@ export default function SearchPage() {
 
     return (
       <CommonPage>
-      <section className="pt-24 bg-white">
+      <section className="pt-24 bg-white ">
 
         <TabComponent 
         tabs = {[{

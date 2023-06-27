@@ -2,7 +2,7 @@
 import type { SongMaster, Albums } from '../data/types';
 import songMasters from '../data/songMaster.json';
 import albamMasters from '../data/albamMaster.json';
-import {ShareModal} from "./ShareModal";
+import {YoutubeModal} from "./YoutubeModal";
 
 
 export default function SongBlock(
@@ -56,7 +56,7 @@ export default function SongBlock(
           <iframe className="w-full aspect-square" loading="lazy" src={`https://www.youtube.com/embed/`+song?.youtubeId + `?mute=1&modestbranding=1`} allow="fullscreen"></iframe>
           </details>
           <div>
-          <ShareModal/>
+          <YoutubeModal/>
  </div>
       </div>
     </section>
