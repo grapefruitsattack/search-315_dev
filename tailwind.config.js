@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        song:'50px 4fr 1fr'
+        song:'60px 4fr 1fr'
       },
 
       backgroundImage: {

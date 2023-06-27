@@ -75,7 +75,7 @@ export default function SearchPageSong({ }: {}) {
     animate={{ opacity: 1 }} // マウント時
     exit={{ opacity: 0 }}    // アンマウント時
   >
-        <section className="grid items-start px-12 lg:px-36 gap-4 grid-cols-1 lg:grid-cols-3 ">
+        <section className="grid items-start px-10 lg:px-36 gap-4 grid-cols-1 lg:grid-cols-3 ">
     
             {displayResults.length===0 
             ? <div>結果なし</div>
