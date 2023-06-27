@@ -48,7 +48,20 @@ export const SearchModal: React.VFC = () => {
                 animate={{ opacity: 1 }} // マウント時
                 exit={{ opacity: 0 }}    // アンマウント時
             >
-        <div className="bg-white lg:px-14 px-8 py-14 h-[70vh] w-[70vw] rounded-md text-center overflow-auto">
+        <div className="bg-white lg:px-14 px-8 py-14 h-[70vh] w-[70vw] rounded-md text-center overflow-y-scroll">
+
+        <button 
+                onClick={() => {
+                    setValues(new SearchParams(urlSearchParams));
+                close();
+                }}
+            >CLOSE</button>
+            <button 
+                onClick={() => {
+                router.push(currentPath + '/?'  + decodeURIComponent(params.toString()));
+                close();
+                }}
+            >SEARCH</button>
             <h1>Title</h1>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-2 justify-center '>
         <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-JUP00'>
