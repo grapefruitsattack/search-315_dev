@@ -8,7 +8,7 @@ import type { SongMaster, SongInfo, Tabs } from '../../../data/types';
 import getTotalPage from '../../common/utils/GetTotalPage';
 import SearchSongForSingingInfoId from '../../common/utils/SearchSongForSingingInfoId';
 import CommonPage from "../../../components/CommonPage";
-import SongBlock from "../../../components/SongBlock";
+import SongBlock from "../../common/components/SongBlock";
 import Pagination from "../../../components/Pagination";
 import TabComponent from "../../../components/TabComponent";
 import SearchPageSong from "./components/SearchPageSong";

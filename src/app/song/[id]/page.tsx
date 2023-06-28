@@ -2,7 +2,7 @@
 import songInfos from '../../../data/songInfo.json';
 import type { SongMaster, SongInfo } from '../../../data/types';
 import HeaderAndFooter from "../../../components/HeaderAndFooter";
-import SongBlock from "../../../components/SongBlock";
+import SongBlock from "../../../features/common/components/SongBlock";
 
 export function generateStaticParams() {
     return [

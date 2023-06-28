@@ -2,7 +2,7 @@
 import songInfos from '../../../data/songInfo.json';
 import type { SongMaster, SongInfo } from '../../../data/types';
 import CommonPage from "../../../components/CommonPage";
-import SongBlock from "../../../components/SongBlock";
+import SongBlock from "../../common/components/SongBlock";
 import Pagination from "../../../components/Pagination";
 import { useSearchParams  } from 'next/navigation'
 //import GetTotalPage from '../../utils/GetTotalPage';

@@ -2,7 +2,7 @@
 import { useModal } from "react-hooks-use-modal";
 import { motion, AnimatePresence } from "framer-motion";
 
-export const YoutubeModal: React.VFC = () => {
+export const YoutubeModal = ({ id }: { id: string }) => {
     const [Modal, open, close, isOpen] = useModal('root', {
         preventScroll: true,
         focusTrapOptions : { 
@@ -23,11 +23,15 @@ export const YoutubeModal: React.VFC = () => {
             >
       <div className="bg-white  rounded-md text-center">
 
-          <div>
-          <iframe className="w-full aspect-square" loading="lazy" src={`https://www.youtube.com/embed/4o9vgvAa1bQ` + `?mute=1&modestbranding=1`} allow="fullscreen"></iframe>
+        <div>
+        <iframe 
+            className="w-full aspect-square" loading="lazy" 
+            src={`https://www.youtube.com/embed/`+ id + `?mute=1&modestbranding=1`} 
+            allow="fullscreen">
+        </iframe>
 
-          </div>
-          <button className="w-full" onClick={close}>CLOSE</button>
+        </div>
+        <button className="w-full" onClick={close}>CLOSE</button>
         </div>
             </motion.div>
             </AnimatePresence>
