@@ -3,6 +3,7 @@ import type { SongMaster, Albums } from '../../../data/types';
 import songMasters from '../../../data/songMaster.json';
 import albamMasters from '../../../data/albamMaster.json';
 import {YoutubeModal} from "../../../components/YoutubeModal";
+import {ShareYoutubeModal} from "../../app/shareModal/ShareYoutubeModal";
 import React, { useState } from "react";
 
 export default function SongBlock(
@@ -106,23 +107,26 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
           aria-expanded={isOpen}
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? "アコーディオンを閉じる" : "アコーディオンを開く"}
+          {isOpen ? "閉じる" : "YouTubeで聴く"}
         </button>
 
         <div className ="col-span-1 lg:hidden">
         <YoutubeModal id ={song?.youtubeId}/>
           </div>
-      <div></div>
+      <div>
+        <ShareYoutubeModal 
+          id ={song?.youtubeId} title={song?.songTitle} artistName={song?.displayArtist}/>
+      </div>
       <button onClick={() => copyTextToClipboard(song?.songTitle)}>
         Copy!
       </button>
 
       <div
         id="contents"
-        className="accordion-body col-span-3"
+        className="accordion-body col-span-3 hidden lg:grid"
         aria-hidden={!isOpen}
       >
-          <iframe className="w-full" loading="lazy" src={`https://www.youtube.com/embed/`+song?.youtubeId + `?mute=1&modestbranding=1`} allow="fullscreen"></iframe>
+          <iframe className="w-full aspect-video" loading="lazy" src={`https://www.youtube.com/embed/`+song?.youtubeId + `?mute=1&modestbranding=1`} allow="fullscreen"></iframe>
 
       </div>
     <style jsx>{`
