@@ -1,10 +1,11 @@
 'use client'
 import { useModal } from "react-hooks-use-modal";
 import { motion, AnimatePresence } from "framer-motion";
-import YoutubeContent from "./components/YoutubeContent";
+import ShareModuleContent from "./components/ShareModuleContent";
+import ShareModalTab from "./components/ShareModalTab";
 
 export const ShareYoutubeModal = (
-  { id, title, artistName }: { id: string, title: string, artistName: string }
+  { youtubeId, title, artistName, songId }: { youtubeId: string, title: string, artistName: string, songId: string }
 ) => {
     //モーダル
     const [Modal, open, close, isOpen] = useModal('root', {
@@ -17,18 +18,18 @@ export const ShareYoutubeModal = (
     return (
         <label className={"flex items-center relative w-max cursor-pointer select-none"}>
         <div>
-        <button onClick={open}>OPEN</button>
+        <button onClick={open}>シェア</button>
         <Modal>
             <AnimatePresence mode="wait">
             <motion.div
-                key={'modal'}    
+                key={'ShareYoutubeModal'}    
                 initial={{ opacity: 0 }} // 初期状態
                 animate={{ opacity: 1 }} // マウント時
                 exit={{ opacity: 0 }}    // アンマウント時
             >
 
 
-      <div className="bg-gray-100  h-[70vh] w-[70vw] mx-4 p-4 rounded-xl lg:w-[50vw]">
+      <div className="bg-gray-100 h-auto w-[80vw] mx-4 p-4 rounded-xl lg:w-[50vw]">
 
         <div
           className="flex justify-between items center border-b border-gray-200 py-2"
@@ -41,10 +42,51 @@ export const ShareYoutubeModal = (
             className="bg-gray-300 hover:bg-gray-500 cursor-pointer hover:text-gray-300 font-sans text-gray-500 w-8 h-8 flex items-center justify-center rounded-full"
             onClick={close}
           >
-            x
+<svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M18 6l-12 12"></path>
+   <path d="M6 6l12 12"></path>
+</svg>
           </button>
         </div>
-        <YoutubeContent id ={id} title={title} artistName={artistName}/>
+        <div className=''>
+        <ShareModalTab 
+        tabs = {[{
+          title: 'YouTube',
+          id: 'YouTube',
+          icon: '',
+          color: '',
+          content: (
+            <ShareModuleContent 
+              text={`${title} ${artistName.trim() === '' ? '': '- ' + artistName}  |  YouTube\n#SideM #search315`} 
+              url={`https://youtu.be/`+ youtubeId}/>
+            )
+        },
+        {
+          title: 'YouTubeMusic',
+          id: 'YouTubeMusic',
+          icon: '',
+          color: '',
+          content: (
+            <ShareModuleContent 
+              text={`${title} ${artistName.trim() === '' ? '': '- ' + artistName}  |  YouTube Music\n#SideM #search315`} 
+              url={`https://music.youtube.com/watch?v=`+ youtubeId}/>
+            )
+        },
+        {
+          title: 'サーチ315',
+          id: 'サーチ315',
+          icon: '',
+          color: '',
+          content: (
+            <ShareModuleContent 
+              text={`${title} ${artistName.trim() === '' ? '': '- ' + artistName}  |  サーチ315\n#SideM #search315`} 
+              url={`https://search315.com/song/`+ songId}/>
+            )
+        },
+        ]}
+        />
+      </div>
       </div>
 
             </motion.div>

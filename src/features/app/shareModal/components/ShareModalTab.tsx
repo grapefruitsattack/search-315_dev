@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
-import type { Tabs } from '../data/types';
-import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+import type { Tabs } from '../../../../data/types';
+import { useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from "framer-motion";
 
 const cardVariant = {
@@ -20,12 +20,10 @@ const cardVariant = {
     }
   }
 };
-export default function TabComponent  ({ tabs }: { tabs: Tabs[] }) {
-    const router = useRouter();
+export default function ShareModalTab  ({ tabs }: { tabs: Tabs[] }) {
     const params = new URLSearchParams(useSearchParams().toString());
     const initTab: Tabs = tabs.find((data)=>data.id === params.get('tab'))||tabs[0];
     
-    const currentPath: string = usePathname();
 
     const [activeTab, setActiveTab] = useState(initTab);
 
@@ -33,20 +31,17 @@ export default function TabComponent  ({ tabs }: { tabs: Tabs[] }) {
 	return (
     
     <>
-    <div className="flex space-x-1">
+    <div className="flex items-center justify-center">
           {tabs.map((tab,index) => (
             <button
               key={tab.id}
               onClick={() => {
                 setActiveTab(tab);
-                params.set('tab',tab.id);
-                params.delete('page');
-                router.push(currentPath + '/?'  + params.toString());
               }}
               className={`${
-                  activeTab.id === tab.id ? "" : "hover:text-slate-800/60 "
+                  activeTab.id === tab.id ? "" : "hover:text-blue-800/60 "
                 } relative rounded-full px-3 py-1.5 
-                text-lg font-medium text-slate-800 
+                text-xs lg:text-lg font-medium text-blue-900 
                 outline-sky-400 transition focus-visible:outline-2
               `}
               style={{
@@ -54,29 +49,29 @@ export default function TabComponent  ({ tabs }: { tabs: Tabs[] }) {
               }}
             >
             {activeTab.id === tab.id && (
+        <AnimatePresence mode="wait">
               <motion.span
-                key={tab.id}
-                layoutId="bubble"
-                className="absolute inset-0 z-10 bg-slate-100 mix-blend-difference "
+
+                key='ShareModalTab'
+                layoutId="bubbleShareModalTab"
+                className="absolute inset-0 z-10 bg-teal-300/50 mix-blend-multiply"
                 style={{ borderRadius: 9999 }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
+              </AnimatePresence>
               )}
-  
+              <div>
               {tab.title}
+              </div>
             </button>
           ))}
-        </div>
+          </div>
         <AnimatePresence mode="wait">
-          <motion.div
+          <div
             key={activeTab.id}
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -10, opacity: 0 }}
-            transition={{ duration: 0.2 }}
           >
           <div>{activeTab.content}</div>
-        </motion.div>
+        </div>
         </AnimatePresence>
         </>
     );
