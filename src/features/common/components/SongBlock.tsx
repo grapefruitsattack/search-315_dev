@@ -101,7 +101,7 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
             >{albam?.albumTitleFull}</a>
           </div>
       </div>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-3 gap-x-2">
 
 
       <motion.button className='rounded-lg border border-red-500 
