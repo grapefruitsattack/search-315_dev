@@ -55,7 +55,7 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
             :
             <img
               className={`object-cover object-center h-[60px] w-[59px] rounded-lg`}
-              src={`http://img.youtube.com/vi/`+ song?.youtubeId +`/1.jpg`}
+              src={`https://img.youtube.com/vi/`+ song?.youtubeId +`/1.jpg`}
               alt="アートワーク"
             />
             }
