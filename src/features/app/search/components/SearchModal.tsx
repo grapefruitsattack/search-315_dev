@@ -19,7 +19,6 @@ export const SearchModal: React.VFC = () => {
     const urlSearchParams = useSearchParams();
     const params = new URLSearchParams(urlSearchParams.toString());
 
-    //OPENボタン用設定
 
     //useState設定
     const [values, setValues] = useState(new SearchParams(urlSearchParams));
@@ -34,16 +33,65 @@ export const SearchModal: React.VFC = () => {
         params.set('search',newTmpStrArray.join(' '));
         console.log(params.get("search"));
     };
+
+    
+
+    //OPENボタン用設定
+    let searchText: string = '';
+    const searchTextArray: string[] = [];
+    const searchParam :string[] = urlSearchParams.get('search')?.split(' ') || [];
+    singingMaster.forEach((data)=>{
+        if(searchParam.includes(data.singingInfoId)){
+            searchText = searchText + '　' + data.singingInfoName;
+            searchTextArray.push(data.singingInfoName);
+        };
+    });
     
     return (
-        <label className={"flex items-center relative w-max cursor-pointer select-none"}>
-        <div>
-        <button onClick={() => {
-            setValues(new SearchParams(urlSearchParams));
-            open();
-        }}>
-            OPEN
-        </button>
+        
+        <label className={"flex items-center cursor-pointer select-none h-max"}>
+        <div className="flex w-[85vw] justify-center m-auto">
+            <div 
+                className='
+                flex p-0.5 bg-gradient-to-r from-indigo-300 to-emerald-300 items-center
+                '
+            >
+                <div
+                    className='flex flex-row
+                        bg-gradient-to-r from-indigo-50 to-emerald-50 
+                        border-2 border-white
+                        text-teal-700
+                        font-sans lg:text-base text-sm
+                        p-1 items-center 
+                    '
+                >
+                    <div
+                        className='
+                             
+                            w-[70vw] truncate
+                        '
+                    >
+                    {searchText}
+                    </div>
+                </div>
+                
+                <button 
+                    className='flex justify-center px-2 text-white'
+                    onClick={() => {
+                        setValues(new SearchParams(urlSearchParams));
+                        open();
+                    }}
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                        className="icon icon-tabler icon-tabler-search" 
+                        width="18" height="18" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+                    <path d="M21 21l-6 -6"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
         <Modal>
             <AnimatePresence mode="wait">
             <motion.div
@@ -52,7 +100,7 @@ export const SearchModal: React.VFC = () => {
                 animate={{ opacity: 1 }} // マウント時
                 exit={{ opacity: 0 }}    // アンマウント時
             >
-        <div className="bg-white lg:px-14 px-8 py-14 h-[70vh] w-[70vw] rounded-md text-center overflow-y-scroll">
+        <div className="bg-white lg:px-14 px-8 py-14 h-[70vh] w-[85vw] lg:w-[70vw] rounded-md text-center overflow-y-scroll">
 
 
         <button 
@@ -273,7 +321,7 @@ export const SearchModal: React.VFC = () => {
             </motion.div>
             </AnimatePresence>
         </Modal>
-        </div>
-    </label>
+
+        </label>
     );
 };
