@@ -41,7 +41,7 @@ export default function TabComponent  ({ tabs }: { tabs: Tabs[] }) {
                 setActiveTab(tab);
                 params.set('tab',tab.id);
                 params.delete('page');
-                router.push(currentPath + '/?'  + params.toString());
+                router.push(currentPath + '?'  + params.toString());
               }}
               className={`${
                   activeTab.id === tab.id ? "" : "hover:text-slate-800/60 "

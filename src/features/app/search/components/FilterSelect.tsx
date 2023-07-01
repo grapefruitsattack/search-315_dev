@@ -61,7 +61,7 @@ export default function FilterSelect(
                 params.set(data.value,'1');
                 params.delete('page');
             });
-            router.push(currentPath + '/?'  + params.toString());
+            router.push(currentPath + '?'  + params.toString());
         };
         setSelectedValue(currentValue);
       }}
@@ -72,7 +72,7 @@ export default function FilterSelect(
             params.set(data.value,'1');
             params.delete('page');
         });
-        router.push(currentPath + '/?'  + params.toString());
+        router.push(currentPath + '?'  + params.toString());
       }}
       
     />

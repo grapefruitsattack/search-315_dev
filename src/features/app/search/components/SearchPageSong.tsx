@@ -45,7 +45,7 @@ export default function SearchPageSong({ }: {}) {
       <>
       <section className="w-full flex flex-wrap items-center justify-center">
       <div className="w-[80vw] 
-      mt-3 p-2 grid grid-cols-1 gap-6 
+      mt-3 p-2 grid grid-cols-1 gap-3
       ">
         <div className="flex-none ">
         <SortSelect 

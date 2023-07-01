@@ -38,7 +38,7 @@ export default function DisplayTypeToggle(
       handleChange(e.target.checked);
       params.set(paramId,e.target.checked?"1":"0");
       params.delete('page');
-      router.push(currentPath + '/?'  + params.toString());
+      router.push(currentPath + '?'  + params.toString());
     }}
     className={displayToggleCss.input + " appearance-none transition-colors cursor-pointer w-14 h-6 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-blue-500 bg-slate-300"} 
   />  

@@ -65,7 +65,7 @@ export const SearchModal: React.VFC = () => {
                 onClick={() => {
                     params.delete('page');
                     params.set('page','1');
-                router.push(currentPath + '/?'  + decodeURIComponent(params.toString()));
+                router.push(currentPath + '?'  + decodeURIComponent(params.toString()));
                 close();
                 }}
             >SEARCH</button>
@@ -261,7 +261,7 @@ export const SearchModal: React.VFC = () => {
                 onClick={() => {
                     params.delete('page');
                     params.set('page','1');
-                router.push(currentPath + '/?'  + decodeURIComponent(params.toString()));
+                router.push(currentPath + '?'  + decodeURIComponent(params.toString()));
                 close();
                 }}
             >SEARCH</button>

@@ -38,7 +38,7 @@ export default function SortSelect(
             value ? setSelectedValue(value) : null;
             params.set(paramId,value?.value||'desc');
             params.delete('page');
-            router.push(currentPath + '/?'  + params.toString());
+            router.push(currentPath + '?'  + params.toString());
         }}
         />
     </div>
