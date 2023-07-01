@@ -74,6 +74,7 @@ export default function FilterSelect(
         });
         router.push(currentPath + '?'  + params.toString());
       }}
+      isSearchable={false}
       
     />
 

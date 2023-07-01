@@ -40,6 +40,7 @@ export default function SortSelect(
             params.delete('page');
             router.push(currentPath + '?'  + params.toString());
         }}
+        isSearchable={false}
         />
     </div>
     );
