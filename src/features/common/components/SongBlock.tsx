@@ -5,6 +5,7 @@ import albamMasters from '../../../data/albamMaster.json';
 import {YoutubeModal} from "../../../components/YoutubeModal";
 import {ShareYoutubeModal} from "../../app/shareModal/ShareYoutubeModal";
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function SongBlock(
   { albumId,trackNo,results }: { albumId: string, trackNo: number, results: SongMaster}
@@ -27,7 +28,8 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
       
     <section className={`group
     rounded-md
-    bg-gradient-to-tr from-blue-800/0 via-sky-500/0 to-blue-300/30
+    bg-white
+    drop-shadow-lg
     `}>
       <div 
         className ={`
@@ -99,40 +101,68 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
             >{albam?.albumTitleFull}</a>
           </div>
       </div>
-      <div className="grid grid-cols-3 col-span-3">
+      <div className="grid grid-cols-3 col-span-3 gap-2">
 
-        <button
-        className="col-span-1 flex 
-          hidden lg:grid 
-          px-auto py-1 bg-blue-400 mr-1 text-white text-xs font-semibold justify-center items-center rounded"
+
+      <motion.button className='rounded-lg border border-red-500 
+          text-red-500 text-sm font-sans leading-tight
+          hover:bg-red-200/50
+          transition-all duration-500 ease-out
+          hidden lg:inline-block 
+          p-1'
           type="button"
           aria-controls="contents"
           aria-expanded={isOpen}
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? "閉じる" : "YouTubeで聴く"}
-        </button>
-
-
-        <div className ="col-span-1 lg:hidden">
-          <YoutubeModal id ={song?.youtubeId}/>
-        </div>
-
-
-          <ShareYoutubeModal 
-            youtubeId ={song?.youtubeId} 
-            title={song?.songTitle} 
-            artistName={song?.displayArtist}
-            songId={song?.songId}
-          />
-
-      <div className="flex px-auto py-1 bg-blue-400 mr-1 text-white text-xs font-semibold justify-center items-center rounded">
-        <button
-               onClick={() => copyTextToClipboard(song?.songTitle)}>
         <div className='flex flex-wrap justify-center items-center'>
+          {isOpen ? (<>
+            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-brand-youtube" 
+              width="22" height="22" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M3 5m0 4a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path>
+              <path d="M10 9l5 3l-5 3z"></path>
+            </svg>
+            <div>閉じる</div>
+            </>) 
+          : (<>
+            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-brand-youtube" 
+              width="22" height="22" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M3 5m0 4a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path>
+              <path d="M10 9l5 3l-5 3z"></path>
+            </svg>
+            <div>YouTube</div>
+            </>)}
+         </div>
+        </motion.button>
+
+
+      <span className ="inline-block lg:hidden">
+        <YoutubeModal id ={song?.youtubeId}/>
+      </span>
+
+
+      <ShareYoutubeModal 
+        youtubeId ={song?.youtubeId} 
+        title={song?.songTitle} 
+        artistName={song?.displayArtist}
+        songId={song?.songId}
+      />
+      <motion.button className='rounded-lg border border-green-500 
+          text-green-500 text-sm font-sans leading-tight
+          hover:bg-green-200/50
+          transition-all duration-500 ease-out
+          p-1'
+        onClick={() => copyTextToClipboard(song?.songTitle)}
+        whileTap={{ scale: 0.8 }}
+        transition={{ duration: 0.05 }}
+      >
+        <div
+          className='flex flex-wrap justify-center items-center'>
         <svg xmlns="http://www.w3.org/2000/svg" 
         className="flex icon icon-tabler icon-tabler-copy mr-1 justify-center items-center h-max" 
-        width="20" height="20" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+        width="20" height="20" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
           <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
           <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
@@ -140,9 +170,7 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
           <div className="">曲名を</div>
           <div className="">コピー</div>
         </div>
-        </button>
-      </div>
-
+      </motion.button>
       <div
         id="contents"
         className="accordion-body col-span-3 hidden lg:grid"

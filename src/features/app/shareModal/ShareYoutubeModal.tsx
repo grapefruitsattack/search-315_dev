@@ -18,17 +18,22 @@ export const ShareYoutubeModal = (
     return (
         <>
 
-        <button 
-          className='flex bg-blue-400 mr-1 text-white text-xs font-semibold justify-center items-center rounded'
+        <motion.button className='rounded-lg border border-blue-500 
+            text-blue-500 text-sm font-sans leading-tight
+            hover:bg-blue-200/50
+            transition-all duration-500 ease-out
+            p-1'
+            whileTap={{ scale: 0.8 }}
+            transition={{ duration: 0.05 }}
           onClick={open}>
         <div className='flex flex-wrap justify-center items-center'>
-          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-share-3" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-share-3" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M13 4v4c-6.575 1.028 -9.02 6.788 -10 12c-.037 .206 5.384 -5.962 10 -6v4l8 -7l-8 -7z"></path>
           </svg>
           <div>シェア</div>
         </div>
-        </button>
+        </motion.button >
         <Modal>
             <AnimatePresence mode="wait">
             <motion.div
@@ -72,17 +77,17 @@ export const ShareYoutubeModal = (
               url={`https://youtu.be/`+ youtubeId}/>
             )
         },
-        {
-          title: 'YouTubeMusic',
-          id: 'YouTubeMusic',
-          icon: '',
-          color: '',
-          content: (
-            <ShareModuleContent 
-              text={`${title} ${artistName.trim() === '' ? '': '- ' + artistName}  |  YouTube Music\n#SideM #search315`} 
-              url={`https://music.youtube.com/watch?v=`+ youtubeId}/>
-            )
-        },
+        // {
+        //   title: 'YouTubeMusic',
+        //   id: 'YouTubeMusic',
+        //   icon: '',
+        //   color: '',
+        //   content: (
+        //     <ShareModuleContent 
+        //       text={`${title} ${artistName.trim() === '' ? '': '- ' + artistName}  |  YouTube Music\n#SideM #search315`} 
+        //       url={`https://music.youtube.com/watch?v=`+ youtubeId}/>
+        //     )
+        // },
         {
           title: 'サーチ315',
           id: 'サーチ315',
