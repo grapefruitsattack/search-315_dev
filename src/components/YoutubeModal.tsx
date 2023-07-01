@@ -14,7 +14,7 @@ export const YoutubeModal = ({ id }: { id: string }) => {
         
         <motion.button className='rounded-lg border border-red-500 
             text-red-500 text-sm font-sans leading-tight
-            hover:bg-red-200/50 w-full
+            hover:bg-red-200/50 w-full h-full
             transition-all duration-500 ease-out
             p-1'
             whileTap={{ scale: 0.8 }}

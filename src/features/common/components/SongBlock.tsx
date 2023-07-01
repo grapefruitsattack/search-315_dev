@@ -138,9 +138,9 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
         </motion.button>
 
 
-      <span className ="inline-block lg:hidden">
+      <div className ="inline-block lg:hidden">
         <YoutubeModal id ={song?.youtubeId}/>
-      </span>
+      </div>
 
 
       <ShareYoutubeModal 
