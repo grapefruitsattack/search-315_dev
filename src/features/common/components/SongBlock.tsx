@@ -101,7 +101,7 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
             >{albam?.albumTitleFull}</a>
           </div>
       </div>
-      <div className="grid grid-cols-3 col-span-3 gap-2">
+      <div className="grid grid-cols-3 gap-2">
 
 
       <motion.button className='rounded-lg border border-red-500 
@@ -161,7 +161,7 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
         <div
           className='flex flex-wrap justify-center items-center'>
         <svg xmlns="http://www.w3.org/2000/svg" 
-        className="flex icon icon-tabler icon-tabler-copy mr-1 justify-center items-center h-max" 
+        className="flex icon icon-tabler icon-tabler-copy mr-1 justify-center items-center" 
         width="20" height="20" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
           <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
