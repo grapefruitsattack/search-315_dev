@@ -5,7 +5,7 @@ import { usePathname, useSearchParams,useRouter } from "next/navigation";
 import { useState } from "react";
 import { SearchParams } from '../class/SearchParams';
 import SearchModalCheckbox from "./SearchModalCheckbox";
-import { Url } from "next/dist/shared/lib/router/router";
+import singingMaster from '../../../../data/singingMaster.json';
 
 export const SearchModal: React.VFC = () => {
     const [Modal, open, close, isOpen] = useModal('root', {
@@ -14,16 +14,15 @@ export const SearchModal: React.VFC = () => {
         clickOutsideDeactivates : true
         },  
     });
-
     const router = useRouter();
     const currentPath: string = usePathname();
     const urlSearchParams = useSearchParams();
-    const searchParams = new SearchParams(urlSearchParams);
-    const [values, setValues] = useState(new SearchParams(urlSearchParams));
-    let urlParams: {[key: string]: string}= {};
     const params = new URLSearchParams(urlSearchParams.toString());
-    let href: Url = { pathname: currentPath, query: decodeURI(params.toString()) };
-    
+
+    //OPENボタン用設定
+
+    //useState設定
+    const [values, setValues] = useState(new SearchParams(urlSearchParams));
     function changeSearchParamsIdolId(idolId:string, onFlg: boolean): void {
         values[idolId] = onFlg? "1": "0";
         const tmpStr: string = params.get('search')||'';
@@ -39,7 +38,12 @@ export const SearchModal: React.VFC = () => {
     return (
         <label className={"flex items-center relative w-max cursor-pointer select-none"}>
         <div>
-        <button onClick={open}>OPEN</button>
+        <button onClick={() => {
+            setValues(new SearchParams(urlSearchParams));
+            open();
+        }}>
+            OPEN
+        </button>
         <Modal>
             <AnimatePresence mode="wait">
             <motion.div
@@ -50,10 +54,11 @@ export const SearchModal: React.VFC = () => {
             >
         <div className="bg-white lg:px-14 px-8 py-14 h-[70vh] w-[70vw] rounded-md text-center overflow-y-scroll">
 
+
         <button 
                 onClick={() => {
                     setValues(new SearchParams(urlSearchParams));
-                    close();
+                close();
                 }}
             >CLOSE</button>
             <button 

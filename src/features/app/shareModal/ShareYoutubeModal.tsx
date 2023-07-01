@@ -16,9 +16,19 @@ export const ShareYoutubeModal = (
     });
 
     return (
-        <label className={"flex items-center relative w-max cursor-pointer select-none"}>
-        <div>
-        <button onClick={open}>シェア</button>
+        <>
+
+        <button 
+          className='flex bg-blue-400 mr-1 text-white text-xs font-semibold justify-center items-center rounded'
+          onClick={open}>
+        <div className='flex flex-wrap justify-center items-center'>
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-share-3" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M13 4v4c-6.575 1.028 -9.02 6.788 -10 12c-.037 .206 5.384 -5.962 10 -6v4l8 -7l-8 -7z"></path>
+          </svg>
+          <div>シェア</div>
+        </div>
+        </button>
         <Modal>
             <AnimatePresence mode="wait">
             <motion.div
@@ -42,7 +52,7 @@ export const ShareYoutubeModal = (
             className="bg-gray-300 hover:bg-gray-500 cursor-pointer hover:text-gray-300 font-sans text-gray-500 w-8 h-8 flex items-center justify-center rounded-full"
             onClick={close}
           >
-<svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
    <path d="M18 6l-12 12"></path>
    <path d="M6 6l12 12"></path>
@@ -92,7 +102,6 @@ export const ShareYoutubeModal = (
             </motion.div>
             </AnimatePresence>
         </Modal>
-        </div>
-    </label>
+    </>
     );
 };

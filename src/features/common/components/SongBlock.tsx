@@ -100,9 +100,11 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
           </div>
       </div>
       <div className="grid grid-cols-3 col-span-3">
-      <div className="flex hidden lg:grid px-auto py-1 bg-blue-400 mr-1 text-white text-xs font-semibold justify-center items-center rounded">
+
         <button
-        className="col-span-1"
+        className="col-span-1 flex 
+          hidden lg:grid 
+          px-auto py-1 bg-blue-400 mr-1 text-white text-xs font-semibold justify-center items-center rounded"
           type="button"
           aria-controls="contents"
           aria-expanded={isOpen}
@@ -110,29 +112,27 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
         >
           {isOpen ? "閉じる" : "YouTubeで聴く"}
         </button>
-      </div>
+
 
         <div className ="col-span-1 lg:hidden">
           <YoutubeModal id ={song?.youtubeId}/>
         </div>
-      <div className="flex px-auto py-1 bg-blue-400 mr-1 text-white text-xs font-semibold justify-center items-center rounded">
-        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-share-3" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M13 4v4c-6.575 1.028 -9.02 6.788 -10 12c-.037 .206 5.384 -5.962 10 -6v4l8 -7l-8 -7z"></path>
-        </svg>
+
+
           <ShareYoutubeModal 
             youtubeId ={song?.youtubeId} 
             title={song?.songTitle} 
             artistName={song?.displayArtist}
             songId={song?.songId}
           />
-      </div>
+
       <div className="flex px-auto py-1 bg-blue-400 mr-1 text-white text-xs font-semibold justify-center items-center rounded">
-        <button>
-        <div className='flex flex-wrap  justify-center items-center'>
+        <button
+               onClick={() => copyTextToClipboard(song?.songTitle)}>
+        <div className='flex flex-wrap justify-center items-center'>
         <svg xmlns="http://www.w3.org/2000/svg" 
         className="flex icon icon-tabler icon-tabler-copy mr-1 justify-center items-center h-max" 
-        width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        width="20" height="20" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
           <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
           <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>

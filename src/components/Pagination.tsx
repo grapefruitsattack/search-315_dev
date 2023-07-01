@@ -18,7 +18,7 @@ export default function Pagination({ currentPage,totalPage }: { currentPage: num
 
       return (
         // https://tailwindcomponents.com/component/tailwind-css-pagination-gradient
-        <div className="grid min-h-[140px] w-full place-items-center rounded-lg lg:overflow-visible">
+        <div className="grid min-h-[83px] w-full place-items-center rounded-lg lg:overflow-visible">
             <nav>
                 <ul className="flex">
 

@@ -238,7 +238,8 @@ export default function ShareModuleContent(
                     p-2'
                onClick={() => setVal(shareText)}
                whileHover={{ scale: 1 }}
-               whileTap={{ scale: 0.8}}
+               whileTap={{ scale: 0.8 }}
+               transition={{ duration: 0.05 }}
             >リセット</motion.button>
             <motion.button className='rounded-lg border-2 border-green-500 
                 text-green-500 text-sm font-bold leading-tight
@@ -246,7 +247,8 @@ export default function ShareModuleContent(
                 transition-all duration-500 ease-out
                 p-2'
                onClick={() => copyTextToClipboard(val)}
-               whileTap={{ scale: 0.8}}
+               whileTap={{ scale: 0.8 }}
+               transition={{ duration: 0.05 }}
             >コピー</motion.button>
             </div>
 

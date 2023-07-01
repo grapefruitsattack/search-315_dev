@@ -11,6 +11,8 @@ import { motion } from 'framer-motion'
 import { AnimatePresence } from "framer-motion";
 import DisplayTypeSwitch from "./DisplayTypeSwitch";
 import DisplayTypeToggle from "./DisplayTypeToggle";
+import SortSelect from "./SortSelect";
+import FilterSelect from "./FilterSelect";
 import songInfoAsc from '../../../../data/songInfoAsc.json';
 import songInfoDesc from '../../../../data/songInfoDesc.json';
 import {SearchModal} from ".//SearchModal";
@@ -42,27 +44,19 @@ export default function SearchPageSong({ }: {}) {
     return (
       <>
       <section className="w-full flex flex-wrap items-center justify-center">
-      <div className="flex-none ">
-      <SearchModal/>
-      </div>
-      <div className="flex-none ">
-        <DisplayTypeSwitch 
-          currentValue={order}
-          switchItems={[{label:'新しい順',id:'desc'},{label:'古い順',id:'asc'}]} 
-          paramId ='order'
-        />
-      </div>
-      <div className="flex-none ">
-        <DisplayTypeToggle
-          currentValue={subscExists}
-          paramId ='subsc'
-        />
-      </div>
-      <div className="flex-none ">
-        <DisplayTypeToggle
-          currentValue={colleFlg}
-          paramId ='colle'
-        />
+      <div className="w-[80vw] 
+      mt-3 p-2 grid grid-cols-1 gap-6 
+      ">
+        <div className="flex-none ">
+        <SortSelect 
+            currentValue={order}
+            paramId ='order'/>
+        </div>
+        <div className="flex-none ">
+        <FilterSelect 
+            currentValueSubsc={subscExists}
+            currentValueColle={colleFlg}/>
+        </div>
       </div>
       </section>
         <section className="">
