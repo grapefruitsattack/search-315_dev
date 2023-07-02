@@ -3,8 +3,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
 import Script from 'next/script'
-import { CacheProvider } from '@chakra-ui/next-js'
-import { ChakraProvider } from '@chakra-ui/react'
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,11 +20,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
     <body className={inter.className}>
-    <CacheProvider>
-      <ChakraProvider>
+      <Providers>
       {children}
-      </ChakraProvider>
-    </CacheProvider>
+      </Providers>
       <Script id="holder-js" src="//cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.js" strategy="lazyOnload">
       </Script>
   <div id="root"></div>
