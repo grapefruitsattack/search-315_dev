@@ -41,7 +41,7 @@ export default function ShareModalTab  ({ tabs }: { tabs: Tabs[] }) {
               className={`${
                   activeTab.id === tab.id ? "" : "hover:text-blue-800/60 "
                 } relative rounded-full px-3 py-1.5 
-                text-xs lg:text-lg font-medium text-blue-900 
+               text-lg font-medium text-blue-900 
                 outline-sky-400 transition focus-visible:outline-2
               `}
               style={{

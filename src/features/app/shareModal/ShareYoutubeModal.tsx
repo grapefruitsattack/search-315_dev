@@ -3,17 +3,23 @@ import { useModal } from "react-hooks-use-modal";
 import { motion, AnimatePresence } from "framer-motion";
 import ShareModuleContent from "./components/ShareModuleContent";
 import ShareModalTab from "./components/ShareModalTab";
+import {
+  Modal,
+  ModalBody,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  useDisclosure, 
+ } from "@chakra-ui/react";
+
 
 export const ShareYoutubeModal = (
   { youtubeId, title, artistName, songId }: { youtubeId: string, title: string, artistName: string, songId: string }
 ) => {
     //モーダル
-    const [Modal, open, close, isOpen] = useModal('root', {
-        preventScroll: true,
-        focusTrapOptions : { 
-        clickOutsideDeactivates : true
-        },  
-    });
+
+
+    const { isOpen, onClose, onOpen } = useDisclosure();
 
     return (
         <>
@@ -25,7 +31,7 @@ export const ShareYoutubeModal = (
             p-1'
             whileTap={{ scale: 0.8 }}
             transition={{ duration: 0.05 }}
-          onClick={open}>
+          onClick={onOpen}>
         <div className='flex flex-wrap justify-center items-center'>
           <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-share-3" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -34,19 +40,14 @@ export const ShareYoutubeModal = (
           <div>シェア</div>
         </div>
         </motion.button >
-        <Modal>
-            <AnimatePresence mode="wait">
-            <motion.div
-                key={'ShareYoutubeModal'}    
-                initial={{ opacity: 0 }} // 初期状態
-                animate={{ opacity: 1 }} // マウント時
-                exit={{ opacity: 0 }}    // アンマウント時
-            >
 
-
-      <div className="bg-gray-100 h-auto w-[80vw] mx-4 p-4 rounded-xl lg:w-[50vw]">
-
-        <div
+     <Modal 
+      isOpen={isOpen} onClose={onClose}
+     >
+       <ModalOverlay />
+       <ModalContent minW="50vw" w="calc(100vw - 20px - 2rem)">
+       <ModalHeader>
+       <div
           className="flex justify-between items center border-b border-gray-200 py-2"
         >
           <div className="flex items-center justify-center">
@@ -55,15 +56,22 @@ export const ShareYoutubeModal = (
 
           <button
             className="bg-gray-300 hover:bg-gray-500 cursor-pointer hover:text-gray-300 font-sans text-gray-500 w-8 h-8 flex items-center justify-center rounded-full"
-            onClick={close}
+            onClick={onClose}
           >
-<svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-   <path d="M18 6l-12 12"></path>
-   <path d="M6 6l12 12"></path>
-</svg>
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+          </svg>
           </button>
         </div>
+       </ModalHeader>
+      <ModalBody>
+
+
+      <div className="h-auto mx-4 p-4 rounded-xl">
+
+
         <div className=''>
         <ShareModalTab 
         tabs = {[{
@@ -104,9 +112,9 @@ export const ShareYoutubeModal = (
       </div>
       </div>
 
-            </motion.div>
-            </AnimatePresence>
-        </Modal>
+      </ModalBody>
+      </ModalContent>
+     </Modal>
     </>
     );
 };

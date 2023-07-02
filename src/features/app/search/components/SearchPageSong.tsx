@@ -15,7 +15,6 @@ import SortSelect from "./SortSelect";
 import FilterSelect from "./FilterSelect";
 import songInfoAsc from '../../../../data/songInfoAsc.json';
 import songInfoDesc from '../../../../data/songInfoDesc.json';
-import {SearchModal} from ".//SearchModal";
 
 export default function SearchPageSong({ }: {}) {
     const searchParams = useSearchParams();
