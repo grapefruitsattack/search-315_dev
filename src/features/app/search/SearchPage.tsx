@@ -28,21 +28,21 @@ export default function SearchPage() {
       <CommonPage>
       <section className="pt-24 bg-white ">
 
-
+      <div className='mb-5'>
       <SearchModal/>
-
+      </div>
         <TabComponent 
         tabs = {[{
           title: 'song',
           id: 'song',
-          icon: '',
+          icon: 'song',
           color: '',
           content: (<SearchPageSong />)
         },
         {
           title: 'album',
           id: 'album',
-          icon: '',
+          icon: 'album',
           color: '',
           content: (<SearchModal/>)
         }]}
