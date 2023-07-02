@@ -44,7 +44,7 @@ export default function TabComponent  ({ tabs }: { tabs: Tabs[] }) {
                 router.push(currentPath + '?'  + params.toString());
               }}
               className={`font-sans text-base lg:text-xl ${
-                  activeTab.id === tab.id ? "text-pink-600" : "hover:text-slate-800/60 "
+                  activeTab.id === tab.id ? " text-pink-700/70 " : " hover:text-slate-800/60 "
                 } relative rounded-full px-3 py-1.5 lg:min-w-[150px] h-12
                 text-lg font-medium text-slate-800 
                 outline-sky-400 transition focus-visible:outline-2

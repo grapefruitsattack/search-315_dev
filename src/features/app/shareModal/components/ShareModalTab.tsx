@@ -54,7 +54,9 @@ export default function ShareModalTab  ({ tabs }: { tabs: Tabs[] }) {
 
                 key='ShareModalTab'
                 layoutId="bubbleShareModalTab"
-                className="absolute inset-0 z-10 bg-teal-300/50 mix-blend-multiply"
+                className="absolute inset-0 z-10 mix-blend-multiply
+                bg-gradient-to-tr from-cyan-200 to-blue-100/20
+                "
                 style={{ borderRadius: 9999 }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
