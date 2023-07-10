@@ -6,8 +6,8 @@ import Link from 'next/link';
 import displayToggleCss from './../css/display-toggle.module.css';
 
 export default function DisplayTypeToggle(
-  { currentValue, paramId }
-  : { currentValue:number, paramId:string })
+  { currentValue, paramId, description }
+  : { currentValue:number, paramId:string, description:string })
 {
   const router = useRouter();
   const params = new URLSearchParams(useSearchParams().toString());
@@ -29,10 +29,10 @@ export default function DisplayTypeToggle(
 
   return (
     <>
-<label className={" flex items-center relative w-max cursor-pointer select-none"}>
-  <span className="text-lg font-bold mr-3">Toggle</span>
+<div className={" flex items-center relative w-max cursor-pointer select-none"}>
+  {/* https://tailwindcomponents.com/component/simple-checkbox */}
   <input 
-    type="checkbox" 
+    type="checkbox" id={paramId}
     checked={val}
     onChange={(e) => {
       handleChange(e.target.checked);
@@ -40,13 +40,23 @@ export default function DisplayTypeToggle(
       params.delete('page');
       router.push(currentPath + '?'  + params.toString());
     }}
-    className={displayToggleCss.input + " appearance-none transition-colors cursor-pointer w-14 h-6 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-blue-500 bg-slate-300"} 
+    className='
+    appearance-none h-6 w-6 bg-gray-400 rounded-full 
+    checked:bg-green-300 checked:scale-75
+    transition-all duration-200 peer
+'
   />  
-  <span className={displayToggleCss.span + " absolute font-medium text-xs uppercase right-1 text-black"}> OFF </span>
-  <span className={displayToggleCss.span + " absolute font-medium text-xs uppercase right-8 text-white"}> ON </span>
-  <span className={displayToggleCss.span + " w-7 h-7 right-7 absolute rounded-full transform transition-transform bg-stone-800"} />
-
-</label>
+		<div className='h-6 w-6 absolute rounded-full pointer-events-none
+        peer-checked:border-green-300 peer-checked:border-2
+        '>
+		</div>
+		<label htmlFor={paramId} className='
+    flex flex-col justify-center px-2 peer-checked:text-green-400 
+    
+    select-none'>
+      {description}
+    </label>
+</div>
 
 
 </>

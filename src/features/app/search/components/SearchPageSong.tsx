@@ -42,21 +42,27 @@ export default function SearchPageSong({ }: {}) {
 
     return (
       <>
-      <section className="w-full flex flex-wrap items-center justify-center">
-      <div className="w-[80vw] 
-      mt-3 p-2 grid grid-cols-1 gap-3
-      ">
+      <section className="lg:px-24 px-8 mt-3 p-2 flex flex-wrap items-center gap-10">
+
         <div className="flex-none ">
         <SortSelect 
             currentValue={order}
             paramId ='order'/>
         </div>
-        <div className="flex-none ">
-        <FilterSelect 
-            currentValueSubsc={subscExists}
-            currentValueColle={colleFlg}/>
+        <div className="flex-none">
+        <DisplayTypeToggle
+          currentValue={colleFlg}
+          paramId ='colle'
+          description='ソレコレ・ユニコレ曲を表示しない'
+        />
         </div>
-      </div>
+        <div className="flex-none">
+        <DisplayTypeToggle
+          currentValue={subscExists}
+          paramId ='subsc'
+          description='サブスク非対応曲を表示しない'
+        />
+        </div>
       </section>
         <section className="">
         <Pagination currentPage={page} totalPage={totalPage}/>
