@@ -38,25 +38,24 @@ export default function ShareModalTab  ({ tabs }: { tabs: Tabs[] }) {
               onClick={() => {
                 setActiveTab(tab);
               }}
-              className={`${
-                  activeTab.id === tab.id ? "" : "hover:text-blue-800/60 "
-                } relative rounded-full px-3 py-1.5 
-               text-lg font-medium text-blue-900 
-                outline-sky-400 transition focus-visible:outline-2
-              `}
-              style={{
-                WebkitTapHighlightColor: "transparent",
-              }}
+              className={`font-sans text-base lg:text-xl ${
+                activeTab.id === tab.id ? " text-pink-400 " : " hover:text-slate-800/60 "
+              } relative rounded-full px-3 py-1.5 lg:min-w-[150px] h-12
+              text-lg font-medium text-slate-800 
+              outline-sky-400 transition focus-visible:outline-2
+            `}
+            style={{
+              WebkitTapHighlightColor: "transparent",
+            }}
             >
             {activeTab.id === tab.id && (
         <AnimatePresence mode="wait">
               <motion.span
-
                 key='ShareModalTab'
                 layoutId="bubbleShareModalTab"
-                className="absolute inset-0 z-10 mix-blend-multiply
-                bg-gradient-to-tr from-cyan-200 to-blue-100/20
-                "
+                className="absolute inset-x-0 bottom-0 z-10 
+                bg-gradient-to-r from-pink-300 via-purple-300 to-sky-200
+                h-2"
                 style={{ borderRadius: 9999 }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
