@@ -10,9 +10,22 @@ import {
  } from "@chakra-ui/react";
 
 
-export const YoutubeModal = ({ id }: { id: string }) => {
+export const YoutubeModal = ({ id, type }: { id: string ,type: string }) => {
 
     const { isOpen, onClose, onOpen } = useDisclosure();
+
+    let src: string;
+    switch (type) {
+        case 'song':
+            src = `https://www.youtube.com/embed/`+ id + `?mute=1&modestbranding=1`
+            break;
+        case 'album':
+            src = `https://www.youtube.com/embed/videoseries?list=`+ id
+            break;
+        default:
+            src = '';
+            break;
+    }    
 
     return (
         <>
@@ -47,7 +60,7 @@ export const YoutubeModal = ({ id }: { id: string }) => {
         <div>
         <iframe 
             className="w-full aspect-square" loading="lazy" 
-            src={`https://www.youtube.com/embed/`+ id + `?mute=1&modestbranding=1`} 
+            src={src} 
             allow="fullscreen">
         </iframe>
 

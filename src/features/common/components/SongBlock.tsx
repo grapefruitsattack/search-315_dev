@@ -145,7 +145,7 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
       <div className ={`inline-block lg:hidden`}>
           {imgSrc===''
             ?<></>
-            :<YoutubeModal id ={song?.youtubeId}/>
+            :<YoutubeModal id ={song?.youtubeId} type='song'/>
           }
       </div>
 

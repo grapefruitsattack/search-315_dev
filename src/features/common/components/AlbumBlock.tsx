@@ -130,7 +130,7 @@ export default function AlbumBlock(
       <div className ={`inline-block lg:hidden h-[30px] w-full absolute bottom-0`}>
           {results.songYoutubeId===''
             ?<></>
-            :<YoutubeModal id ={results.youtubeId}/>
+            :<YoutubeModal id ={results.youtubeId} type ='album'/>
           }
       </div>
       </div>
