@@ -22,6 +22,7 @@ export type SongInfo = {
   trackNo: number;
   songId: string;
   singingInfoId: string;
+  releaseDate: string;
 };
 
 export type SongMaster = {
