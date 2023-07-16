@@ -27,7 +27,7 @@ export default function SearchPage() {
 
     return (
       <CommonPage>
-      <section className="pt-24 bg-white ">
+      <section className="pt-24 bg-white lg:max-w-[1500px] lg:m-auto">
 
       <div className='mb-5'>
       <SearchModal/>
