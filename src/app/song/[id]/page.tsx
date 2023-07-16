@@ -1,5 +1,5 @@
 
-import songInfos from '../../../data/songInfo.json';
+import songInfosAsc from '../../../data/songInfoAsc.json';
 import type { SongMaster, SongInfo } from '../../../data/types';
 import HeaderAndFooter from "../../../components/HeaderAndFooter";
 import SongBlock from "../../../features/common/components/SongBlock";
@@ -17,7 +17,7 @@ export function generateStaticParams() {
 }
 export default function Songs({ params }: { params: { id: string } }) {
 
-  const results : SongInfo[] = songInfos.filter(data => data.singingInfoId === params.id);
+  const results : SongInfo[] = songInfosAsc.filter(data => data.singingInfoId === params.id);
   return (
       
   <main className=" min-h-screen">
