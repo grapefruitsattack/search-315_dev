@@ -7,6 +7,7 @@ export type Albums = {
   displayArtist: string;
   releasePage: string;
   youtubeId: string;
+  songYoutubeId: string;
 };
 
 export type SingingMaster = {

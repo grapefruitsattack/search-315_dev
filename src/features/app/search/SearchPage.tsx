@@ -3,6 +3,7 @@ import { useSearchParams } from 'next/navigation'
 import CommonPage from "../../../components/CommonPage";
 import TabComponent from "../../../components/TabComponent";
 import SearchPageSong from "./components/SearchPageSong";
+import SearchPageAlbum from "./components/SearchPageAlbum";
 import {SearchModal} from "./components/SearchModal";
 
 import {
@@ -44,7 +45,7 @@ export default function SearchPage() {
           id: 'album',
           icon: 'album',
           color: '',
-          content: (<SearchModal/>)
+          content: (<SearchPageAlbum/>)
         }]}
         />
     

@@ -1,124 +1,110 @@
 'use client'
 import type { SongMaster, Albums } from '../../../data/types';
-import songMasters from '../../../data/songMaster.json';
-import albamMasters from '../../../data/albamMaster.json';
+import { motion, AnimatePresence } from "framer-motion";
+import React, { useState } from "react";
 import {YoutubeModal} from "../../../components/YoutubeModal";
 import {ShareYoutubeModal} from "../../app/shareModal/ShareYoutubeModal";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
-export default function SongBlock(
-  { albumId,trackNo,results }: { albumId: string, trackNo: number, results: SongMaster}
+export default function AlbumBlock(
+  { results }: { results: Albums}
 ) {
-  const song = results;
-  const albam = albamMasters.find(data => data.albumId === song?.albumId);
-  const imgSrc: string = song?.youtubeId || '';
-  
-const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   function copyTextToClipboard(text: string) {
-    navigator.clipboard.writeText(text)
-    .then(function() {
-      console.log('Async: Copying to clipboard was successful!');
-    }, function(err) {
-      console.error('Async: Could not copy text: ', err);
-    });
-  }
-    return (
+      navigator.clipboard.writeText(text)
+      .then(function() {
+        console.log('Async: Copying to clipboard was successful!');
+      }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+      });
+    }
       
-    <section className={`group
-    rounded-md
-    bg-white
-    drop-shadow-lg
-    `}>
+  return (
+      <section className={`group
+      rounded-md
+      bg-white
+      drop-shadow-lg
+      `}>
       <div 
         className ={`
-          grid grid-cols-song 
+          grid grid-cols-album
           auto-rows-auto
-          m-0
+          m-0 
         `}
       >
-
-          <div className ="row-span-2">
-            
+      <div className ="row-span-3">
           <a
             className =""
-                href={`../song/` + song?.songId}
-                target="_blank"
-                rel="noopener noreferrer"
+            href={`../song/` + results.albumId}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-          {imgSrc===''
+          {results.songYoutubeId===''
             ?
             <img 
-              className={`object-cover object-center h-[60px] w-[59px] rounded-lg`}
+              className={`object-cover object-center h-[120px] w-[119px] rounded-lg`}
               src="https://placehold.jp/bdbdbd/ffffff/150x150.png?text=no%20image"
               alt="アートワーク"
             />
             :
             <img
-              className={`object-cover object-center h-[60px] w-[59px] rounded-lg`}
-              src={`https://img.youtube.com/vi/`+ song?.youtubeId +`/1.jpg`}
+              className={`object-cover object-center h-[120px] w-[119px] rounded-lg`}
+              src={`https://img.youtube.com/vi/`+ results.songYoutubeId +`/mqdefault.jpg`}
               alt="アートワーク"
             />
             }
           </a>
           </div>
           <div
-            className ="row-span-1 col-span-2 px-1 pt-1"
+            className ="row-span-1 px-1"
             >
               <a
             className ="inline-block
-            text-xl text-zinc-800 p-0.5
+            text-base text-zinc-800 p-0.5
             rounded-md
             underline
             leading-tight
             font-sans hover:border-gray-300 hover:bg-gray-100/50"
-                href={`../song/` + song?.songId}
+                href={`../song/` + results.albumId}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {song?.songTitle}
+                {results.albumTitleFull}
               </a>
           </div>
-          
-          <div className ="
-            row-span-1 col-span-2 
-            text-sm leading-tight text-zinc-700
-            pt-1 pl-1
-          ">
-          {song?.displayArtist}
-          </div>
-          <div className ="
-            row-span-1 col-span-3 leading-none
-            hidden lg:flex 
-            break-all
-          ">
-            <a 
-              className ="text-xs text-gray-500 hover:underline "
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >{albam?.albumTitleFull}</a>
-          </div>
-      </div>
-      <div className="grid grid-cols-3 gap-x-2">
 
-      {imgSrc===''
-            ?<div className = 'hidden lg:inline-block '></div>
+          <div
+            className ="row-span-1 px-1 "
+            >
+          <a 
+            className ="inline-block
+            text-xs leading-tight text-zinc-700
+            pl-1 pb-[32px]
+          ">
+          {results.displayArtist}
+          </a>
+          </div>
+
+      <div className="grid grid-cols-3 gap-x-2">
+      <div className='relative w-full'>
+      {results.songYoutubeId===''
+            ?<div className='hidden lg:inline-block relative w-full'></div>
             :
             <motion.button
               className='rounded-lg border border-red-500 
                 text-red-500 text-sm font-sans leading-tight
                 hover:bg-red-500 hover:text-red-100 
                 transition-all duration-500 ease-out
-                hidden lg:inline-block 
+                hidden lg:inline-block
+                 h-[30px] w-full absolute bottom-0
                 '
               type="button"
               aria-controls="contents"
               aria-expanded={isOpen}
               onClick={() => setIsOpen(!isOpen)}
               >
-              <div className='flex flex-wrap justify-center items-center'>
+              <div className='flex flex-wrap justify-center items-center h-[30px]'>
                 {isOpen ? (<>
                   {/* <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-brand-youtube" 
                     width="22" height="22" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -141,27 +127,33 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
       }
 
 
-
-      <div className ={`inline-block lg:hidden`}>
-          {imgSrc===''
+      <div className ={`inline-block lg:hidden h-[30px] w-full absolute bottom-0`}>
+          {results.songYoutubeId===''
             ?<></>
-            :<YoutubeModal id ={song?.youtubeId}/>
+            :<YoutubeModal id ={results.youtubeId}/>
           }
       </div>
+      </div>
 
-
+      
+      <div className='inline-block relative w-full'>
+      <div className='h-[30px] w-full absolute bottom-0'>
       <ShareYoutubeModal 
-        youtubeId ={song?.youtubeId} 
-        title={song?.songTitle} 
-        artistName={song?.displayArtist}
-        songId={song?.songId}
+        youtubeId ={results.youtubeId} 
+        title={results.albumTitleFull} 
+        artistName={results.displayArtist}
+        songId={results.albumId}
       />
+      </div>
+      </div>
+
+      <div className='inline-block relative w-full'>
       <motion.button className='rounded-lg border border-green-500 
           text-green-500 text-sm font-sans leading-tight
           hover:bg-green-500 hover:text-green-100 
-          transition-all duration-500 ease-out
+          transition-all duration-500 ease-out w-full h-[30px] absolute bottom-0
           '
-        onClick={() => copyTextToClipboard(song?.songTitle)}
+        onClick={() => copyTextToClipboard(results.albumTitleFull)}
         whileTap={{ scale: 0.8 }}
         transition={{ duration: 0.05 }}
       >
@@ -177,12 +169,17 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
           <div className="">コピー</div>
         </div>
       </motion.button>
+      </div>
+
+      </div>
+
+      <div className="col-span-1 hidden lg:grid"></div>
       <div
         id="contents"
-        className="accordion-body col-span-3 hidden lg:grid"
+        className="accordion-body col-span-1 hidden lg:grid"
         aria-hidden={!isOpen}
       >
-          <iframe className="w-full aspect-video" loading="lazy" src={`https://www.youtube.com/embed/`+song?.youtubeId + `?mute=1&modestbranding=1`} allow="fullscreen"></iframe>
+          <iframe className="w-full aspect-video" loading="lazy" src={`https://www.youtube.com/embed/videoseries?list=`+results.youtubeId} allow="fullscreen"></iframe>
 
       </div>
     <style jsx>{`
@@ -192,8 +189,9 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
         overflow: hidden;
       }
     `}</style>
-      </div>
 
-    </section>
-    
-    )}
+      </div>   
+      
+      </section>
+  )
+}

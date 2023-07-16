@@ -3,7 +3,8 @@ import { redirect } from 'next/navigation'
 import { useEffect } from 'react';
 import { useParams,useSearchParams,  } from 'next/navigation'
 
-export default function GetTotalPage(paramPage: string | null, contentsLength: number, redirectRoot: string )
+export default function GetTotalPage
+(paramPage: string | null, contentsLength: number, redirectRoot: string, maxCon: number )
 {
     const totalPage: number = Math.ceil((contentsLength) / 18);
     console.log(contentsLength)
