@@ -4,19 +4,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import {YoutubeModal} from "../../../components/YoutubeModal";
 import {ShareYoutubeModal} from "../../app/shareModal/ShareYoutubeModal";
+import {Tooltip} from "@chakra-ui/react";
 
 export default function AlbumBlock(
   { results }: { results: Albums}
 ) {
 
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const [tooltipOn, setTooltipOn] = useState<boolean>(false);
 
   function copyTextToClipboard(text: string) {
       navigator.clipboard.writeText(text)
       .then(function() {
-        console.log('Async: Copying to clipboard was successful!');
+        setTooltipOn(true);
+        window.setTimeout(function(){setTooltipOn(false);}, 1500);
       }, function(err) {
-        console.error('Async: Could not copy text: ', err);
       });
     }
       
@@ -148,6 +151,7 @@ export default function AlbumBlock(
       </div>
 
       <div className='inline-block relative w-full'>
+    <Tooltip className = '' placement='top' label='アルバム名をコピーしました' isOpen = {tooltipOn}>
       <motion.button className='rounded-lg border border-green-500 
           text-green-500 text-sm font-sans leading-tight
           hover:bg-green-500 hover:text-green-100 
@@ -169,6 +173,8 @@ export default function AlbumBlock(
           <div className="hidden lg:inline-block">コピー</div>
         </div>
       </motion.button>
+    </Tooltip>
+
       </div>
 
       </div>

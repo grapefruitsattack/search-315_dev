@@ -6,6 +6,7 @@ import {YoutubeModal} from "../../../components/YoutubeModal";
 import {ShareYoutubeModal} from "../../app/shareModal/ShareYoutubeModal";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import {Tooltip} from "@chakra-ui/react";
 
 export default function SongBlock(
   { albumId,trackNo,results }: { albumId: string, trackNo: number, results: SongMaster}
@@ -14,14 +15,16 @@ export default function SongBlock(
   const albam = albamMasters.find(data => data.albumId === song?.albumId);
   const imgSrc: string = song?.youtubeId || '';
   
-const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  const [tooltipOn, setTooltipOn] = useState<boolean>(false);
 
   function copyTextToClipboard(text: string) {
     navigator.clipboard.writeText(text)
     .then(function() {
-      console.log('Async: Copying to clipboard was successful!');
+      setTooltipOn(true);
+      window.setTimeout(function(){setTooltipOn(false);}, 1500);
     }, function(err) {
-      console.error('Async: Could not copy text: ', err);
     });
   }
     return (
@@ -156,6 +159,7 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
         artistName={song?.displayArtist}
         songId={song?.songId}
       />
+      <Tooltip className = '' placement='top' label='曲名をコピーしました' isOpen = {tooltipOn}>
       <motion.button className='rounded-lg border border-green-500 
           text-green-500 text-sm font-sans leading-tight
           hover:bg-green-500 hover:text-green-100 
@@ -177,6 +181,7 @@ const [isOpen, setIsOpen] = useState<boolean>(false)
           <div className="">コピー</div>
         </div>
       </motion.button>
+      </Tooltip>
       <div
         id="contents"
         className="accordion-body col-span-3 hidden lg:grid"
