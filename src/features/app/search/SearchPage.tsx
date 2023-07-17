@@ -18,7 +18,7 @@ import {
 
 export default function SearchPage() {
     const searchParams = useSearchParams();
-    const search :string[] | undefined = searchParams.get('search')?.split(' ');
+    const search :string[] | undefined = searchParams.get('q')?.split(' ');
     const order :string = searchParams.get('order') || 'desc';
 
    

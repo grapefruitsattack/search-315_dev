@@ -12,6 +12,7 @@ import {
   ModalContent,
   ModalHeader,
   useDisclosure, 
+  Tooltip
  } from "@chakra-ui/react";
 
 export const SearchModal: React.VFC = () => {
@@ -19,21 +20,22 @@ export const SearchModal: React.VFC = () => {
     const router = useRouter();
     const currentPath: string = usePathname();
     const urlSearchParams = useSearchParams();
-    const params = new URLSearchParams(urlSearchParams.toString());
 
+    const [params, setParams] = useState(new URLSearchParams(urlSearchParams.toString()));
 
     //useState設定
     const [values, setValues] = useState(new SearchParams(urlSearchParams));
     function changeSearchParamsIdolId(idolId:string, onFlg: boolean): void {
         values[idolId] = onFlg? "1": "0";
-        const tmpStr: string = params.get('search')||'';
+        const tmpStr: string = params.get('q')||'';
         const tmpStrArray: string[] = tmpStr.split(' ');
-        const newTmpStrArray: string[] = tmpStrArray.filter(str => str !== idolId);
+        const newTmpStrArray: string[] = tmpStrArray.filter(str => str !== idolId && str !== '');
         if(onFlg){
             newTmpStrArray.push(idolId);
         };
-        params.set('search',newTmpStrArray.join(' '));
-        console.log(params.get("search"));
+        const workParam: URLSearchParams = new URLSearchParams(params.toString());
+        workParam.set('q',newTmpStrArray.length===0? '': newTmpStrArray.join(' '));
+        setParams(workParam);
     };
 
     
@@ -41,7 +43,7 @@ export const SearchModal: React.VFC = () => {
     //OPENボタン用設定
     let searchText: string = '';
     const searchTextArray: string[] = [];
-    const searchParam :string[] = urlSearchParams.get('search')?.split(' ') || [];
+    const searchParam :string[] = urlSearchParams.get('q')?.split(' ') || [];
     singingMaster.forEach((data)=>{
         if(searchParam.includes(data.singingInfoId)){
             searchText = searchText + '　' + data.singingInfoName;
@@ -49,8 +51,25 @@ export const SearchModal: React.VFC = () => {
         };
     });
 
-    
     const { isOpen, onClose, onOpen } = useDisclosure();
+
+
+    //エラーツールチップ表示用
+    const [tooltipOn, setTooltipOn] = useState<boolean>(false);
+    //エラーチェック
+    function errorCheck(): boolean {
+        const tmpStr: string = params.get('q')||'';
+        const tmpStrArray: string[] = tmpStr.split(' ');
+        console.log(urlSearchParams.toString())
+        console.log(tmpStr);
+        console.log(tmpStrArray);
+        if(tmpStr.trim()===''){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
    
     
     return (
@@ -324,7 +343,7 @@ export const SearchModal: React.VFC = () => {
        <div className='flex mt-1 px-10 gap-2 justify-end'>
 
 
-            
+       <Tooltip hasArrow label='1人以上選択してください' bg='red.600' isOpen = {tooltipOn}>
             <motion.button className='rounded-lg
                 text-white text-sm font-bold leading-tight
                 hover:bg-green-500/70
@@ -332,10 +351,17 @@ export const SearchModal: React.VFC = () => {
                 transition-all duration-500 ease-out
                 w-[200px] p-2'
                 onClick={() => {
-                    params.delete('page');
-                    params.set('page','1');
-                router.push(currentPath + '?'  + decodeURIComponent(params.toString()));
-                onClose();
+                    if(errorCheck()){
+                        setTooltipOn(false);
+                        const workParam: URLSearchParams = new URLSearchParams(params.toString());
+                        workParam.delete('page');
+                        workParam.set('page','1');
+                        router.push(currentPath + '?'  + decodeURIComponent(workParam.toString()));
+                        onClose();
+                    } else {
+                        setTooltipOn(true);
+                        window.setTimeout(function(){setTooltipOn(false);}, 2000);
+                    }
                 }}
             //    whileTap={{ scale: 0.8 }}
             //    transition={{ duration: 0.05 }}
@@ -351,7 +377,7 @@ export const SearchModal: React.VFC = () => {
                 <div>検索</div>
                 </div>
             </motion.button>
-
+        </Tooltip>
             </div>
             
        </ModalHeader>

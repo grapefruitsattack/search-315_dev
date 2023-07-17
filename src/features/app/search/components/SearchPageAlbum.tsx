@@ -15,7 +15,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 export default function SearchPageAlbum({ }: {}) {
     //パラメータ
     const searchParams = useSearchParams();
-    const search :string[] | undefined = searchParams.get('search')?.split(' ');
+    const search :string[] | undefined = searchParams.get('q')?.split(' ');
     const page :number = Number(searchParams.get('page')) || 1;
     const order :string = searchParams.get('order') || 'desc';
     const subscExists :number = Number(searchParams.get('subsc')) || 0;
@@ -54,7 +54,7 @@ export default function SearchPageAlbum({ }: {}) {
 
       <AnimatePresence initial={false} mode="wait">
       <motion.div
-          key={page + order  + `${subscExists}${colleFlg}${searchParams.get('search') === null?'':searchParams.get('search')}` }
+          key={page + order  + `${subscExists}${colleFlg}${searchParams.get('q') === null?'':searchParams.get('q')}` }
         initial={{ opacity: 0 }} // 初期状態
         animate={{ opacity: 1 }} // マウント時
         exit={{ opacity: 0 }}    // アンマウント時

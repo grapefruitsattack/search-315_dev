@@ -10,7 +10,7 @@ export class SearchParams {
       this.order = urlSearchParams.get('order') || 'desc';
       this.subsc = urlSearchParams.get('subsc') || '0';
       this.colle = urlSearchParams.get('colle') || '0';
-      const search :string[] = urlSearchParams.get('search')?.split(' ') || [];
+      const search :string[] = urlSearchParams.get('q')?.split(' ') || [];
       search.forEach(data=>{
         this[data] = '1';
       });

@@ -44,8 +44,6 @@ export default function FilterSelect(
       options={options}
       placeholder="すべての曲を表示"
       onChange={(value) => {
-        console.log(value.length)
-        console.log(selectedValue.length)
         const currentValue: {
             value: string;
             label: string;
@@ -53,8 +51,10 @@ export default function FilterSelect(
         value.forEach((data)=>{
             currentValue.push(data);
         });
-        if(value.length < selectedValue.length){
-            console.log(value)
+        console.log(value.length)
+        console.log(selectedValue.length)
+        if(value.length > selectedValue.length){
+          console.log('done')
             params.delete('subsc');
             params.delete('colle');
             value.forEach((data)=>{

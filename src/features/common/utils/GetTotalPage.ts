@@ -7,7 +7,6 @@ export default function GetTotalPage
 (paramPage: string | null, contentsLength: number, redirectRoot: string, maxCon: number )
 {
     const totalPage: number = Math.ceil((contentsLength) / maxCon);
-    console.log(contentsLength)
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams.toString());
     // ページパラメータが不正だった場合、リダイレクト
