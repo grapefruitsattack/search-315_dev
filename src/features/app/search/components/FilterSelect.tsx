@@ -38,7 +38,7 @@ export default function FilterSelect(
     >
     <Select
         className='rounded border border-teal-300'
-      closeMenuOnSelect={false}
+      closeMenuOnSelect={true}
       defaultValue={selectedValue}
       isMulti
       options={options}
@@ -51,18 +51,13 @@ export default function FilterSelect(
         value.forEach((data)=>{
             currentValue.push(data);
         });
-        console.log(value.length)
-        console.log(selectedValue.length)
-        if(value.length > selectedValue.length){
-          console.log('done')
-            params.delete('subsc');
-            params.delete('colle');
-            value.forEach((data)=>{
-                params.set(data.value,'1');
-                params.delete('page');
-            });
-            router.push(currentPath + '?'  + params.toString());
-        };
+        params.delete('subsc');
+        params.delete('colle');
+        value.forEach((data)=>{
+            params.set(data.value,'1');
+            params.delete('page');
+        });
+        router.push(currentPath + '?'  + params.toString());
         setSelectedValue(currentValue);
       }}
       onMenuClose={()=>{
