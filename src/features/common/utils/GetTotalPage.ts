@@ -6,7 +6,7 @@ import { useParams,useSearchParams,  } from 'next/navigation'
 export default function GetTotalPage
 (paramPage: string | null, contentsLength: number, redirectRoot: string, maxCon: number )
 {
-    const totalPage: number = Math.ceil((contentsLength) / 18);
+    const totalPage: number = Math.ceil((contentsLength) / maxCon);
     console.log(contentsLength)
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams.toString());
