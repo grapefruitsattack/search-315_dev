@@ -37,7 +37,7 @@ export default function FilterSelect(
     className='w-100 text-sm lg:text-sm font-sans shadow-md'
     >
     <Select
-        className='rounded border border-blue-300'
+        className='rounded border border-teal-300'
       closeMenuOnSelect={false}
       defaultValue={selectedValue}
       isMulti

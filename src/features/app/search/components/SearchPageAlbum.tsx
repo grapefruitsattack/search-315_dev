@@ -9,6 +9,7 @@ import AlbumBlock from "../../../common/components/AlbumBlock";
 import Pagination from "../../../../components/Pagination";
 import DisplayTypeToggle from "./DisplayTypeToggle";
 import SortSelect from "./SortSelect";
+import FilterSelect from "./FilterSelect";
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function SearchPageAlbum({ }: {}) {
@@ -35,25 +36,16 @@ export default function SearchPageAlbum({ }: {}) {
 
     return (
     <>
-      <section className="lg:px-24 px-8 mt-3 p-2 flex flex-wrap items-center gap-10">
+      <section className="lg:px-24 px-8 mt-3 p-2 flex flex-wrap items-center gap-4">
         <div className="flex-none ">
         <SortSelect 
             currentValue={order}
             paramId ='order'/>
         </div>
         <div className="flex-none">
-        <DisplayTypeToggle
-          currentValue={colleFlg}
-          paramId ='colle'
-          description='ソレコレ・ユニコレ曲を表示しない'
-        />
-        </div>
-        <div className="flex-none">
-        <DisplayTypeToggle
-          currentValue={subscExists}
-          paramId ='subsc'
-          description='サブスク非対応曲を表示しない'
-        />
+        <FilterSelect 
+            currentValueSubsc={subscExists}
+            currentValueColle={colleFlg}/>
         </div>
       </section>    
       <section className="">
