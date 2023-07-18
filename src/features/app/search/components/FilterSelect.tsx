@@ -44,32 +44,16 @@ export default function FilterSelect(
       placeholder="すべての曲を表示"
       onChange={(value) => {
         const workParam: URLSearchParams = new URLSearchParams(params.toString());
-        const currentValue: {
-            value: string;
-            label: string;
-        }[] =[];
-        value.forEach((data)=>{
-            currentValue.push(data);
-        });
         workParam.delete('subsc');
         workParam.delete('colle');
+        workParam.delete('page');
         value.forEach((data)=>{
           workParam.set(data.value,'1');
-          workParam.delete('page');
-        });
-        setSelectedValue(currentValue);
-        setParams(workParam);
-        router.push(currentPath + '?'  + workParam.toString());
-      }}
-      onMenuClose={()=>{
-        const workParam: URLSearchParams = new URLSearchParams(params.toString());
-        workParam.delete('subsc');
-        workParam.delete('colle');
-        selectedValue.forEach((data)=>{
-          workParam.set(data.value,'1');
-          workParam.delete('page');
         });
         setParams(workParam);
+        console.log(value);
+        console.log(currentPath);
+        console.log(workParam.toString());
         router.push(currentPath + '?'  + workParam.toString());
       }}
       isSearchable={false}
