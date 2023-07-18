@@ -14,8 +14,7 @@ export default function FilterSelect(
 {
 
     const router = useRouter();
-    const params = new URLSearchParams(useSearchParams().toString());
-    params.set('page','1');
+    const [params, setParams] = useState(new URLSearchParams(useSearchParams().toString()));
     const currentPath: string = usePathname();
     let urlParams: {[key: string]: string}= {};
     params.forEach(function(value: string, key: string) {
@@ -44,6 +43,7 @@ export default function FilterSelect(
       options={options}
       placeholder="すべての曲を表示"
       onChange={(value) => {
+        const workParam: URLSearchParams = new URLSearchParams(params.toString());
         const currentValue: {
             value: string;
             label: string;
@@ -51,23 +51,26 @@ export default function FilterSelect(
         value.forEach((data)=>{
             currentValue.push(data);
         });
-        params.delete('subsc');
-        params.delete('colle');
+        workParam.delete('subsc');
+        workParam.delete('colle');
         value.forEach((data)=>{
-            params.set(data.value,'1');
-            params.delete('page');
+          workParam.set(data.value,'1');
+          workParam.delete('page');
         });
-        router.push(currentPath + '?'  + params.toString());
         setSelectedValue(currentValue);
+        setParams(workParam);
+        router.push(currentPath + '?'  + workParam.toString());
       }}
       onMenuClose={()=>{
-        params.delete('subsc');
-        params.delete('colle');
+        const workParam: URLSearchParams = new URLSearchParams(params.toString());
+        workParam.delete('subsc');
+        workParam.delete('colle');
         selectedValue.forEach((data)=>{
-            params.set(data.value,'1');
-            params.delete('page');
+          workParam.set(data.value,'1');
+          workParam.delete('page');
         });
-        router.push(currentPath + '?'  + params.toString());
+        setParams(workParam);
+        router.push(currentPath + '?'  + workParam.toString());
       }}
       isSearchable={false}
       
