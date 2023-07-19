@@ -108,6 +108,7 @@ export const SearchModal: React.VFC = () => {
                     '
                     onClick={() => {
                         setValues(new SearchParams(urlSearchParams));
+                        setParams(new URLSearchParams(urlSearchParams.toString()));
                         onOpen();
                     }}
                 >
