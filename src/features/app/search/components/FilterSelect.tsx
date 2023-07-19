@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+import { useRouter, usePathname, useSearchParams, ReadonlyURLSearchParams } from 'next/navigation'
 import Select, { MultiValue } from "react-select";
 
 const options = [
@@ -14,7 +14,8 @@ export default function FilterSelect(
 {
 
     const router = useRouter();
-    const [params, setParams] = useState(new URLSearchParams(useSearchParams().toString()));
+    
+    const params = new URLSearchParams(useSearchParams().toString());
     const currentPath: string = usePathname();
     let urlParams: {[key: string]: string}= {};
     params.forEach(function(value: string, key: string) {
@@ -43,18 +44,16 @@ export default function FilterSelect(
       options={options}
       placeholder="すべての曲を表示"
       onChange={(value) => {
-        const workParam: URLSearchParams = new URLSearchParams(params.toString());
-        workParam.delete('subsc');
-        workParam.delete('colle');
-        workParam.delete('page');
+        params.delete('subsc');
+        params.delete('colle');
+        params.delete('page');
         value.forEach((data)=>{
-          workParam.set(data.value,'1');
+          params.set(data.value,'1');
         });
-        setParams(workParam);
         console.log(value);
         console.log(currentPath);
-        console.log(workParam.toString());
-        router.push(currentPath + '?'  + workParam.toString());
+        console.log(params.toString());
+        router.push(currentPath + '?'  + params.toString());
       }}
       isSearchable={false}
       
