@@ -10,6 +10,7 @@ export default function OtherVersion({ id ,commonSongId }: { id: string, commonS
 
     return(
         <section className=" mt-10">
+            
             <div 
                 className="
                     text-2xl font-mono flex items-center w-full

@@ -7,6 +7,7 @@ import {ShareYoutubeModal} from "../../app/shareModal/ShareYoutubeModal";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {Tooltip} from "@chakra-ui/react";
+import Link from 'next/link';
 
 export default function SongBlock(
   { albumId,trackNo,results }: { albumId: string, trackNo: number, results: SongMaster}
@@ -45,11 +46,9 @@ export default function SongBlock(
 
           <div className ="row-span-2">
             
-          <a
+          <Link
             className =""
                 href={`../song/` + song?.songId}
-                target="_blank"
-                rel="noopener noreferrer"
           >
           {imgSrc===''
             ?
@@ -65,9 +64,9 @@ export default function SongBlock(
               alt="アートワーク"
             />
             }
-          </a>
+          </Link>
           </div>
-          <a
+          <Link
             className ="
               inline-block
               text-xl p-0.5
@@ -86,7 +85,7 @@ export default function SongBlock(
             href={`/song/` + song?.songId}
             >
                 {song?.songTitle}
-          </a>
+          </Link>
           
           <div className ="
             row-span-1 col-span-2 

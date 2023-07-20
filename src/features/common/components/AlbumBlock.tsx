@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import {YoutubeModal} from "../../../components/YoutubeModal";
 import {ShareYoutubeModal} from "../../app/shareModal/ShareYoutubeModal";
 import {Tooltip} from "@chakra-ui/react";
+import Link from 'next/link';
 
 export default function AlbumBlock(
   { results }: { results: Albums}
@@ -37,11 +38,9 @@ export default function AlbumBlock(
         `}
       >
       <div className ="row-span-3">
-          <a
+          <Link
             className =""
             href={`../song/` + results.albumId}
-            target="_blank"
-            rel="noopener noreferrer"
           >
           {results.songYoutubeId===''
             ?
@@ -57,12 +56,12 @@ export default function AlbumBlock(
               alt="アートワーク"
             />
             }
-          </a>
+          </Link>
           </div>
           <div
             className ="row-span-1 px-1"
           >
-            <a
+            <Link
               className ="
               w-full h-full
               row-span-1 px-1
@@ -83,7 +82,7 @@ export default function AlbumBlock(
               href={`/album/` + results.albumId}
             >
                 {results.albumTitleFull}
-            </a>
+            </Link>
           </div>
 
           <div

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
-        scrollRestoration: false,
+        scrollRestoration: true,
         appDir:true
     },
     trailingSlash: true,

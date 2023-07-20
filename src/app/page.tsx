@@ -147,7 +147,7 @@ export default function Home() {
         <IdolBlock id="CFP02" />
         <Link
           style={ {"--c": '#6664C6'} as ItemCSS}
-          href={{ pathname: '/search', query: {search: 'CFP03' }}}
+          href={{ pathname: '/search', query: {q: 'CFP03' }}}
           className={`group idol-block border-`+"CFP03"+ ` ` + borderHover.idol}
         >
         <span className={`unit-idol-text-area`}>
