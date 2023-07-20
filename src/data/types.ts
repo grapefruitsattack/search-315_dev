@@ -38,6 +38,12 @@ export type SongMaster = {
   releaseDate: string;
 };
 
+export type MvInfo = {
+  songId: string;
+  ssMvId: string;
+  msMvId: string;
+};
+
 export type Tabs = {
   title: string;
   id: string;

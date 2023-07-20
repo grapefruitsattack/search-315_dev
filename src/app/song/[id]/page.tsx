@@ -1,30 +1,23 @@
 
-import songInfosAsc from '../../../data/songInfoAsc.json';
-import type { SongMaster, SongInfo } from '../../../data/types';
-import HeaderAndFooter from "../../../components/HeaderAndFooter";
-import SongBlock from "../../../features/common/components/SongBlock";
+import songMaster from '../../../data/songMaster.json';
+import dynamic from "next/dynamic";
+
+const SongPage = dynamic(() => import("../../../features/app/song/SongPage"), { ssr: false });
 
 export function generateStaticParams() {
-  return [
-    { id: "SL01_1" },
-    { id: "SL01_3" },
-    { id: "SL01_5" },
-    { id: "SL02_1" },
-  ];
-  // return songInfos.map((e)=>{
-  //   return {id: e.songId}
-  // });
+  // return [
+  //   { id: "SL01_1" },
+  //   { id: "SL01_3" },
+  //   { id: "SL01_5" },
+  //   { id: "SL02_1" },
+  // ];
+  return songMaster.map((e)=>{
+    return {id: e.songId}
+  });
 }
 export default function Songs({ params }: { params: { id: string } }) {
 
-  const results : SongInfo[] = songInfosAsc.filter(data => data.singingInfoId === params.id);
   return (
-      
-  <main className=" min-h-screen">
-  <HeaderAndFooter />
-  <section className="grid items-start py-24 px-12 lg:px-36 gap-4 grid-cols-1 lg:grid-cols-3 ">
-      {params.id}
-  </section>
-  </main>
+    <SongPage songId={params.id} />
   );
 }
