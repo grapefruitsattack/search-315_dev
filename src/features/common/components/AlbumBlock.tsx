@@ -61,20 +61,29 @@ export default function AlbumBlock(
           </div>
           <div
             className ="row-span-1 px-1"
+          >
+            <a
+              className ="
+              w-full h-full
+              row-span-1 px-1
+              inline-block
+              text-xl p-0.5
+              rounded-md
+              underline
+              leading-tight
+              font-sans
+              row-span-1 col-span-2 
+              rounded-md px-1 pt-1 
+              bg-gradient-to-tl from-cyan-100/30 to-violet-200/30
+              text-zinc-800
+              hover:bg-cyan-100/50
+              hover:text-cyan-900 
+              duration-500 ease-out
+              "
+              href={`/album/` + results.albumId}
             >
-              <a
-            className ="inline-block
-            text-base text-zinc-800 p-0.5
-            rounded-md
-            underline
-            leading-tight
-            font-sans hover:border-gray-300 hover:bg-gray-100/50"
-                href={`../song/` + results.albumId}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
                 {results.albumTitleFull}
-              </a>
+            </a>
           </div>
 
           <div

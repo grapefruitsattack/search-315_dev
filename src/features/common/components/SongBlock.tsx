@@ -33,6 +33,7 @@ export default function SongBlock(
     rounded-md
     bg-white
     drop-shadow-lg
+    font-sans 
     `}>
       <div 
         className ={`
@@ -66,23 +67,26 @@ export default function SongBlock(
             }
           </a>
           </div>
-          <div
-            className ="row-span-1 col-span-2 px-1 pt-1"
+          <a
+            className ="
+              inline-block
+              text-xl p-0.5
+              rounded-md
+              underline
+              leading-tight
+              font-sans
+              row-span-1 col-span-2 
+              rounded-md px-1 pt-1 
+              bg-gradient-to-tl from-cyan-100/30 to-violet-200/30
+              text-zinc-800
+              hover:bg-cyan-100/50
+              hover:text-cyan-900 
+              duration-500 ease-out
+            "
+            href={`/song/` + song?.songId}
             >
-              <a
-            className ="inline-block
-            text-xl text-zinc-800 p-0.5
-            rounded-md
-            underline
-            leading-tight
-            font-sans hover:border-gray-300 hover:bg-gray-100/50"
-                href={`../song/` + song?.songId}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
                 {song?.songTitle}
-              </a>
-          </div>
+          </a>
           
           <div className ="
             row-span-1 col-span-2 
@@ -94,13 +98,11 @@ export default function SongBlock(
           <div className ="
             row-span-1 col-span-3 leading-none
             hidden lg:flex 
-            break-all
+            break-all mb-1
           ">
             <a 
-              className ="text-xs text-gray-500 hover:underline "
+              className ="text-xs text-gray-500 underline hover:text-gray-400"
               href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
             >{albam?.albumTitleFull}</a>
           </div>
       </div>

@@ -29,32 +29,35 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
 
         <section className="mt-5 mb-32 grid text-start align-middle lg:grid-cols-songPageLg grid-cols-1 lg:mb-0 gap-x-5">
 
-            <motion.button 
+            <div 
                 className={`
                     row-span-6 lg:w-auto w-[100%] 
                     ${openYoutube ? " hidden" : " lg:inline-block hidden "}
                 `}
-                whileTap={{ scale: 0.8 }}
-                transition={{ duration: 0.05 }}
-                onClick={() => {
-                    setOpenYoutube(true);
-                }}
             >
                 {result.youtubeId===''
                 ?
                 <img 
-                className={`object-cover object-center lg:h-[400px] lg:w-[400px] h-[200px] w-[200px] rounded-lg`}
+                className={`object-cover object-center lg:h-[400px] lg:w-[398px] h-[200px] w-[200px] rounded-lg`}
                 src="https://placehold.jp/bdbdbd/ffffff/400x400.png?text=no%20image"
                 alt="アートワーク"
                 />
                 :
+                <motion.button 
+                    whileTap={{ scale: 0.8 }}
+                    transition={{ duration: 0.05 }}
+                    onClick={() => {
+                        setOpenYoutube(true);
+                    }}
+                >
                 <img
-                className={`object-cover object-center lg:h-[400px] lg:w-[400px] h-auto w-full max-w-[400px] aspect-square rounded-lg`}
+                className={`object-cover object-center lg:h-[400px] lg:w-[398px] h-auto w-full max-w-[400px] aspect-square rounded-lg`}
                 src={`https://img.youtube.com/vi/`+ result.youtubeId +`/maxresdefault.jpg`}
                 alt="アートワーク"
                 />
+                </motion.button >
                 }
-            </motion.button >
+            </div>
             <div 
                 className={`
                 row-span-6 lg:w-auto w-[100%] 
@@ -68,27 +71,30 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
             </div>
 
             
-            <button 
+            <div 
                 className={`
                     row-span-6 lg:w-auto w-[100%] lg:hidden mb-4
                 `}
-                onClick={onOpen}
             >
                 {result.youtubeId===''
                 ?
-                <img 
-                className={`object-cover object-center lg:h-[400px] lg:w-[400px] h-[200px] w-[200px] rounded-lg`}
+                <img  
+                className={`object-cover object-center lg:h-[400px] lg:w-[398px] h-[200px] w-[200px] rounded-lg`}
                 src="https://placehold.jp/bdbdbd/ffffff/400x400.png?text=no%20image"
                 alt="アートワーク"
                 />
                 :
+                <button 
+                    onClick={onOpen}
+                >
                 <img
-                className={`object-cover object-center lg:h-[400px] lg:w-[400px] h-auto w-full max-w-[350px] aspect-square rounded-lg`}
+                className={`object-cover object-center lg:h-[400px] lg:w-[398px] h-auto w-full max-w-[350px] aspect-square rounded-lg`}
                 src={`https://img.youtube.com/vi/`+ result.youtubeId +`/maxresdefault.jpg`}
                 alt="アートワーク"
                 />
+                </button >
                 }
-            </button >
+            </div >
             <Modal 
                 isOpen={isOpen} onClose={onClose}
             >
@@ -118,8 +124,6 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                 <a 
                 className ="hover:text-gray-500 underline "
                 href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-                target="_blank"
-                rel="noopener noreferrer"
                 >{albumResult.albumTitleFull}
                 </a>
             </div>
