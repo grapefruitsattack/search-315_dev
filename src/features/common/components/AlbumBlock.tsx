@@ -100,14 +100,17 @@ export default function AlbumBlock(
       <div className="grid grid-cols-3 gap-x-2">
       <div className='relative w-full'>
       {results.songYoutubeId===''
-            ?<div className='hidden lg:inline-block relative w-full'></div>
+            ?<div className='inline-block relative w-full'></div>
             :
+            <a className="w-full"
+              href={`https://youtube.com/playlist?list=${results.youtubeId}`}
+            target="_blank" rel="noopener noreferrer">
             <motion.button
-              className='rounded-lg border border-red-500 
+              className='rounded-lg border border-red-500
                 text-red-500 text-sm font-sans leading-tight
                 hover:bg-red-500 hover:text-red-100 
                 transition-all duration-500 ease-out
-                hidden lg:inline-block
+                
                  h-[30px] w-full absolute bottom-0
                 '
               type="button"
@@ -116,34 +119,16 @@ export default function AlbumBlock(
               onClick={() => setIsOpen(!isOpen)}
               >
               <div className='flex flex-wrap justify-center items-center h-[30px]'>
-                {isOpen ? (<>
-                  {/* <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-brand-youtube" 
-                    width="22" height="22" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M3 5m0 4a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path>
-                    <path d="M10 9l5 3l-5 3z"></path>
-                  </svg> */}
-                  <div>閉じる</div>
-                  </>) 
-                : (<>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-brand-youtube" 
+              <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-brand-youtube" 
                     width="30" height="30" viewBox="0 0 24 24" strokeWidth="0.7" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M3 5m0 4a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path>
                     <path d="M10 9l5 3l-5 3z"></path>
                   </svg>
-                  </>)}
                </div>
               </motion.button>
+              </a>
       }
-
-
-      <div className ={`inline-block lg:hidden h-[30px] w-full absolute bottom-0`}>
-          {results.songYoutubeId===''
-            ?<></>
-            :<YoutubeModal id ={results.youtubeId} type ='album'/>
-          }
-      </div>
       </div>
 
       
@@ -188,21 +173,8 @@ export default function AlbumBlock(
       </div>
 
       <div className="col-span-1 hidden lg:grid"></div>
-      <div
-        id="contents"
-        className="accordion-body col-span-1 hidden lg:grid"
-        aria-hidden={!isOpen}
-      >
-          <iframe className="w-full aspect-video" loading="lazy" src={`https://www.youtube.com/embed/videoseries?list=`+results.youtubeId} allow="fullscreen"></iframe>
 
-      </div>
-    <style jsx>{`
-      .accordion-body {
-        height: ${isOpen ? "auto" : 0};
-        transition: height 0.3s ease-out;
-        overflow: hidden;
-      }
-    `}</style>
+
 
       </div>   
       
