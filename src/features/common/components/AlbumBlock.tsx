@@ -28,7 +28,7 @@ export default function AlbumBlock(
       <section className={`group
       rounded-md
       bg-white
-      drop-shadow-lg
+      border-t-4 border-l-4 border-blue-900/20
       `}>
       <div 
         className ={`
@@ -37,7 +37,7 @@ export default function AlbumBlock(
           m-0 
         `}
       >
-      <div className ="row-span-3">
+      <div className ="row-span-2 lg:row-span-3 lg:mb-0 mb-px">
           <Link
             className =""
             href={`../song/` + results.albumId}
@@ -45,13 +45,13 @@ export default function AlbumBlock(
           {results.sereisId===''
             ?
             <img 
-              className={`object-cover object-center h-[100px] w-[99px] rounded-lg`}
+              className={`object-cover object-center h-[100px] w-[99px] rounded`}
               src="https://placehold.jp/bdbdbd/ffffff/150x150.png?text=no%20image"
               alt="アートワーク"
             />
             :
             <img
-              className={`object-cover object-center h-[100px] w-[99px] rounded-lg`}
+              className={`object-cover object-center h-[100px] w-[99px] rounded`}
               src={`/artwork/${results.sereisId}.png`}
               alt="アートワーク"
             />
@@ -73,9 +73,8 @@ export default function AlbumBlock(
               font-sans
               row-span-1 col-span-2 
               rounded-md px-1 pt-1 
-              bg-gradient-to-tl from-cyan-100/30 to-violet-200/30
               text-zinc-800
-              hover:bg-cyan-100/50
+              hover:bg-gradient-to-tl hover:from-cyan-100/30 hover:to-violet-200/30
               hover:text-cyan-900 
               duration-500 ease-out
               "
@@ -97,10 +96,10 @@ export default function AlbumBlock(
           </a>
           </div>
 
-      <div className="grid grid-cols-3 gap-x-2">
-      <div className='relative w-full'>
+      <div className="grid grid-cols-3 gap-x-2 lg:col-span-1 col-span-2 ">
+      <div className='lg:relative static w-full '>
       {results.songYoutubeId===''
-            ?<div className='inline-block relative w-full'></div>
+            ?<div className='inline-block lg:relative static l\w-full'></div>
             :
             <a className="w-full"
               href={`https://youtube.com/playlist?list=${results.youtubeId}`}
@@ -111,7 +110,7 @@ export default function AlbumBlock(
                 hover:bg-red-500 hover:text-red-100 
                 transition-all duration-500 ease-out
                 
-                 h-[30px] w-full absolute bottom-0
+                 h-[30px] w-full lg:absolute bottom-0
                 '
               type="button"
               aria-controls="contents"
