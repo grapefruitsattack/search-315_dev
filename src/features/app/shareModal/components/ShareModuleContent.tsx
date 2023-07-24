@@ -11,7 +11,6 @@ export default function ShareModuleContent(
     const shareURLFacebook:string = `https://www.facebook.com/share.php?u=${encodeURIComponent(`${url}`)}`;
     const shareURLMisskey = (text: string) => `https://misskeyshare.link/share.html?text=${encodeURIComponent(text)}`;
     const shareURLMastodon = (text: string) => `https://donshare.net/share.html?text=${encodeURIComponent(text)}`;
-    const shareURLSidemisskey = (text: string) => `https://side.misskey.productions//share?text=${encodeURIComponent(text)}`;
 
     const shareText = `${text}\n${url}`;
 
@@ -54,6 +53,7 @@ export default function ShareModuleContent(
                 target="_blank"
                 rel="noopener noreferrer"
             >
+            {/* Twitter logo by https://about.twitter.com/ja/who-we-are/brand-toolkit */}
             <img
               className={`h-[24px] w-[24px]`}
               src={`/twitter_Logo_blue.svg`}
@@ -81,13 +81,7 @@ export default function ShareModuleContent(
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24"
-                    viewBox="0 0 24 24"
-                >
-                <path d="M18 2a1 1 0 0 1 .993 .883l.007 .117v4a1 1 0 0 1 -.883 .993l-.117 .007h-3v1h3a1 1 0 0 1 .991 1.131l-.02 .112l-1 4a1 1 0 0 1 -.858 .75l-.113 .007h-2v6a1 1 0 0 1 -.883 .993l-.117 .007h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-6h-2a1 1 0 0 1 -.993 -.883l-.007 -.117v-4a1 1 0 0 1 .883 -.993l.117 -.007h2v-1a6 6 0 0 1 5.775 -5.996l.225 -.004h3z" ></path>
-                </svg>
+
                 <p className="text-sm mr-2 ml-0.5">facebook</p>
             </a>
         </div> */}
@@ -111,6 +105,7 @@ export default function ShareModuleContent(
                 target="_blank"
                 rel="noopener noreferrer"
             >
+            {/* Mastodon logo by https://joinmastodon.org/ja/branding */}
             <img
               className={`h-[24px] w-[24px]`}
               src={`/Mastodon_icon.svg`}
@@ -145,35 +140,6 @@ export default function ShareModuleContent(
             />
             </a>
         </div>
-        {/* Sidemisskey */}
-        {/* misskey logo by https://misskey-hub.net/appendix/assets.html */}
-        {/* <div>
-            <a
-                className="pl-1
-                hover:bg-[#15bc17] fill-[#15bc17] hover:fill-white 
-                text-[#15bc17] hover:text-white font-sans
-                w-auto h-10
-                rounded-full flex 
-                items-center justify-center
-                border border-[#15bc17]/30 
-                shadow-md
-                hover:shadow-xl hover:shadow-[#15bc17]/50 
-                cursor-pointer
-                transition-all duration-500 ease-out
-                "
-                href={shareURLSidemisskey(val)}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <svg width="20" height="20" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" >
-                    <g transform="matrix(1,0,0,1,18.9533,-15.1423)">
-                        <path d="M39.173,198.893C32.64,198.893 26.34,197.426 20.273,194.493C14.207,191.559 8.84,187.593 4.173,182.593C-0.493,177.593 -4.193,171.926 -6.927,165.593C-9.66,159.259 -11.027,152.693 -11.027,145.893C-11.027,131.626 -4.993,120.093 7.073,111.293C19.14,102.493 35.907,97.159 57.373,95.293C57.907,86.359 58.24,67.867 58.373,57.6L-1.827,57.6L-1.827,30.2L91.773,30.2L91.773,32.2C91.773,52.334 91.24,79.226 90.173,95.093C99.373,95.759 108.373,97.093 117.173,99.093L117.173,66.288L148.773,66.288L148.773,83.493C148.773,88.159 148.74,92.659 148.673,96.993C148.607,101.326 148.573,105.426 148.573,109.293C157.373,113.026 166.107,117.559 174.773,122.893L163.573,150.293C157.707,146.426 152.04,143.093 146.573,140.293C145.373,151.226 144.398,202.099 144.398,202.099L114.284,202.449C114.284,202.449 115.307,137.759 115.973,127.893C106.907,125.359 97.373,123.759 87.373,123.093C83.773,148.959 78.04,168.059 70.173,180.393C62.307,192.726 51.973,198.893 39.173,198.893ZM54.773,123.893C43.44,125.226 34.74,127.759 28.673,131.493C22.607,135.226 19.573,140.026 19.573,145.893C19.573,148.959 20.34,152.093 21.873,155.293C23.407,158.493 25.373,161.159 27.773,163.293C30.173,165.426 32.573,166.493 34.973,166.493C44.44,166.493 51.04,152.293 54.773,123.893Z"/>
-                    </g>
-                </svg>
-                <p className="text-sm mr-2 ml-0.5">さいどみすきー</p>
-            </a>
-        </div> */}
-        
         </div>
 
         {/* シェアテキストを編集 */}

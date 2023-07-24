@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         song:'60px 4fr 1fr',
-        album:'120px 1fr',
+        album:'100px 1fr',
         songPageLg:'400px 1fr'
       },
 

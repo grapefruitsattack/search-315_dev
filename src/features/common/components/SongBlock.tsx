@@ -14,7 +14,7 @@ export default function SongBlock(
 ) {
   const song = results;
   const albam = albamMasters.find(data => data.albumId === song?.albumId);
-  const imgSrc: string = song?.youtubeId || '';
+  const imgSrc: string = albam?.sereisId || '';
   
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
@@ -33,7 +33,7 @@ export default function SongBlock(
     <section className={`group
     rounded-md
     bg-white
-    drop-shadow-lg
+    border-t-4 border-l-4 border-blue-900/20
     font-sans 
     `}>
       <div 
@@ -43,24 +43,23 @@ export default function SongBlock(
           m-0
         `}
       >
-
           <div className ="row-span-2">
             
           <Link
             className =""
-                href={`../song/` + song?.songId}
+                href={`/song/` + song?.songId}
           >
           {imgSrc===''
             ?
             <img 
-              className={`object-cover object-center h-[60px] w-[59px] rounded-lg`}
+              className={`object-cover object-center h-[60px] w-[59px] rounded`}
               src="https://placehold.jp/bdbdbd/ffffff/150x150.png?text=no%20image"
               alt="アートワーク"
             />
             :
             <img
-              className={`object-cover object-center h-[60px] w-[59px] rounded-lg`}
-              src={`https://img.youtube.com/vi/`+ song?.youtubeId +`/1.jpg`}
+              className={`object-cover object-center h-[60px] w-[59px] rounded`}
+              src={`/artwork/${imgSrc}.png`}
               alt="アートワーク"
             />
             }
@@ -76,9 +75,9 @@ export default function SongBlock(
               font-sans
               row-span-1 col-span-2 
               rounded-md px-1 pt-1 
-              bg-gradient-to-tl from-cyan-100/30 to-violet-200/30
+               from-cyan-100/30 to-violet-200/30
               text-zinc-800
-              hover:bg-cyan-100/50
+              hover:bg-gradient-to-tl
               hover:text-cyan-900 
               duration-500 ease-out
             "
@@ -113,23 +112,18 @@ export default function SongBlock(
               href={`https://youtu.be/${song?.youtubeId}`}
             target="_blank" rel="noopener noreferrer">
             <motion.button
-                    className='rounded-lg border border-red-500 w-full h-full
+                    className='rounded-lg border-2 border-red-500 w-full h-full
                       text-red-500 text-sm font-sans leading-tight
                       hover:bg-red-500 hover:text-red-100 
                       transition-all duration-500 ease-out
-                      
+                      fill-red-500 hover:fill-red-100 
                       '
                     type="button"
                     aria-controls="contents"
                     aria-expanded={isOpen}
             >
-              <div className='flex flex-wrap justify-center items-center'>
-                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-brand-youtube" 
-                    width="30" height="30" viewBox="0 0 24 24" strokeWidth="0.7" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M3 5m0 4a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path>
-                    <path d="M10 9l5 3l-5 3z"></path>
-                  </svg>
+              <div className='flex flex-wrap justify-center items-center font-sans font-black'>
+                {'YouTube'}
                 </div>
               </motion.button>
               </a>
@@ -141,26 +135,24 @@ export default function SongBlock(
         artistName={song?.displayArtist}
         songId={song?.songId}
       />
+
       <Tooltip className = '' placement='top' label='曲名をコピーしました' isOpen = {tooltipOn}>
-      <motion.button className='rounded-lg border border-green-500 
+      <motion.button className='rounded-lg border-2 border-green-500 
           text-green-500 text-sm font-sans leading-tight
           hover:bg-green-500 hover:text-green-100 
-          transition-all duration-500 ease-out
+          transition-all duration-500 ease-out 
+          fill-green-500 hover:fill-green-100 
           '
         onClick={() => copyTextToClipboard(song?.songTitle)}
         whileTap={{ scale: 0.8 }}
         transition={{ duration: 0.05 }}
       >
         <div
-          className='flex flex-wrap justify-center items-center'>
-        <svg xmlns="http://www.w3.org/2000/svg" 
+          className='flex flex-wrap justify-center items-center '>
+        <svg 
         className="flex icon icon-tabler icon-tabler-copy justify-center items-center" 
-        width="24" height="24" viewBox="0 0 24 24" strokeWidth="0.7" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
-          <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
-        </svg>
-          <div className="">コピー</div>
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z"></path></svg>
+          {/* <div className="">コピー</div> */}
         </div>
       </motion.button>
       </Tooltip>
