@@ -98,7 +98,7 @@ export default function AlbumBlock(
 
       <div className="grid grid-cols-3 gap-x-2 lg:col-span-1 col-span-2 ">
       <div className='lg:relative static w-full '>
-      {results.songYoutubeId===''
+      {results.youtubeId===''
             ?<div className='inline-block lg:relative static l\w-full'></div>
             :
             <a className="w-full"
