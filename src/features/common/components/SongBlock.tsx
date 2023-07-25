@@ -8,13 +8,15 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {Tooltip} from "@chakra-ui/react";
 import Link from 'next/link';
+import GetArtWorkSrc from '../utils/GetArtWorkSrc';
 
 export default function SongBlock(
   { albumId,trackNo,results }: { albumId: string, trackNo: number, results: SongMaster}
 ) {
   const song = results;
   const albam = albamMasters.find(data => data.albumId === song?.albumId);
-  const imgSrc: string = albam?.sereisId || '';
+  const imgSrc: string = GetArtWorkSrc(albam?.sereisId||'',results.isSoloColle,results.isUnitColle);
+  
   
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
@@ -30,34 +32,34 @@ export default function SongBlock(
   }
     return (
       
-    <section className={`group
+    <section className={`
+    group
     rounded-md
-    bg-white
-    border-t-4 border-l-4 border-blue-900/20
     font-sans 
-    `}>
+    border-t-4 border-l-4
+    ${results.colleFlg === 1?'bg-amber-50 border-lime-900/20':'bg-white border-blue-200/80'}`}>
       <div 
         className ={`
           grid grid-cols-song 
           auto-rows-auto
           m-0
-        `}
+         `}
       >
           <div className ="row-span-2">
             
           <Link
             className =""
                 href={`/song/` + song?.songId}
+                
           >
           {imgSrc===''
             ?
             <img 
               className={`object-cover object-center h-[60px] w-[59px] rounded`}
-              src="https://placehold.jp/bdbdbd/ffffff/150x150.png?text=no%20image"
+              src={`/artwork/dummy.png`}
               alt="アートワーク"
             />
-            :
-            <img
+            :<img
               className={`object-cover object-center h-[60px] w-[59px] rounded`}
               src={`/artwork/${imgSrc}.png`}
               alt="アートワーク"

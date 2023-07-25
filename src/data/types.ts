@@ -3,11 +3,12 @@ export type Albums = {
   albumId: string;
   albumTitleFull: string;
   colleFlg: number;
+  isSoloColle: number;
+  isUnitColle: number;
   releaseDate: string;
   displayArtist: string;
   releasePage: string;
   youtubeId: string;
-  songYoutubeId: string;
 };
 
 export type SingingMaster = {
@@ -35,6 +36,8 @@ export type SongMaster = {
   youtubeId: string;
   trialYoutubeId: string;
   colleFlg: number;
+  isSoloColle: number;
+  isUnitColle: number;
   releaseDate: string;
 };
 
