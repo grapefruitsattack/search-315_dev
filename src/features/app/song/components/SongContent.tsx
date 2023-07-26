@@ -142,7 +142,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                         youtubeId ={result.youtubeId} 
                         title={result.songTitle} 
                         artistName={result.displayArtist}
-                        songId={result.songId}
+                        pass={'song/'+result.songId}
                     />
                 </div>    
             </div>

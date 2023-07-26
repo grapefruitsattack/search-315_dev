@@ -141,7 +141,7 @@ export default function SongBlock(
         youtubeId ={song?.youtubeId} 
         title={song?.songTitle} 
         artistName={song?.displayArtist}
-        songId={song?.songId}
+        pass={'song/'+song?.songId}
       />
 
       <Tooltip className = '' placement='top' label='曲名をコピーしました' isOpen = {tooltipOn}>

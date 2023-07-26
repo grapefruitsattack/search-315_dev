@@ -122,7 +122,7 @@ export default function AlbumContent({ album, }: { album: Albums}) {
                         youtubeId ={album.youtubeId} 
                         title={album.albumTitleFull} 
                         artistName={album.displayArtist}
-                        songId={album.albumId}
+                        pass={'album/'+album.albumId}
                     />
                 </div>    
             </div>

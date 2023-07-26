@@ -38,6 +38,7 @@ export default function SearchPage() {
           id: 'song',
           icon: 'song',
           color: '',
+          disabled:false,
           content: (<SearchPageSong />)
         },
         {
@@ -45,6 +46,7 @@ export default function SearchPage() {
           id: 'album',
           icon: 'album',
           color: '',
+          disabled:false,
           content: (<SearchPageAlbum/>)
         }]}
         />

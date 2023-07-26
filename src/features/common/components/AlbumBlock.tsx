@@ -132,7 +132,7 @@ export default function AlbumBlock(
         youtubeId ={results.youtubeId} 
         title={results.albumTitleFull} 
         artistName={results.displayArtist}
-        songId={results.albumId}
+        pass={'album/'+results.albumId}
       />
       </div>
       </div>

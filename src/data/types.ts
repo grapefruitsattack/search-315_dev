@@ -53,5 +53,6 @@ export type Tabs = {
   id: string;
   icon: string;
   color: string;
+  disabled: boolean;
   content: JSX.Element;
 };

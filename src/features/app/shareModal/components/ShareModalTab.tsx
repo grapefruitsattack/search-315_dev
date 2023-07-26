@@ -20,9 +20,9 @@ const cardVariant = {
     }
   }
 };
-export default function ShareModalTab  ({ tabs }: { tabs: Tabs[] }) {
+export default function ShareModalTab  ({ initId,tabs }: { initId:string,tabs: Tabs[] }) {
     const params = new URLSearchParams(useSearchParams().toString());
-    const initTab: Tabs = tabs.find((data)=>data.id === params.get('tab'))||tabs[0];
+    const initTab: Tabs = tabs.find((data)=>data.id === initId)||tabs[0];
     
 
     const [activeTab, setActiveTab] = useState(initTab);
@@ -35,13 +35,15 @@ export default function ShareModalTab  ({ tabs }: { tabs: Tabs[] }) {
           {tabs.map((tab,index) => (
             <button
               key={tab.id}
+              disabled={tab.disabled}
               onClick={() => {
                 setActiveTab(tab);
               }}
               className={`font-sans text-base lg:text-xl ${
-                activeTab.id === tab.id ? " text-pink-400 " : " hover:text-slate-800/60 "
+                tab.disabled ?"text-slate-300"
+                :activeTab.id === tab.id ? " text-pink-600 " : " hover:text-slate-800/60 "
               } relative rounded-full px-3 py-1.5 lg:min-w-[150px] h-12
-              text-lg font-medium text-slate-800 
+              text-lg font-medium 
               outline-sky-400 transition focus-visible:outline-2
             `}
             style={{
