@@ -104,7 +104,7 @@ export default function SongBlock(
           ">
             <a 
               className ="text-xs text-gray-500 underline hover:text-gray-400"
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+              href={`/album/` + results.albumId}
             >{albam?.albumTitleFull}</a>
           </div>
       </div>
