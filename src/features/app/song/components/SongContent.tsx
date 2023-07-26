@@ -3,158 +3,193 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import type { SongMaster,Albums,MvInfo } from '../../../../data/types';
 import MvInfos from '../../../../data/mvInfo.json';
+import GetArtWorkSrc from '../../../common/utils/GetArtWorkSrc';
+import {ShareYoutubeModal} from "../../../app/shareModal/ShareYoutubeModal";
 import OtherVersion from './OtherVersion'
-import {
-  Modal,
-  ModalBody,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  useDisclosure, 
- } from "@chakra-ui/react";
+import Mv from './Mv'
+ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faArrowUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
 
 export default function SongContent({ result, albumResult }: { result: SongMaster, albumResult: Albums }) {
 
     //MV情報取得
-    const mvInfo : MvInfo | undefined 
-        = MvInfos.find(data => data.songId === result.songId || data.songId === result.commonSong);
+    const mv : MvInfo[] | undefined 
+        = MvInfos.filter(data => data.songId === result.songId || data.songId === result.commonSong);
+    //アートワーク
+    const imgSrc: string = GetArtWorkSrc(albumResult.sereisId||'',result.isSoloColle,result.isUnitColle);
+    //リリース日
+    const releaseDate: string 
+        = new Date(
+            Number(result.releaseDate.substring(0,4))
+            ,Number(result.releaseDate.substring(4,6))
+            ,Number(result.releaseDate.substring(6,8))).toLocaleDateString();
     
+
     const [openYoutube, setOpenYoutube] = useState(false);
 
-    const { isOpen, onClose, onOpen } = useDisclosure();
 
 
     return(
-        <article className="pt-24 py-24 px-12 lg:px-24 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
+        <article className="pt-24 py-24 px-12 lg:px-24 mb-12 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
 
-        <section className="mt-5 mb-32 grid text-start align-middle lg:grid-cols-songPageLg grid-cols-1 lg:mb-0 gap-x-5">
+        <section className="mt-5 mb-16 text-start align-middle gap-x-5">
 
+
+
+        <div className='grid lg:grid-cols-songPageLg grid-cols-1 grid-rows-4 pt-8 '>
+            {/* アートワーク */}
             <div 
                 className={`
-                    row-span-6 lg:w-auto w-[100%] 
-                    ${openYoutube ? " hidden" : " lg:inline-block hidden "}
+                    row-span-6 lg:w-auto w-[120px] inline-block 
                 `}
             >
-                {result.youtubeId===''
-                ?
-                <img 
-                className={`object-cover object-center lg:h-[400px] lg:w-[398px] h-[200px] w-[200px] rounded-lg`}
-                src="https://placehold.jp/bdbdbd/ffffff/400x400.png?text=no%20image"
-                alt="アートワーク"
-                />
-                :
-                <motion.button 
-                    whileTap={{ scale: 0.8 }}
-                    transition={{ duration: 0.05 }}
-                    onClick={() => {
-                        setOpenYoutube(true);
-                    }}
-                >
                 <img
-                className={`object-cover object-center lg:h-[400px] lg:w-[398px] h-auto w-full max-w-[400px] aspect-square rounded-lg`}
-                src={`https://img.youtube.com/vi/`+ result.youtubeId +`/maxresdefault.jpg`}
+                className={`object-cover object-center lg:h-[120px] lg:w-[120px] h-auto w-full max-w-[400px] aspect-square rounded-lg`}
+                src={`/artwork/${imgSrc}.png`}
                 alt="アートワーク"
                 />
-                </motion.button >
-                }
             </div>
-            <div 
-                className={`
-                row-span-6 lg:w-auto w-[100%] 
-                ${openYoutube ? " lg:inline-block hidden " : " hidden "}
-            `}>
-                <iframe 
-                    className="w-full aspect-square" loading="lazy" 
-                    src={`https://www.youtube.com/embed/`+ result.youtubeId + `?modestbranding=1`} 
-                    allow="fullscreen">
-                </iframe>
-            </div>
-
-            
-            <div 
-                className={`
-                    row-span-6 lg:w-auto w-[100%] lg:hidden mb-4
-                `}
-            >
-                {result.youtubeId===''
-                ?
-                <img  
-                className={`object-cover object-center lg:h-[400px] lg:w-[398px] h-[200px] w-[200px] rounded-lg`}
-                src="https://placehold.jp/bdbdbd/ffffff/400x400.png?text=no%20image"
-                alt="アートワーク"
-                />
-                :
-                <button 
-                    onClick={onOpen}
+                 {/* 情報 */}
+                <div 
+                    className={`
+                        lg:w-auto inline-block row-span-4 px-2
+                    `}
                 >
-                <img
-                className={`object-cover object-center lg:h-[400px] lg:w-[398px] h-auto w-full max-w-[350px] aspect-square rounded-lg`}
-                src={`https://img.youtube.com/vi/`+ result.youtubeId +`/maxresdefault.jpg`}
-                alt="アートワーク"
-                />
-                </button >
-                }
-            </div >
-            <Modal 
-                isOpen={isOpen} onClose={onClose}
-            >
-                <ModalOverlay />
-                <ModalContent >
-                <ModalBody>
-                <div className="bg-white  rounded-md text-center">
-                <iframe 
-                    className="w-full aspect-square" loading="lazy" 
-                    src={`https://www.youtube.com/embed/`+ result.youtubeId + `?mute=1&modestbranding=1`} 
-                    allow="fullscreen">
-                </iframe>
-                <button className="w-full" onClick={onClose}>CLOSE</button>
+                    <div className="text-lg font-sans">
+                        <a 
+                        className ="hover:text-sky-300 underline text-slate-500"
+                        href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+                        >{albumResult.albumTitleFull}
+                        </a>
+                    </div>
+                    <div className="text-3xl font-mono font-bold inline-block">
+                        {result.songTitle}
+                    </div>
+                    <div className="text-lg font-sans text-slate-500">
+                        {result.displayArtist}
+                    </div>
+                    <div className="text-base font-sans text-slate-400 pt-px">
+                        {releaseDate}
+                    </div>
                 </div>
-                </ModalBody>
-                </ModalContent>
-            </Modal>
+            </div>
 
 
-            <div className="text-lg font-sans">
-                {result.displayArtist}
+            <div className='grid grid-cols-3 pt-8 gap-y-[9px] lg:w-1/2 h-[80px] '>
+
+                {result.youtubeId===''
+                      ?<></>
+                      :
+                      <div 
+                          className={`
+                              lg:w-auto inline-block row-span-1 lg:px-2 px-1
+                          `}
+                      >
+                      <a className="w-full"
+                        href={`https://youtu.be/${result.youtubeId}`}
+                      target="_blank" rel="noopener noreferrer">
+                      <motion.button
+                              className='rounded-lg border-2 border-red-500 w-full h-full
+                                text-red-500 font-sans leading-tight
+                                hover:bg-red-500 hover:text-red-100 
+                                transition-all duration-500 ease-out
+                                fill-red-500 hover:fill-red-100 
+                                lg:text-lg text-base
+                                '
+                              type="button"
+                              aria-controls="contents"
+                      >
+                        <div className='flex flex-wrap justify-center items-center font-sans font-black'>
+                          {'YouTube'}<FontAwesomeIcon className="pl-0.5" icon={faArrowUpRightFromSquare} />
+                          </div>
+                        </motion.button>
+                        </a>
+                </div>    
+                }
+                {result.youtubeId===''
+                      ?<></>
+                      :
+                      <div 
+                          className={`
+                              lg:w-auto inline-block row-span-1 lg:px-2 px-1
+                          `}
+                      >
+                      <a className="w-full"
+                        href={`https://music.youtube.com/watch?v=${result.youtubeId}`}
+                      target="_blank" rel="noopener noreferrer">
+                      <motion.button
+                              className='rounded-lg border-2 border-orange-500 w-full h-full
+                                text-orange-500 font-sans leading-tight
+                                hover:bg-orange-500 hover:text-orange-100 
+                                transition-all duration-500 ease-out
+                                fill-orange-500 hover:fill-orange-100 
+                                lg:text-lg text-base
+                                '
+                              type="button"
+                              aria-controls="contents"
+                      >
+                        <div className='flex flex-wrap justify-center items-center font-sans font-black'>
+                          {'YouTube Music'}<FontAwesomeIcon className="pl-0.5" icon={faArrowUpRightFromSquare} />
+                          </div>
+                        </motion.button>
+                        </a>
+                </div>    
+                }
+                <div 
+                    className={`
+                        lg:w-auto inline-block row-span-1 lg:px-2 px-1
+                    `}
+                >
+                    <ShareYoutubeModal 
+                        youtubeId ={result.youtubeId} 
+                        title={result.songTitle} 
+                        artistName={result.displayArtist}
+                        songId={result.songId}
+                    />
+                </div>    
             </div>
-            <div className="text-3xl font-mono font-bold inline-block">
-                {result.songTitle}
-            </div>
-            <div className="text-lg font-sans">
+
+            <div  className="w-fit
+                pt-8 text-base font-sans break-all
+                "
+            >
+            <p>
+            リリースページ：
                 <a 
-                className ="hover:text-gray-500 underline "
-                href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-                >{albumResult.albumTitleFull}
-                </a>
-            </div>
-            <div className="text-base font-sans mt-5">
-                {'リリースページ：'}
-            </div>
-            <div className="text-base font-sans">
-                <a 
-                className ="hover:text-gray-500 underline "
+                className ="
+                underline inline-flex
+                text-slate-400
+                hover:text-sky-300 
+                "
                 href={albumResult.releasePage}
                 target="_blank"
                 rel="noopener noreferrer"
-                >{albumResult.releasePage}
+                >
+                    <span>
+                    {albumResult.releasePage} <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                    </span>
                 </a>
+                    </p>
             </div>
         </section>
 
         {/* MV */}
+        <section className="mt-10">
         {
-        mvInfo === undefined
+        mv === undefined || mv.length === 0
         ?<></>
-        :<></>
+        :<Mv mvInfos={mv}/>
         }
+        </section>
 
         {/* 他のバージョン */}
+        <section className=" mt-10">
         {
         result.commonSong === ''
         ?<></>
         :<OtherVersion id={result.songId} commonSongId={result.commonSong}/>
         }
-
+        </section>
 
         </article>
     )

@@ -9,9 +9,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import {Tooltip} from "@chakra-ui/react";
 import Link from 'next/link';
 import GetArtWorkSrc from '../utils/GetArtWorkSrc';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faArrowUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
 
 export default function SongBlock(
-  { albumId,trackNo,results }: { albumId: string, trackNo: number, results: SongMaster}
+  { albumId,trackNo,results,existsButton }: { albumId: string, trackNo: number, results: SongMaster, existsButton: boolean}
 ) {
   const song = results;
   const albam = albamMasters.find(data => data.albumId === song?.albumId);
@@ -37,7 +39,7 @@ export default function SongBlock(
     rounded-md
     font-sans 
     border-t-4 border-l-4
-    ${results.colleFlg === 1?'bg-amber-50 border-lime-900/20':'bg-white border-blue-200/80'}`}>
+    ${results.youtubeId === ''?'bg-cyan-50/50 border-teal-200/30':'bg-white border-cyan-600/30'}`}>
       <div 
         className ={`
           grid grid-cols-song 
@@ -106,6 +108,10 @@ export default function SongBlock(
             >{albam?.albumTitleFull}</a>
           </div>
       </div>
+
+      {/* ボタンエリア */}
+      {existsButton
+      ?
       <div className="grid grid-cols-3 gap-x-2">
       {song?.youtubeId===''
             ?<div className = 'inline-block '></div>
@@ -125,7 +131,7 @@ export default function SongBlock(
                     aria-expanded={isOpen}
             >
               <div className='flex flex-wrap justify-center items-center font-sans font-black'>
-                {'YouTube'}
+                {'YouTube'}<FontAwesomeIcon className="pl-0.5" icon={faArrowUpRightFromSquare} />
                 </div>
               </motion.button>
               </a>
@@ -158,9 +164,10 @@ export default function SongBlock(
         </div>
       </motion.button>
       </Tooltip>
-
-
       </div>
+      :<></>
+      }
+
 
     </section>
     

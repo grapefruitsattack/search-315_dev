@@ -24,7 +24,7 @@ export const ShareYoutubeModal = (
     return (
         <>
 
-        <motion.button className='rounded-lg border-2 border-blue-500 
+        <motion.button className='rounded-lg border-2 border-blue-500 h-full
             text-blue-500 text-sm font-sans leading-tight
             hover:bg-blue-500 hover:text-blue-100 
             transition-all duration-500 ease-out w-full fill-blue-500 hover:fill-blue-100 

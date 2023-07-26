@@ -43,8 +43,9 @@ export type SongMaster = {
 
 export type MvInfo = {
   songId: string;
-  ssMvId: string;
-  msMvId: string;
+  mvType: string;
+  youtubeId: string;
+  songName: string;
 };
 
 export type Tabs = {

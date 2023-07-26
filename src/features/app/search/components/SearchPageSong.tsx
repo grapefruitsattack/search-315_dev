@@ -75,6 +75,7 @@ export default function SearchPageSong({ }: {}) {
               albumId={result.albumId} 
               trackNo={result.trackNo} 
               results={result}
+              existsButton={true}
             />
             ))}
             </section>
