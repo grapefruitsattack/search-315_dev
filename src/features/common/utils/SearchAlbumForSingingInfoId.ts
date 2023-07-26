@@ -1,6 +1,6 @@
 
 import type { SongMaster, SongInfo, Albums } from '../../../data/types';
-import albamMaster from '../../../data/albamMaster.json';
+import albumMaster from '../../../data/albumMaster.json';
 
 export default function SearchSongForSingingInfoId(
   singingInfoId: string[], songInfo: SongInfo[], subscExists :number, colleFlg :number 
@@ -13,7 +13,7 @@ export default function SearchSongForSingingInfoId(
       
     const albumMasterResults: Albums[] = [];
     distinctAlbumIds.forEach(albumId => {
-      const res = albamMaster.find((data) =>
+      const res = albumMaster.find((data) =>
       data.albumId === albumId
       && (subscExists === 0 || data.youtubeId)
       && (colleFlg === 0 || data.colleFlg === 0)

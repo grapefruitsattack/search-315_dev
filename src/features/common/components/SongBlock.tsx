@@ -1,7 +1,7 @@
 'use client'
 import type { SongMaster, Albums } from '../../../data/types';
 import songMasters from '../../../data/songMaster.json';
-import albamMasters from '../../../data/albamMaster.json';
+import albumMasters from '../../../data/albumMaster.json';
 import {YoutubeModal} from "../../../components/YoutubeModal";
 import {ShareYoutubeModal} from "../../app/shareModal/ShareYoutubeModal";
 import React, { useState } from "react";
@@ -16,7 +16,7 @@ export default function SongBlock(
   { albumId,trackNo,results,existsButton }: { albumId: string, trackNo: number, results: SongMaster, existsButton: boolean}
 ) {
   const song = results;
-  const albam = albamMasters.find(data => data.albumId === song?.albumId);
+  const albam = albumMasters.find(data => data.albumId === song?.albumId);
   const imgSrc: string = GetArtWorkSrc(albam?.sereisId||'',results.isSoloColle,results.isUnitColle);
   
   
