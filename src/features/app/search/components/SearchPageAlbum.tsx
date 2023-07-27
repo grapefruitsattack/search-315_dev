@@ -67,6 +67,7 @@ export default function SearchPageAlbum({ }: {}) {
             <AlbumBlock 
             key={index} 
             results={result}
+            existsButton={true}
           />
           ))}
         </section>

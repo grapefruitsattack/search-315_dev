@@ -2,6 +2,8 @@
 import type { SongMaster,Albums } from '../../../../data/types';
 import GetArtWorkSrc from '../../../common/utils/GetArtWorkSrc';
 import {ShareYoutubeModal} from "../../../app/shareModal/ShareYoutubeModal";
+import AlbumSongs from './AlbumSongs'
+import AlbumSeries from './AlbumSeries'
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faArrowUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
@@ -19,9 +21,10 @@ export default function AlbumContent({ album, }: { album: Albums}) {
     
     return(
        
-        <article className="pt-24 py-24 px-12 lg:px-24 mb-12 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
+        <article className="pt-24 py-24 px-12 lg:px-24 mb-24 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
             
 
+        <section>
         <div className='grid lg:grid-cols-songPageLg grid-cols-1 grid-rows-4 pt-8 '>
             {/* アートワーク */}
             <div 
@@ -51,6 +54,7 @@ export default function AlbumContent({ album, }: { album: Albums}) {
                     {releaseDate}
                 </div>
             </div>
+        </div>
             {/* ボタン */}
             <div className='grid grid-cols-3 pt-8 gap-y-[9px] lg:w-1/2 h-[80px] '>
                 {/* Youtube */}
@@ -148,8 +152,24 @@ export default function AlbumContent({ album, }: { album: Albums}) {
                     </a>
                 </p>
             </div>
+            </section>
 
-        </div>
+            {/* アルバム収録曲 */}
+            <section className="mt-10">
+            <AlbumSongs albumId={album.albumId}/>
+            </section>
+
+            {/* シリーズ */}
+            <section className="mt-10">
+            {
+            album.sereisId === undefined || album.sereisId === ''
+            ?<></>
+            :<AlbumSeries albumId={album.albumId} seriesId={album.sereisId}/>
+            }
+            </section>
+
         </article>
+
+
     )
 }

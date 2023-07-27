@@ -2,14 +2,16 @@
 import type { SongMaster, Albums } from '../../../data/types';
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
-import {YoutubeModal} from "../../../components/YoutubeModal";
+import GetArtWorkSrc from '../utils/GetArtWorkSrc';
 import {ShareYoutubeModal} from "../../app/shareModal/ShareYoutubeModal";
 import {Tooltip} from "@chakra-ui/react";
 import Link from 'next/link';
 
 export default function AlbumBlock(
-  { results }: { results: Albums}
+  { results, existsButton }: { results: Albums, existsButton: boolean}
 ) {
+
+  const imgSrc: string = GetArtWorkSrc(results.sereisId||'',results.isSoloColle,results.isUnitColle);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -27,8 +29,8 @@ export default function AlbumBlock(
   return (
       <section className={`group
       rounded-md
-      bg-white
-      border-t-4 border-l-4 border-blue-900/20
+      border-t-4 border-l-4
+      ${results.youtubeId === ''?'bg-cyan-50/50 border-teal-200/30':'bg-white border-cyan-600/30'}
       `}>
       <div 
         className ={`
@@ -38,11 +40,7 @@ export default function AlbumBlock(
         `}
       >
       <div className ="row-span-2 lg:row-span-3 lg:mb-0 mb-px">
-          <Link
-            className =""
-            href={`../song/` + results.albumId}
-          >
-          {results.sereisId===''
+          {imgSrc===''
             ?
             <img 
               className={`object-cover object-center h-[100px] w-[99px] rounded`}
@@ -52,11 +50,10 @@ export default function AlbumBlock(
             :
             <img
               className={`object-cover object-center h-[100px] w-[99px] rounded`}
-              src={`/artwork/${results.sereisId}.png`}
+              src={`/artwork/${imgSrc}.png`}
               alt="アートワーク"
             />
             }
-          </Link>
           </div>
           <div
             className ="row-span-1 px-1"
@@ -88,14 +85,18 @@ export default function AlbumBlock(
             className ="row-span-1 px-1 "
             >
           <a 
-            className ="inline-block
-            text-xs leading-tight text-zinc-700
+            className ="inline-block font-sans
+            text-sm leading-tight text-zinc-700
             pl-1 pb-[32px]
           ">
           {results.displayArtist}
           </a>
           </div>
 
+
+      {/* ボタンエリア */}
+      {existsButton
+      ?
       <div className="grid grid-cols-3 gap-x-2 lg:col-span-1 col-span-2 ">
       <div className='lg:relative static w-full '>
       {results.youtubeId===''
@@ -162,6 +163,9 @@ export default function AlbumBlock(
       </div>
 
       </div>
+      :<></>
+      }
+
 
       <div className="col-span-1 hidden lg:grid"></div>
 
