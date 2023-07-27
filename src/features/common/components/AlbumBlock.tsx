@@ -29,8 +29,9 @@ export default function AlbumBlock(
   return (
       <section className={`group
       rounded-md
-      border-t-4 border-l-4
-      ${results.youtubeId === ''?'bg-cyan-50/50 border-teal-200/30':'bg-white border-cyan-600/30'}
+      ${results.youtubeId === ''
+      ?'bg-purple-50 border-purple-400/30 border-t-2 border-l-2'
+      :'bg-white border-cyan-600/30 border-t-[5px] border-l-[6px]'}
       `}>
       <div 
         className ={`

@@ -34,12 +34,16 @@ export default function SongBlock(
   }
     return (
       
-    <section className={`
-    group
-    rounded-md
-    font-sans 
-    border-t-4 border-l-4
-    ${results.youtubeId === ''?'bg-cyan-50/50 border-teal-200/30':'bg-white border-cyan-600/30'}`}>
+    <section 
+    className={`
+      group
+      rounded-md
+      font-sans 
+      ${results.youtubeId === ''
+      ?'bg-purple-50 border-purple-400/30 border-t border-l'
+      :'bg-white border-cyan-600/30 border-t-4 border-l-4'}
+    `}
+    >
       <div 
         className ={`
           grid grid-cols-song 
@@ -79,7 +83,7 @@ export default function SongBlock(
               font-sans
               row-span-1 col-span-2 
               rounded-md px-1 pt-1 
-               from-cyan-100/30 to-violet-200/30
+              from-cyan-100/30 to-violet-200/30
               text-zinc-800
               hover:bg-gradient-to-tl
               hover:text-cyan-900 
