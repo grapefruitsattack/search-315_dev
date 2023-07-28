@@ -16,7 +16,7 @@ export default function AlbumContent({ album, }: { album: Albums}) {
     const releaseDate: string 
         = new Date(
             Number(album.releaseDate.substring(0,4))
-            ,Number(album.releaseDate.substring(4,6)-1)
+            ,Number(album.releaseDate.substring(4,6))-1
             ,Number(album.releaseDate.substring(6,8))).toLocaleDateString();
     
     return(
