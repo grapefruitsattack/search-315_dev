@@ -48,6 +48,38 @@ export type MvInfo = {
   songName: string;
 };
 
+export type LiveMaster = {
+  liveId: string;
+  perId: string;
+  livePerId: string;
+  liveName: string;
+  perName: string;
+  perDate: string;
+  officialPage: string;
+};
+
+export type LiveSetLists = {
+  livePerId: string;
+  trackNo: number;
+  songId: string;
+  coverFlg: string;
+  name: string;
+};
+
+export type LiveProduct = {
+  productId: string;
+  productName: string;
+  livePerId: string;
+  releasePage: string;
+  releaseDate: string;
+};
+
+export type LiveMovie = {
+  productId: string;
+  youtubeId: string;
+  type: string;
+};
+
 export type Tabs = {
   title: string;
   id: string;

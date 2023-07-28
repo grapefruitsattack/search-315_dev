@@ -1,20 +1,24 @@
 'use client'
 import { useState } from "react";
 import { motion } from "framer-motion";
-import type { SongMaster,Albums,MvInfo } from '../../../../data/types';
+import type { SongMaster,Albums,MvInfo,LiveMaster } from '../../../../data/types';
 import MvInfos from '../../../../data/mvInfo.json';
 import GetArtWorkSrc from '../../../common/utils/GetArtWorkSrc';
+import SearchLiveBySongId from '../../../common/utils/SearchLive';
 import {ShareYoutubeModal} from "../../../app/shareModal/ShareYoutubeModal";
 import OtherVersion from './OtherVersion'
 import Mv from './Mv'
- import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Live from './Live'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faArrowUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
 
 export default function SongContent({ result, albumResult }: { result: SongMaster, albumResult: Albums }) {
 
-    //MV情報取得
+    //MV情報
     const mv : MvInfo[] | undefined 
         = MvInfos.filter(data => data.songId === result.songId || data.songId === result.commonSong);
+    //ライブ情報
+    const live : LiveMaster[] = SearchLiveBySongId(result);
     //アートワーク
     const imgSrc: string = GetArtWorkSrc(albumResult.sereisId||'',result.isSoloColle,result.isUnitColle);
     //リリース日
@@ -23,14 +27,11 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
             Number(result.releaseDate.substring(0,4))
             ,Number(result.releaseDate.substring(4,6))
             ,Number(result.releaseDate.substring(6,8))).toLocaleDateString();
-    
-
-    const [openYoutube, setOpenYoutube] = useState(false);
 
 
 
     return(
-        <article className="pt-24 py-24 px-12 lg:px-24 mb-12 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
+        <article className="pt-24 pb-36 px-12 lg:px-24 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
 
         <section className="mt-5 mb-16 text-start align-middle gap-x-5">
             <div className='grid lg:grid-cols-songPageLg grid-cols-1 grid-rows-4 pt-8 '>
@@ -171,22 +172,34 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
         </section>
 
         {/* MV */}
-        <section className="mt-10">
         {
         mv === undefined || mv.length === 0
         ?<></>
-        :<Mv mvInfos={mv}/>
-        }
+        :
+        <section className="mt-10">
+            <Mv mvInfos={mv}/>
         </section>
+        }
+
+        {/* ライブ */}
+        {
+        live === undefined || live.length === 0
+        ?<></>
+        :
+        <section className="mt-10">
+            <Live results={live}/>
+        </section>
+        }
 
         {/* 他のバージョン */}
-        <section className=" mt-10">
         {
         result.commonSong === ''
         ?<></>
-        :<OtherVersion id={result.songId} commonSongId={result.commonSong}/>
-        }
+        :
+        <section className=" mt-10">
+            <OtherVersion id={result.songId} commonSongId={result.commonSong}/>
         </section>
+        }
 
         </article>
     )
