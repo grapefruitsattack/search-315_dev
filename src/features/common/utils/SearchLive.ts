@@ -7,7 +7,8 @@ export default function SearchLiveBySongId(songMaster: SongMaster): LiveMaster[]
     const liveSetListsResults 
       = liveSetLists.filter(data => 
           (data.songId === songMaster.songId 
-          || data.songId === songMaster.commonSong)
+          || (songMaster.commonSong !== '' && data.songId === songMaster.commonSong)
+          )
           && songMaster.isUnitColle === 0 && songMaster.isSoloColle === 0
           );
 
