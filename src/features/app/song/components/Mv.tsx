@@ -29,10 +29,14 @@ export default function OtherVersion({ mvInfos }: { mvInfos: MvInfo[] }) {
         <div>
             {mvInfos.map((info, index) => (
                 <>
-                    <div className='flex flex-wrap justify-start items-center font-sans font-black lg:text-base text-sm'>
+                    <div 
+                        key={index} 
+                        className='flex flex-wrap justify-start items-center font-sans font-black lg:text-base text-sm'>
                                 {info.songName}
                     </div>
-                    <a className=""
+                    <a 
+                        key={index} 
+                        className=""
                         href={`https://youtu.be/${info.youtubeId}`}
                       target="_blank" rel="noopener noreferrer">
                       <motion.button

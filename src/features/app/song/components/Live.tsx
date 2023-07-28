@@ -56,6 +56,7 @@ export default function Live({ results }: { results: LiveMaster[] }) {
         `}>
         {results.map((result, index) => (
             <a
+            key={index} 
             className ="hover:text-sky-300 underline text-slate-500 font-mono "
             href={`/live/` + result.livePerId}
             >
