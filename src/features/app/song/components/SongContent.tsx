@@ -25,7 +25,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
     const releaseDate: string 
         = new Date(
             Number(result.releaseDate.substring(0,4))
-            ,Number(result.releaseDate.substring(4,6)-1)
+            ,Number(result.releaseDate.substring(4,6))-1
             ,Number(result.releaseDate.substring(6,8))).toLocaleDateString();
 
 
