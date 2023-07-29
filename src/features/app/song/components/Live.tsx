@@ -8,17 +8,12 @@ export default function Live({ results }: { results: LiveMaster[] }) {
 
     return(
         <>
-        <div 
-            className="
-                text-2xl font-mono flex items-center w-full
-                after:h-[0.5px] after:grow after:bg-slate-900/50 after:ml-[1rem] 
-            "
-        >
             <div className="flex items-start">
             <a 
-                className="cursor-pointer lg:cursor-auto 
-                    text-gray-900 lg:hover:text-gray-900 hover:text-gray-500
-                    text-2xl font-mono flex items-center whitespace-nowrap
+                className="
+                    text-2xl font-mono flex items-center w-full
+                    after:h-[0.5px] after:grow after:bg-slate-900/50 after:ml-[1rem] 
+                    cursor-pointer lg:cursor-auto 
                 "
                 onClick={()=>setISopen(!isOpen)}
             >
@@ -49,7 +44,6 @@ export default function Live({ results }: { results: LiveMaster[] }) {
                 </div>
                 {/* 注釈　スマホ版 */}
             </div>
-        </div>
         <section className={`
             grid-cols-2 lg:grid-cols-4 gap-4 pt-4
             ${isOpen?'lg:grid grid':'lg:grid hidden'}            
