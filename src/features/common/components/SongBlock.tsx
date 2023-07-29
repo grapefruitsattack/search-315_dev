@@ -133,6 +133,8 @@ export default function SongBlock(
                     type="button"
                     aria-controls="contents"
                     aria-expanded={isOpen}
+                    whileTap={{ scale: 0.8 }}
+                    transition={{ duration: 0.05 }}
             >
               <div className='flex flex-wrap justify-center items-center font-sans font-black'>
                 {'YouTube'}<FontAwesomeIcon className="pl-0.5" icon={faArrowUpRightFromSquare} />
