@@ -51,16 +51,33 @@ export default function Live({ results }: { results: LiveMaster[] }) {
             </div>
         </div>
         <section className={`
-             items-start gap-4 grid-cols-1  mt-5
+            grid-cols-2 lg:grid-cols-4 gap-4 pt-4
             ${isOpen?'lg:grid grid':'lg:grid hidden'}            
         `}>
         {results.map((result, index) => (
             <a
             key={index} 
-            className ="hover:text-sky-300 underline text-slate-500 font-mono "
+            className ="
+            rounded-md
+            bg-white border-cyan-600/40 border-2
+            py-1 w-full
+            grid
+            place-items-center
+            lg:text-base text-sm p-0.5
+            underline
+            leading-tight
+            font-sans
+            rounded-md px-1 pt-1 
+            from-cyan-100/30 to-violet-200/30
+            text-cyan-900
+            hover:bg-gradient-to-tl
+            hover:text-cyan-700 
+            duration-500 ease-out
+            w-fit
+            "
             href={`/live/` + result.livePerId}
             >
-                {result.liveName + ' ' +result.perName}
+                <p className ="">{result.displayName}</p>
             </a>
         ))}
         </section>

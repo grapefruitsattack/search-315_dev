@@ -52,6 +52,7 @@ export type LiveMaster = {
   liveId: string;
   perId: string;
   livePerId: string;
+  displayName: string;
   liveName: string;
   perName: string;
   perDate: string;
