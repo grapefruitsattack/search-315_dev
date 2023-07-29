@@ -1,5 +1,4 @@
 'use client'
-import songInfos from '../../../data/songInfo.json';
 import type { SongMaster, SongInfo } from '../../../data/types';
 import CommonPage from "../../../components/CommonPage";
 import SongBlock from "../../common/components/SongBlock";
