@@ -2,6 +2,7 @@
 import type { SongMaster,Albums } from '../../../../data/types';
 import GetArtWorkSrc from '../../../common/utils/GetArtWorkSrc';
 import {ShareYoutubeModal} from "../../../app/shareModal/ShareYoutubeModal";
+import CopyButton from "../../../common/components/CopyButton";
 import AlbumSongs from './AlbumSongs'
 import AlbumSeries from './AlbumSeries'
 import { motion } from "framer-motion";
@@ -56,14 +57,18 @@ export default function AlbumContent({ album, }: { album: Albums}) {
             </div>
         </div>
             {/* ボタン */}
-            <div className='grid grid-cols-3 pt-8 gap-y-[9px] lg:w-1/2 h-[80px] '>
+            <div className='
+                grid grid-cols-2 pt-4 gap-y-[9px] 
+                lg:w-1/2 h-[80px] 
+                grid-rows-[38px]
+            '>
                 {/* Youtube */}
                 {album.youtubeId===''
                 ?<></>
                 :
                 <div 
                     className={`
-                        lg:w-auto inline-block row-span-1 lg:px-2 px-1
+                        lg:w-auto inline-block row-span-1 lg:pr-2 pr-1
                     `}
                 >
                     <a className="w-full"
@@ -93,7 +98,7 @@ export default function AlbumContent({ album, }: { album: Albums}) {
                 :
                 <div 
                     className={`
-                        lg:w-auto inline-block row-span-1 lg:px-2 px-1
+                        lg:w-auto inline-block row-span-1
                     `}
                 >
                     <a className="w-full"
@@ -119,7 +124,7 @@ export default function AlbumContent({ album, }: { album: Albums}) {
                 }
                 <div 
                     className={`
-                        lg:w-auto inline-block row-span-1 lg:px-2 px-1
+                        lg:w-auto inline-block row-span-1 lg:pr-2 pr-1
                     `}
                 >
                     <ShareYoutubeModal 
@@ -129,6 +134,13 @@ export default function AlbumContent({ album, }: { album: Albums}) {
                         pass={'album/'+album.albumId}
                     />
                 </div>    
+
+                <CopyButton 
+                    copyText={album.albumTitleFull} 
+                    buttonText={'アルバム名コピー'}
+                    tootipText={'アルバム名をコピーしました'}
+                    placement='bottom'
+                />
             </div>
 
             <div  className="w-fit

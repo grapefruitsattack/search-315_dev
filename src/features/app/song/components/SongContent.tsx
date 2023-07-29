@@ -1,10 +1,10 @@
 'use client'
-import { useState } from "react";
 import { motion } from "framer-motion";
 import type { SongMaster,Albums,MvInfo,LiveMaster } from '../../../../data/types';
 import MvInfos from '../../../../data/mvInfo.json';
 import GetArtWorkSrc from '../../../common/utils/GetArtWorkSrc';
 import SearchLiveBySongId from '../../../common/utils/SearchLive';
+import CopyButton from "../../../common/components/CopyButton";
 import {ShareYoutubeModal} from "../../../app/shareModal/ShareYoutubeModal";
 import OtherVersion from './OtherVersion'
 import Mv from './Mv'
@@ -28,13 +28,14 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
             ,Number(result.releaseDate.substring(4,6))-1
             ,Number(result.releaseDate.substring(6,8))).toLocaleDateString();
 
-
-
     return(
         <article className="pt-24 pb-36 px-12 lg:px-24 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
 
         <section className="mt-5 mb-16 text-start align-middle gap-x-5">
-            <div className='grid lg:grid-cols-songPageLg grid-cols-1 grid-rows-4 pt-8 '>
+            <div className='
+                grid 
+                lg:grid-cols-songPageLg grid-cols-1 grid-rows-4 
+                pt-8 '>
                 {/* アートワーク */}
                 <div 
                     className={`
@@ -73,17 +74,22 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
             </div>
 
             {/* ボタン */}
-            <div className='grid grid-cols-3 pt-8 gap-y-[9px] lg:w-1/2 h-[80px] '>
+            <div className='
+                grid grid-cols-2 pt-4 gap-y-[9px] 
+                lg:w-1/2 h-[80px] 
+                grid-rows-[38px]
+            '>
                 {/* Youtube */}
                 {result.youtubeId===''
                 ?<></>
                 :
                 <div 
                     className={`
-                        lg:w-auto inline-block row-span-1 lg:px-2 px-1
+                        lg:w-auto inline-block row-span-1 lg:pr-2 pr-1
+                        
                     `}
                 >
-                    <a className="w-full"
+                    <a className="w-full h-full"
                     href={`https://youtu.be/${result.youtubeId}`}
                     target="_blank" rel="noopener noreferrer">
                         <motion.button
@@ -110,10 +116,10 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                 :
                 <div 
                     className={`
-                        lg:w-auto inline-block row-span-1 lg:px-2 px-1
+                        lg:w-auto inline-block row-span-1 
                     `}
                 >
-                    <a className="w-full"
+                    <a className="w-full h-full"
                     href={`https://music.youtube.com/watch?v=${result.youtubeId}`}
                     target="_blank" rel="noopener noreferrer">
                     <motion.button
@@ -136,7 +142,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                 }
                 <div 
                     className={`
-                        lg:w-auto inline-block row-span-1 lg:px-2 px-1
+                        lg:w-auto inline-block row-span-1 lg:pr-2 pr-1
                     `}
                 >
                     <ShareYoutubeModal 
@@ -145,11 +151,18 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                         artistName={result.displayArtist}
                         pass={'song/'+result.songId}
                     />
-                </div>    
+                </div>
+                
+                <CopyButton 
+                    copyText={result.songTitle} 
+                    buttonText={'曲名コピー'}
+                    tootipText={'曲名をコピーしました'}
+                    placement='bottom'
+                />
             </div>
 
             <div  className="w-fit
-                pt-8 text-base font-sans break-all
+                pt-12 text-base font-sans break-all
                 "
             >
                 <p>リリースページ：
