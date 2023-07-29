@@ -2,6 +2,7 @@
 const nextConfig = {
     experimental: {
         scrollRestoration: true,
+        swcMinify: false,
         appDir:true
     },
     trailingSlash: true,
