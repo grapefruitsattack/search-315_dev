@@ -77,7 +77,10 @@ export default function Live({ results }: { results: LiveMaster[] }) {
             "
             href={`/live/` + result.livePerId}
             >
-                <p className ="">{result.displayName}</p>
+                <div className="flex flex-wrap ">
+                <p className ='after:content-["\00A0"]'>{result.displayLiveName+''}</p>
+                <p className ="">{result.displayPerName}</p>
+                </div>
             </a>
         ))}
         </section>
