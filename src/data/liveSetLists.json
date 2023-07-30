@@ -602,19 +602,19 @@
     { "livePerId": "7TH_SU2",  "trackNo": 19,  "songId": "GS01_3",  "coverFlg": "",  "name": "Beyond The Dream"}, 
     { "livePerId": "7TH_SU2",  "trackNo": 20,  "songId": "GS01_2",  "coverFlg": "",  "name": "DRIVE A LIVE"}, 
     { "livePerId": "7TH_SU2",  "trackNo": 21,  "songId": "4A01_1",  "coverFlg": "",  "name": "LIVE in your SMILE"}, 
-    { "livePerId": "FCL_BP_K",  "trackNo": 1,  "songId": "BYTD_1",  "coverFlg": "",  "name": "Beyond The Dream"}, 
+    { "livePerId": "FCL_BP_K",  "trackNo": 1,  "songId": "FC02_3",  "coverFlg": "",  "name": "Beyond The Dream"}, 
     { "livePerId": "FCL_BP_K",  "trackNo": 2,  "songId": "SL02_1",  "coverFlg": "",  "name": "STARLIGHT CELEBRATE!"}, 
     { "livePerId": "FCL_BP_K",  "trackNo": 3,  "songId": "SL06_1",  "coverFlg": "",  "name": "∞ Possibilities"}, 
     { "livePerId": "FCL_BP_K",  "trackNo": 4,  "songId": "OP01_2",  "coverFlg": "",  "name": "GOLD ～No.79～"}, 
     { "livePerId": "FCL_BP_K",  "trackNo": 5,  "songId": "OP09_4",  "coverFlg": "",  "name": "THIS IS IT!"}, 
     { "livePerId": "FCL_BP_K",  "trackNo": 6,  "songId": "OP08_3",  "coverFlg": "",  "name": "Learning Message"}, 
-    { "livePerId": "FCL_BP_K",  "trackNo": 7,  "songId": "SL06_3",  "coverFlg": "1",  "name": "Study Equal Magic!（DRAMATIC STARS カバー）"}, 
+    { "livePerId": "FCL_BP_K",  "trackNo": 7,  "songId": "FC01_2",  "coverFlg": "1",  "name": "Study Equal Magic! (DRAMATIC STARS Ver.)"}, 
     { "livePerId": "FCL_BP_K",  "trackNo": 8,  "songId": "OP03_1",  "coverFlg": "",  "name": "約束はドリーミングフライト"}, 
     { "livePerId": "FCL_BP_K",  "trackNo": 9,  "songId": "OP04_2",  "coverFlg": "",  "name": "Because"}, 
     { "livePerId": "FCL_BP_K",  "trackNo": 10,  "songId": "OP01_1",  "coverFlg": "",  "name": "THE FIRST STAR"}, 
-    { "livePerId": "FCL_BP_K",  "trackNo": 11,  "songId": "SL02_3",  "coverFlg": "1",  "name": "DRAMATIC NONFICTION（S.E.M カバー）"}, 
+    { "livePerId": "FCL_BP_K",  "trackNo": 11,  "songId": "FC02_2",  "coverFlg": "1",  "name": "DRAMATIC NONFICTION (S.E.M Ver.)"}, 
     { "livePerId": "FCL_BP_K",  "trackNo": 12,  "songId": "GS13_1",  "coverFlg": "",  "name": "Multiple Entertainment Show!"}, 
     { "livePerId": "FCL_BP_K",  "trackNo": 13,  "songId": "GS14_1",  "coverFlg": "",  "name": "Change to Chance"}, 
     { "livePerId": "FCL_BP_K",  "trackNo": 14,  "songId": "FC02_1",  "coverFlg": "",  "name": "Dramatic Anthem"}, 
-    { "livePerId": "FCL_BP_K",  "trackNo": 15,  "songId": "GS01_2",  "coverFlg": "",  "name": "DRIVE A LIVE"}
+    { "livePerId": "FCL_BP_K",  "trackNo": 15,  "songId": "FC01_3",  "coverFlg": "",  "name": "DRIVE A LIVE"}
     ]

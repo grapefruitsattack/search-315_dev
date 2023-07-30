@@ -6,7 +6,7 @@ import GetSongOtherVersion from './GetSongOtherVersion';
 export default function SearchLiveBySongId(songMaster: SongMaster): LiveMaster[]
 {
     const otherVersinon: string[]
-      = songMaster.commonSong=== ''
+      = songMaster.commonSong=== '' || songMaster.execFlg === 1
         ?[]
         :GetSongOtherVersion(songMaster.songId,songMaster.commonSong)
         .map((data)=> data.songId);

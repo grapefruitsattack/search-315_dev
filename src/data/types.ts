@@ -35,6 +35,7 @@ export type SongMaster = {
   commonSong: string;
   youtubeId: string;
   trialYoutubeId: string;
+  execFlg: number;
   colleFlg: number;
   isSoloColle: number;
   isUnitColle: number;
