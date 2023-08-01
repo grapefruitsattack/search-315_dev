@@ -30,7 +30,10 @@ export default function UnitBlock({ id }: { id: string }) {
           // border-`+ id + ` hover:bg-`+id+`/50`}
           style={{"--c": '#'+colorStr}as ItemCSS}
           className={
-            `group transition duration-500 bg-blue-950/90 rounded-r-3xl 
+            `group 
+            px-2 py-5 my-auto
+            transition duration-500 
+            bg-blue-950/90 rounded-r-3xl 
             text-gray-100 hover:text-blue-950
             hover:bg-blue-100/10
             border-l-8 border-` + id
