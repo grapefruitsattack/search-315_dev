@@ -158,10 +158,10 @@ export default function Home() {
           }}
           >
         <span className={``}>
-        <p className={`transform lg:transform-lg text-gray-800 font-sans m-0 max-w-[30ch]`}>
+        <p className={`transform lg:transform-lg text-base md:text-3xl text-gray-800 font-sans m-0 max-w-[30ch]`}>
               {''}{singingMaster.find(data => data.singingInfoId === "CFP03")?.singingInfoName}
           </p>
-          <p className={`max-w-[30ch]  font-semibold text-xs lg:text-sm opacity-70 text-`+"CFP03"}>
+          <p className={`max-w-[30ch] font-semibold text-xs lg:text-sm opacity-70 text-`+"CFP03"}>
           {singingMaster.find(data => data.singingInfoId === "CFP03")?.singingInfoRomajiName}
           </p>
             </span>
