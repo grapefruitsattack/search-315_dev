@@ -23,8 +23,9 @@ module.exports = {
         }],
       },
       screens: {
-        'middleMobile': '375px',
-        'min': '300px',
+        'mobileL': '425px',
+        'mobileM': '375px',
+        'mobileS': '320px',
       },
 
       backgroundImage: {

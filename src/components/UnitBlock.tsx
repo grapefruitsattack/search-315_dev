@@ -48,7 +48,12 @@ export default function UnitBlock({ id }: { id: string }) {
           }}
           >
         <span className={`inline-block justify-items-center items-center transition-transform  motion-reduce:transform-none `}>
-        <h2 className={`my-px text-base middleMobile:text-2xl lg:text-4xl break-all middleMobile:break-normal font-mono m-0 max-w-[30ch]`}>
+        <h2 className={`
+          my-px 
+          text-base mobileM:text-xl md:text-4xl 
+          break-all mobileS:break-normal 
+          font-mono m-0 max-w-[30ch]
+        `}>
               {''}{singingMaster.find(data => data.singingInfoId === id)?.singingInfoName}
           </h2>
             </span>
