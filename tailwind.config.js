@@ -15,6 +15,17 @@ module.exports = {
         album:'100px 1fr',
         songPageLg:'120px 1fr'
       },
+      fontSize: {
+        'xxs': ['1.5rem', {
+          lineHeight: '0.5rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '0.75rem',
+        }],
+      },
+      screens: {
+        'middleMobile': '375px',
+        'min': '300px',
+      },
 
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

@@ -31,7 +31,7 @@ export default function UnitBlock({ id }: { id: string }) {
           style={{"--c": '#'+colorStr}as ItemCSS}
           className={
             `group 
-            px-2 py-5 my-auto
+            px-1 py-3 middleMobile:py-5 my-auto
             transition duration-500 
             bg-blue-950/90 rounded-r-3xl 
             text-gray-100 hover:text-blue-950
@@ -48,7 +48,7 @@ export default function UnitBlock({ id }: { id: string }) {
           }}
           >
         <span className={`inline-block justify-items-center items-center transition-transform  motion-reduce:transform-none `}>
-        <h2 className={`my-px text-2xl lg:text-4xl break-all lg:break-normal font-mono m-0 max-w-[30ch]`}>
+        <h2 className={`my-px text-base middleMobile:text-2xl lg:text-4xl break-all min:break-normal font-mono m-0 max-w-[30ch]`}>
               {''}{singingMaster.find(data => data.singingInfoId === id)?.singingInfoName}
           </h2>
             </span>
