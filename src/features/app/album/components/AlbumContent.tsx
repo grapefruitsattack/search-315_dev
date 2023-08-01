@@ -72,7 +72,7 @@ export default function AlbumContent({ album, }: { album: Albums}) {
                     `}
                 >
                     <a className="w-full"
-                    href={`https://youtu.be/${album.youtubeId}`}
+                    href={`https://youtube.com/playlist?list=${album.youtubeId}`}
                     target="_blank" rel="noopener noreferrer">
                         <motion.button
                             className='rounded-lg border-2 border-red-500 w-full h-full
@@ -104,7 +104,7 @@ export default function AlbumContent({ album, }: { album: Albums}) {
                     `}
                 >
                     <a className="w-full"
-                    href={`https://music.youtube.com/watch?v=${album.youtubeId}`}
+                    href={`https://music.youtube.com/playlist?list=${album.youtubeId}`}
                     target="_blank" rel="noopener noreferrer">
                     <motion.button
                         className='rounded-lg border-2 border-orange-500 w-full h-full
