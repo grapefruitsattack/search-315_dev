@@ -1,7 +1,7 @@
 'use client'
 import type { LiveMovie,LiveProduct,LiveMaster } from '../../../../data/types';
-import LiveProducts from '../../../../data/LiveProducts.json';
-import LiveMovies from '../../../../data/LiveMovies.json';
+import LiveProducts from '../../../../data/liveProducts.json';
+import LiveMovies from '../../../../data/liveMovies.json';
 import {ShareYoutubeModal} from "../../../app/shareModal/ShareYoutubeModal";
 import CopyButton from "../../../common/components/CopyButton";
 import Products from './Products'
