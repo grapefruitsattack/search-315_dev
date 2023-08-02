@@ -22,11 +22,27 @@ export default function AlbumContent({ album, }: { album: Albums}) {
     
     return(
        
-        <article className="pt-24 py-24 px-12 lg:px-24 mb-24 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
-            
+        <article className="pt-32 pb-36 px-12 lg:px-24 mb-24 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
+        <section className="mb-2 bg-gradient-to-r from-orange-500 rounded">
+            <div 
+                className="
+                    flex items-center w-full ml-2
+                    text-2xl font-mono
+                    text-white
+                    cursor-pointer lg:cursor-auto 
+                     gap-1
+                ">
+                <svg className="fill-orange-500 bg-white rounded" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 16C14.2133 16 16 14.2133 16 12C16 9.78667 14.2133 8 12 8C9.78667 8 8 9.78667 8 12C8 14.2133 9.78667 16 12 16ZM12 11C12.55 11 13 11.45 13 12C13 12.55 12.55 13 12 13C11.45 13 11 12.55 11 12C11 11.45 11.45 11 12 11Z"></path></svg>
+                <p className="pr-2">
+                {'アルバム'}
 
+               </p>
+
+            </div>
+        </section>
         <section>
-        <div className='grid lg:grid-cols-songPageLg grid-cols-1 grid-rows-4 pt-8 '>
+        <div className='grid lg:grid-cols-songPageLg grid-cols-1 grid-rows-4 '>
             {/* アートワーク */}
             <div 
                 className={`
