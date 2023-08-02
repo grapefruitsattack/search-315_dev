@@ -81,6 +81,7 @@ export type LiveMovie = {
   productId: string;
   youtubeId: string;
   type: string;
+  typeName: string;
 };
 
 export type Tabs = {
