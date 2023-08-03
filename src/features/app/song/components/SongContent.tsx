@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import type { SongMaster,Albums,MvInfo,LiveMaster } from '../../../../data/types';
 import MvInfos from '../../../../data/mvInfo.json';
 import GetArtWorkSrc from '../../../common/utils/GetArtWorkSrc';
+import GetMv from '../../../common/utils/GetMv';
 import SearchLiveBySongId from '../../../common/utils/SearchLive';
 import CopyButton from "../../../common/components/CopyButton";
 import {ShareYoutubeModal} from "../../../app/shareModal/ShareYoutubeModal";
@@ -15,8 +16,7 @@ import {faArrowUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
 export default function SongContent({ result, albumResult }: { result: SongMaster, albumResult: Albums }) {
 
     //MV情報
-    const mv : MvInfo[] | undefined 
-        = MvInfos.filter(data => data.songId === result.songId || data.songId === result.commonSong);
+    const mv : MvInfo[] = GetMv(result);
     //ライブ情報
     const live : LiveMaster[] = SearchLiveBySongId(result);
     //アートワーク

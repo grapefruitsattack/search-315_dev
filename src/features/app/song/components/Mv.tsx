@@ -13,7 +13,7 @@ const mvTypeNames: {
     ,{mvType:'GS_1stAnniv',mvName:'サイスタ1周年PV'}
 ]
 
-export default function OtherVersion({ mvInfos }: { mvInfos: MvInfo[] }) {
+export default function Mv({ mvInfos }: { mvInfos: MvInfo[] }) {
     return(
     <>
         <div 
