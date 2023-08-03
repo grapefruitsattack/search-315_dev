@@ -29,7 +29,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
             ,Number(result.releaseDate.substring(6,8))).toLocaleDateString();
 
     return(
-        <article className="pt-32 pb-36 px-12 lg:px-24 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
+        <article className="pt-32 pb-96 px-12 lg:px-24 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
         <section className="mb-2 bg-gradient-to-r from-cyan-500/70 rounded">
             <div 
                 className="
