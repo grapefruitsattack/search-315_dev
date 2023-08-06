@@ -115,7 +115,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                             hover:bg-red-500 hover:text-red-100 
                             transition-all duration-500 ease-out
                             fill-red-500 hover:fill-red-100 
-                            lg:text-lg text-base
+                            text-sm mobileM:text-base lg:text-lg
                             '
                             type="button"
                             aria-controls="contents"
@@ -147,7 +147,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                         hover:bg-orange-500 hover:text-orange-100 
                         transition-all duration-500 ease-out
                         fill-orange-500 hover:fill-orange-100 
-                        lg:text-lg text-base
+                        text-xs mobileM:text-base lg:text-lg
                         '
                         type="button"
                         aria-controls="contents"

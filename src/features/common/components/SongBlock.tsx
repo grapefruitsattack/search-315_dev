@@ -125,7 +125,9 @@ export default function SongBlock(
             target="_blank" rel="noopener noreferrer">
             <motion.button
                     className='rounded-lg border-2 border-red-500 w-full h-full
-                      text-red-500 text-sm font-sans leading-tight
+                      text-red-500 
+                      text-xs mobileM:text-base lg:text-lg
+                       font-sans leading-tight
                       hover:bg-red-500 hover:text-red-100 
                       transition-all duration-500 ease-out
                       fill-red-500 hover:fill-red-100 
