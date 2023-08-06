@@ -1,9 +1,8 @@
 'use client'
 import { useState } from "react";
 import type { SongMaster,Albums,MvInfo,LiveMaster } from '../../../../data/types';
-import {
-    Tooltip
-   } from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faCircleExclamation} from "@fortawesome/free-solid-svg-icons";
 
 export default function Live({ results }: { results: LiveMaster[] }) {
 
@@ -33,10 +32,9 @@ export default function Live({ results }: { results: LiveMaster[] }) {
                 <div className="ml-2 hidden lg:flex flex-wrap fill-red-600
                 text-sm font-sans text-gray-900 bg-gray-200
                 ">
-                    <p className="">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -1 24 26" width="20" height="20">
-                    <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z"></path></svg>
-                    </p>
+                <span className="pr-1 text-red-500">
+                <FontAwesomeIcon icon={faCircleExclamation} />
+                </span>
                     <p className="w-fit">
                         {'ナンバリングライブ(1st～7th)、3Dライブ(ファンコンライブ)のみ対応。'}
                     </p>
@@ -44,27 +42,25 @@ export default function Live({ results }: { results: LiveMaster[] }) {
                         {'そのほかのライブは後日実装予定です'}
                     </p>
                 </div>
-                {/* 注釈　スマホ版 */}
-                <Tooltip 
-                    hasArrow 
-                    label="ナンバリングライブ(1st～7th)、3Dライブ(ファンコンライブ)のみ対応。そのほかのライブは後日実装予定です" 
-                    isOpen = {isOpen} 
-                    placement='top-end'
-                >
-                <button className="ml-2 lg:hidden flex flex-wrap fill-red-600
-                text-sm font-sans text-gray-900 
-                ">
-                    <p className="">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -1 24 26" width="24" height="24">
-                    <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z"></path></svg>
-                    </p>
-                </button>
-                </Tooltip>
             </a>
             </div>
         <section className={`
+            ${isOpen?'lg:flex flex flex-col':'lg:flex hidden'}            
+        `}>
+        {/* 注釈　スマホ版 */}
+        <div className="ml-2 lg:hidden flex flex-wrap fill-red-600
+        text-sm font-sans text-gray-900 bg-gray-200
+        ">
+            <p className="w-fit bg-gray-200">
+            <span className="pr-1 text-red-500">
+            <FontAwesomeIcon icon={faCircleExclamation} />
+            </span>
+                {'ナンバリングライブ(1st～7th)、3Dライブ(ファンコンライブ)のみ対応。'}
+                {'そのほかのライブは後日実装予定です'}
+            </p>
+        </div>
+        <div className={`grid
             grid-cols-2 lg:grid-cols-4 lg:gap-4 gap-2 pt-4
-            ${isOpen?'lg:grid grid':'lg:grid hidden'}            
         `}>
         {results.map((result, index) => (
             <a
@@ -95,6 +91,7 @@ export default function Live({ results }: { results: LiveMaster[] }) {
                 </div>
             </a>
         ))}
+        </div>
         </section>
         </>
 )
