@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import Head from 'next/head'
 import Script from 'next/script'
 import { Providers } from "./providers";
+import ScriptGoogleAnalytics from "../features/management/ScriptGoogleAnalytics";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +25,7 @@ export default function RootLayout({
       </Providers>
       <Script id="holder-js" src="//cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.js" strategy="lazyOnload">
       </Script>
+      <ScriptGoogleAnalytics />
   <div id="root"></div>
       </body>
     </html>
