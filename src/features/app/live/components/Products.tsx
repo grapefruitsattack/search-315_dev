@@ -22,9 +22,9 @@ export default function Products({ results }: { results: LiveProduct[] }) {
              items-start gap-3 grid-cols-1  mt-5    
         `}>
             {results.map((result, index) => (
-            <div className='leading-tight'>
+            <div className='leading-tight'
+            key={index} >
             <a
-            key={index} 
             className ="
             hover:text-sky-300 underline text-slate-500 font-mono 
             text-sm lg:text-base
