@@ -61,13 +61,13 @@ export default function AlbumContent({ album, }: { album: Albums}) {
                     lg:w-auto inline-block row-span-4 mx-2
                 `}
             >
-                <div className="text-lg font-sans text-slate-500">
+                <div className="lg:text-xl text-base font-sans text-slate-500">
                     {album.displayArtist}
                 </div>
-                <div className="text-3xl font-mono font-bold inline-block">
+                <div className="lg:text-3xl text-xl font-mono font-bold inline-block">
                     {album.albumTitleFull}
                 </div>
-                <div className="text-base font-sans text-slate-400 pt-px">
+                <div className="lg:text-base text-sm font-sans text-slate-400 pt-px">
                     {releaseDate}
                 </div>
             </div>
@@ -164,13 +164,13 @@ export default function AlbumContent({ album, }: { album: Albums}) {
             </div>
 
             <div  className="w-fit
-                pt-8 text-base font-sans break-all
+                pt-12 lg:text-base text-sm font-sans break-all
                 "
             >
                 <p>リリースページ：
                     <a 
                     className ="
-                    underline inline-flex
+                    underline
                     text-slate-400
                     hover:text-sky-300 
                     "

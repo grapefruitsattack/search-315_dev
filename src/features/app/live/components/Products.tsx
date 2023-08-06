@@ -22,6 +22,7 @@ export default function Products({ results }: { results: LiveProduct[] }) {
              items-start gap-3 grid-cols-1  mt-5    
         `}>
             {results.map((result, index) => (
+            <div className='leading-tight'>
             <a
             key={index} 
             className ="
@@ -37,7 +38,7 @@ export default function Products({ results }: { results: LiveProduct[] }) {
                 {result.productName} <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                 </span>
             </a>
-            
+            </div>
             ))}
         </div>
     </>

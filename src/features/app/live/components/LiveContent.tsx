@@ -98,7 +98,7 @@ export default function LiveContent({ result }: { result: LiveMaster }) {
                 <p>公式ページ：
                     <a 
                     className ="
-                    underline inline-flex
+                    underline
                     text-slate-400
                     hover:text-sky-300 
                     "

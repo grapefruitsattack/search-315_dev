@@ -71,7 +71,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                         lg:w-auto inline-block row-span-4 px-2
                     `}
                 >
-                    <div className="text-lg font-sans">
+                    <div className="text-lg font-sans leading-tight lg:leading-normal">
                         <a 
                         className ="hover:text-sky-300 underline text-slate-500"
                         href={`/album/` + result.albumId}
@@ -183,13 +183,13 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
             </div>
 
             <div  className="w-fit
-                pt-12 text-base font-sans break-all
+                pt-12 lg:text-base text-sm font-sans break-all
                 "
             >
                 <p>リリースページ：
                     <a 
                     className ="
-                    underline inline-flex
+                    underline 
                     text-slate-400
                     hover:text-sky-300 
                     "
