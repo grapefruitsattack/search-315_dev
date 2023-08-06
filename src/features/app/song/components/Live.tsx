@@ -45,7 +45,7 @@ export default function Live({ results }: { results: LiveMaster[] }) {
             </a>
             </div>
         <section className={`
-            ${isOpen?'lg:flex flex flex-col':'lg:flex hidden'}            
+            ${isOpen?'lg:grid flex flex-col':'lg:grid hidden'}            
         `}>
         {/* 注釈　スマホ版 */}
         <div className="ml-2 lg:hidden flex flex-wrap fill-red-600
