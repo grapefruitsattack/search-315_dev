@@ -64,8 +64,6 @@ export default function SetLists({ livePerId }: { livePerId: string }) {
                   duration-500 ease-out
                 "
                 href={`/song/` + result.songId}
-                target="_blank"
-                rel="noopener noreferrer"
                 >
                     <span>
                     {result.songTitle}
