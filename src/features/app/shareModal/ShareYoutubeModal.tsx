@@ -107,7 +107,7 @@ export const ShareYoutubeModal = (
           disabled:false,
           content: (
             <ShareModuleContent 
-              text={`${title} ${artistName.trim() === '' ? '': '- ' + artistName}  |  サーチ315\n#SideM #search315`} 
+              text={`${title} ${artistName.trim() === '' ? '': '- ' + artistName}  |  サーチサイコー\n#SideM #search315`} 
               url={`https://search315.com/`+ pass}/>
             )
         },
