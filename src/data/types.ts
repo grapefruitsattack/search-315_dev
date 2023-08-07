@@ -2,6 +2,7 @@ export type Albums = {
   sereisId: string;
   albumId: string;
   albumTitleFull: string;
+  albumTitle: string;
   colleFlg: number;
   isSoloColle: number;
   isUnitColle: number;

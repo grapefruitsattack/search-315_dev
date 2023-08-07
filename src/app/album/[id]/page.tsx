@@ -17,7 +17,7 @@ export function generateStaticParams() {
   });
 }
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const albumTitleFull: string = albumMaster.find((data)=>data.albumId === params.id)?.albumTitleFull||'';
+  const albumTitleFull: string = albumMaster.find((data)=>data.albumId === params.id)?.albumTitle||'';
   return { title: `${albumTitleFull} ${'\u00a0'}|${'\u00a0\u00a0'}サーチサイコー` };
 }
 export default function Songs({ params }: { params: { id: string } }) {
