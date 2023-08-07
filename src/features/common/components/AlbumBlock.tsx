@@ -118,7 +118,7 @@ export default function AlbumBlock(
               aria-controls="contents"
               aria-expanded={isOpen}
               onClick={() => setIsOpen(!isOpen)}
-              whileTap={{ scale: 0.8 }}
+              whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.05 }}
               >
               <div className='flex flex-wrap justify-center items-center font-sans font-black'>
@@ -150,7 +150,7 @@ export default function AlbumBlock(
           transition-all duration-500 ease-out w-full h-[30px] absolute bottom-0
           '
         onClick={() => copyTextToClipboard(results.albumTitleFull)}
-        whileTap={{ scale: 0.8 }}
+        whileTap={{ scale: 0.87 }}
         transition={{ duration: 0.05 }}
       >
         <div

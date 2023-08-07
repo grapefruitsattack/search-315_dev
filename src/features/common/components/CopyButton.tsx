@@ -41,7 +41,7 @@ export default function CopyButton (
             fill-green-500 hover:fill-green-100 
             '
             onClick={() => copyTextToClipboard(copyText)}
-            whileTap={{ scale: 0.8 }}
+            whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.05 }}
         >
             <div

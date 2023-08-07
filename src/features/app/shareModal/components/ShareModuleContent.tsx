@@ -176,7 +176,7 @@ export default function ShareModuleContent(
                     p-2'
                onClick={() => setVal(shareText)}
                whileHover={{ scale: 1 }}
-               whileTap={{ scale: 0.8 }}
+               whileTap={{ scale: 0.85 }}
                transition={{ duration: 0.05 }}
             >リセット</motion.button>
             <Tooltip className = '' placement='bottom' label='コピーしました' isOpen = {tooltipOn}>
@@ -186,7 +186,7 @@ export default function ShareModuleContent(
                     transition-all duration-500 ease-out
                     p-2'
                 onClick={() => copyTextToClipboard(val)}
-                whileTap={{ scale: 0.8 }}
+                whileTap={{ scale: 0.85 }}
                 transition={{ duration: 0.05 }}
                 >コピー</motion.button>
             </Tooltip>

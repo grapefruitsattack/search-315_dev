@@ -29,7 +29,7 @@ export const ShareYoutubeModal = (
             hover:bg-blue-500 hover:text-blue-100 
             transition-all duration-500 ease-out w-full fill-blue-500 hover:fill-blue-100 
             '
-            whileTap={{ scale: 0.8 }}
+            whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.05 }}
           onClick={onOpen}>
         <div className='flex flex-wrap justify-center items-center '>
