@@ -46,7 +46,8 @@ export default function SongBlock(
     >
       <div 
         className ={`
-          grid grid-cols-song 
+          grid 
+          mobileM:grid-cols-song grid-cols-songMobileS 
           auto-rows-auto
           m-0
          `}
@@ -61,12 +62,18 @@ export default function SongBlock(
           {imgSrc===''
             ?
             <img 
-              className={`object-cover object-center h-[60px] w-[59px] rounded`}
+              className={`object-cover object-center rounded 
+                h-[50px] w-[49px] 
+                mobileM:h-[60px] mobileM:w-[59px] 
+              `}
               src={`/artwork/dummy.png`}
               alt="アートワーク"
             />
             :<img
-              className={`object-cover object-center h-[60px] w-[59px] rounded`}
+            className={`object-cover object-center rounded 
+              h-[50px] w-[49px] 
+              mobileM:h-[60px] mobileM:w-[59px] 
+            `}
               src={`/artwork/${imgSrc}.png`}
               alt="アートワーク"
             />
@@ -76,7 +83,8 @@ export default function SongBlock(
           <Link
             className ="
               inline-block
-              text-xl p-0.5
+              tablet:text-xl text-base
+              p-0.5
               rounded-md
               underline
               leading-tight
