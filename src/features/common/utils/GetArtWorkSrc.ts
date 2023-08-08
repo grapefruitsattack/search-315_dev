@@ -4,6 +4,7 @@ const dummySeriesId:string[]
         'AD'
         ,'SH'
         ,''
+        ,'FC'
     ];
 
 export default function GetArtWorkSrc
