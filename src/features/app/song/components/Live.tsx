@@ -63,9 +63,8 @@ export default function Live({ results }: { results: LiveMaster[] }) {
             grid-cols-2 lg:grid-cols-4 lg:gap-4 gap-2 pt-4
         `}>
         {results.map((result, index) => (
-            <div className = "flex ">
+            <div key={index} className = "flex ">
                 <a
-                key={index} 
                 className ="
                 rounded-md
                 bg-white border-cyan-600/40 border-2
