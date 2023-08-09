@@ -15,7 +15,7 @@ export default function AlbumSongs({ albumId }: { albumId: string }) {
         <>
         <a 
             className="
-                text-2xl font-mono flex items-center w-full
+                mobileM:text-2xl text-xl font-mono flex items-center w-full
                 after:h-[0.5px] after:grow after:bg-slate-900/50 after:ml-[1rem] 
                 cursor-pointer lg:cursor-auto 
             "
