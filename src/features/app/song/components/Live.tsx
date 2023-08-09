@@ -63,33 +63,35 @@ export default function Live({ results }: { results: LiveMaster[] }) {
             grid-cols-2 lg:grid-cols-4 lg:gap-4 gap-2 pt-4
         `}>
         {results.map((result, index) => (
-            <a
-            key={index} 
-            className ="
-            rounded-md
-            bg-white border-cyan-600/40 border-2
-            py-1 w-full
-            grid
-            place-items-center
-            lg:text-base text-sm p-0.5
-            underline
-            leading-tight
-            font-sans
-            rounded-md px-1 pt-1 
-            from-cyan-100/30 to-violet-200/30
-            text-cyan-900
-            hover:bg-gradient-to-tl
-            hover:text-cyan-700 
-            duration-500 ease-out
-            w-fit
-            "
-            href={`/live/` + result.livePerId}
-            >
-                <div className="flex flex-wrap place-content-center">
-                <p className ='after:content-["\00A0"] text-center'>{result.displayLiveName+''}</p>
-                <p className ="text-center">{result.displayPerName}</p>
-                </div>
-            </a>
+            <div className = "flex ">
+                <a
+                key={index} 
+                className ="
+                rounded-md
+                bg-white border-cyan-600/40 border-2
+                py-1 w-full
+                grid
+                place-items-center
+                lg:text-base text-sm p-0.5
+                underline
+                leading-tight
+                font-sans
+                rounded-md px-1 pt-1 
+                from-cyan-100/30 to-violet-200/30
+                text-cyan-900
+                hover:bg-gradient-to-tl
+                hover:text-cyan-700 
+                duration-500 ease-out
+                w-fit h-fit
+                "
+                href={`/live/` + result.livePerId}
+                >
+                    <div className="flex flex-wrap place-content-center">
+                    <p className ='after:content-["\00A0"] text-center'>{result.displayLiveName+''}</p>
+                    <p className ="text-center">{result.displayPerName}</p>
+                    </div>
+                </a>
+            </div>
         ))}
         </div>
         </section>
