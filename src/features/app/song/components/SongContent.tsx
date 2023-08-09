@@ -71,20 +71,20 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                         lg:w-auto inline-block row-span-4 px-2
                     `}
                 >
-                    <div className="text-lg font-sans leading-tight lg:leading-normal">
+                    <div className="tablet:text-xl text-base font-sans leading-tight lg:leading-normal">
                         <a 
                         className ="hover:text-sky-300 underline text-slate-500"
                         href={`/album/` + result.albumId}
                         >{albumResult.albumTitleFull}
                         </a>
                     </div>
-                    <div className="text-3xl font-mono font-bold inline-block">
+                    <div className="text-2xl tablet:text-3xl font-mono font-bold inline-block">
                         {result.songTitle}
                     </div>
-                    <div className="text-lg font-sans text-slate-500">
+                    <div className="tablet:text-xl text-base font-sans text-slate-500">
                         {result.displayArtist}
                     </div>
-                    <div className="text-base font-sans text-slate-400 pt-px">
+                    <div className="tablet:text-base text-sm font-sans text-slate-400 pt-px">
                         {releaseDate}
                     </div>
                 </div>
