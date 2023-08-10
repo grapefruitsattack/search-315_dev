@@ -167,7 +167,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                     `}
                 >
                     <ShareYoutubeModal 
-                        youtubeId ={result.youtubeId} 
+                        youtubeUrl ={`https://youtu.be/`+ result.youtubeId}
                         title={result.songTitle} 
                         artistName={result.displayArtist}
                         pass={'song/'+result.songId}

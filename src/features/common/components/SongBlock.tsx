@@ -154,7 +154,7 @@ export default function SongBlock(
       }
 
       <ShareYoutubeModal 
-        youtubeId ={song?.youtubeId} 
+        youtubeUrl ={`https://youtu.be/`+ song?.youtubeId}
         title={song?.songTitle} 
         artistName={song?.displayArtist}
         pass={'song/'+song?.songId}

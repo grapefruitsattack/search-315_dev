@@ -14,7 +14,7 @@ import {
 
 
 export const ShareYoutubeModal = (
-  { youtubeId, title, artistName, pass }: { youtubeId: string, title: string, artistName: string, pass: string }
+  { youtubeUrl, title, artistName, pass }: { youtubeUrl: string, title: string, artistName: string, pass: string }
 ) => {
     //モーダル
 
@@ -75,17 +75,17 @@ export const ShareYoutubeModal = (
 
         <div className=''>
         <ShareModalTab 
-        initId={youtubeId===''?'サーチ315':'YouTube'}
+        initId={youtubeUrl===''?'サーチ315':'YouTube'}
         tabs = {[{
           title: 'YouTube',
           id: 'YouTube',
           icon: '',
           color: '',
-          disabled: youtubeId==='',
+          disabled: youtubeUrl==='',
           content: (
             <ShareModuleContent 
               text={`${title} ${artistName.trim() === '' ? '': '- ' + artistName}  |  YouTube\n#SideM #search315`} 
-              url={`https://youtu.be/`+ youtubeId}/>
+              url={youtubeUrl}/>
             )
         },
         // {
@@ -108,7 +108,7 @@ export const ShareYoutubeModal = (
           content: (
             <ShareModuleContent 
               text={`${title} ${artistName.trim() === '' ? '': '- ' + artistName}  |  サーチサイコー\n#SideM #search315`} 
-              url={`https://search315.com/`+ pass}/>
+              url={`https://search315.com/`+ pass+'/'}/>
             )
         },
         ]}

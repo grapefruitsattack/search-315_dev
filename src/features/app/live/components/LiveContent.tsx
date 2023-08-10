@@ -77,7 +77,7 @@ export default function LiveContent({ result }: { result: LiveMaster }) {
                 `}
             >
                 <ShareYoutubeModal 
-                    youtubeId ={''} 
+                    youtubeUrl ={''} 
                     title={result.liveName + ' ' + result.perName}
                     artistName={''}
                     pass={'live/'+result.livePerId}
