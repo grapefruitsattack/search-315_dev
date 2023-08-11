@@ -50,9 +50,6 @@ export default function FilterSelect(
         value.forEach((data)=>{
           params.set(data.value,'1');
         });
-        console.log(value);
-        console.log(currentPath);
-        console.log(params.toString());
         router.push(currentPath + '?'  + params.toString());
       }}
       isSearchable={false}

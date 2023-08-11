@@ -60,9 +60,6 @@ export const SearchModal: React.VFC = () => {
     function errorCheck(): boolean {
         const tmpStr: string = params.get('q')||'';
         const tmpStrArray: string[] = tmpStr.split(' ');
-        console.log(urlSearchParams.toString())
-        console.log(tmpStr);
-        console.log(tmpStrArray);
         if(tmpStr.trim()===''){
             return false;
         } else {
