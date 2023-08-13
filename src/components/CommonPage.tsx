@@ -2,29 +2,23 @@
 import { Props } from "next/script";
 import HeaderAndFooter from "./HeaderAndFooter";
 import { AppProps } from "next/app";
-import { NextRouter, useRouter } from "next/router"
-import { AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation"
 import React from "react";
 import useBuildId from "../features/common/utils/useBuildId"
 
 
 const CommonPage = ({ children }: Props ,{ Component, pageProps, router }: AppProps)=> {
   const { shouldReload } = useBuildId();
-  const nextrouter: NextRouter = useRouter();
+  const nextrouter = useRouter();
   
   React.useEffect(() => {
     const handleRouteChange = (url: string) => {
       if (shouldReload()) {
-        document.location.reload()
+        console.log('reload');
+        nextrouter.refresh();
       }
     }
 
-    router.events.on("routeChangeComplete", handleRouteChange)
-
-    return () => {
-      console.log('reload')
-      router.events.off("routeChangeComplete", handleRouteChange)
-    }
   }, [shouldReload])
 
     return (

@@ -1,9 +1,9 @@
-import { useRouter } from "next/router"
+import { usePathname } from "next/navigation"
 import urlJoin from "proper-url-join"
 import React from "react"
 
 const useBuildId = () => {
-    const { basePath } = useRouter()
+    const basePath = usePathname()
 
     const shouldReload = React.useCallback((): boolean => {
         if (process.env.NODE_ENV != "production") {
