@@ -10,7 +10,9 @@ const nextConfig = {
     assetPrefix: process.env.BASE_PATH || '',
     basePath: process.env.BASE_PATH || '',
     output: 'export',
-    generateBuildId: () => nextBuildId({ dir: __dirname })
+    generateBuildId: async () => {
+      return nextBuildId({ dir: __dirname });
+    }
 }
 
 module.exports = nextConfig
