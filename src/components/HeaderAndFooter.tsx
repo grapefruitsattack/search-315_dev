@@ -16,11 +16,12 @@ export default function HeaderAndFooter() {
     const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
     
     return (
+        <>
         <div className="w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
             <p className="z-50  py-2 fixed left-0 top-0 flex flex-row w-full items-center  justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit">  
                 
-            <button className="absolute left-2" onClick={()=>setIsDrawerOpen(true)}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" fill="rgba(56,83,201,1)"></path></svg>
+            <button className="absolute left-2 fill-gray-500" onClick={()=>setIsDrawerOpen(true)}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" ></path></svg>
             </button>
             <Drawer
                 isOpen={isDrawerOpen}
@@ -44,22 +45,64 @@ export default function HeaderAndFooter() {
                 </div>
 
                 <DrawerBody>
+                    <Link className="
+                        p-2
+                        inline-block w-full hover:bg-gray-200 text-blue-900
+                        transition-all duration-500 ease-out
+                        text-xl font-sans justify-center
+                    "
+                        href={`/about`}
+                        rel="noopener noreferrer">
+                        このサイトについて
+                    </Link>
+                    <Link className="
+                        p-2
+                        inline-block w-full hover:bg-gray-200 text-blue-900
+                        transition-all duration-500 ease-out
+                        text-xl font-sans justify-center
+                    "
+                        href={`/about`}
+                        rel="noopener noreferrer">
+                        QA
+                    </Link>
+                    <Link className="
+                        p-2
+                        inline-block w-full hover:bg-gray-200 text-blue-900
+                        transition-all duration-500 ease-out
+                        text-xl font-sans justify-center
+                    "
+                        href={`/about`}
+                        rel="noopener noreferrer">
+                        お問い合わせ
+                    </Link>
+                    <Link className="
+                        p-2
+                        inline-block w-full bg-gray-600 hover:bg-gray-200/0 
+                        text-white hover:text-gray-600
+                        transition-all duration-500 ease-out
+                        text-xl font-sans justify-center
+                    "
+                        href={`/about`}
+                        rel="noopener noreferrer">
+                        TOPに戻る
+                    </Link>
                 </DrawerBody>
 
                 <DrawerFooter>
                 </DrawerFooter>
                 </DrawerContent>
             </Drawer>
-                <code className="font-mono font-bold">
-                    <Link
-                        className =""
-                        href={`/`}
-                        rel="noopener noreferrer"
-                    >
-                    <img src="/search315_logo.svg" width="200" height="200" alt="ホームアイコン" />
-                    </Link>
-                </code>
+            <code className="font-mono font-bold">
+                <Link
+                    className =""
+                    href={`/`}
+                    rel="noopener noreferrer"
+                >
+                <img src="/search315_logo.svg" width="200" height="200" alt="ホームアイコン" />
+                </Link>
+            </code>
             </p>
         </div>
+        </>
         );
     }
