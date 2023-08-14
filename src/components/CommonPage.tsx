@@ -5,6 +5,7 @@ import { AppProps } from "next/app";
 import { useRouter } from "next/navigation"
 import React from "react";
 import useBuildId from "../features/common/utils/useBuildId"
+import Link from 'next/link';
 
 
 const CommonPage = ({ children }: Props ,{ Component, pageProps, router }: AppProps)=> {
@@ -25,6 +26,12 @@ const CommonPage = ({ children }: Props ,{ Component, pageProps, router }: AppPr
     <main className=" min-h-screen">
         <HeaderAndFooter />
         <>{children}</>
+        <Link 
+          className="flex justify-center underline text-gray-600"
+          href={`/about`}
+          rel="noopener noreferrer"
+        >このサイトについて・プライバシーポリシー・免責事項</Link>
+
     </main>
     );
   };
