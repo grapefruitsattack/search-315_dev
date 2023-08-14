@@ -10,6 +10,8 @@ import {
     DrawerContent,
     DrawerCloseButton,Button ,Input, MenuButton
 } from '@chakra-ui/react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faArrowUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
 
 export default function HeaderAndFooter() {
 
@@ -61,20 +63,22 @@ export default function HeaderAndFooter() {
                         transition-all duration-500 ease-out
                         text-xl font-sans justify-center
                     "
-                        href={`/about`}
+                        href={`/qa`}
                         rel="noopener noreferrer">
-                        QA
+                        Q&A
                     </Link>
-                    <Link className="
+                    <a className="
                         p-2
                         inline-block w-full hover:bg-gray-200 text-blue-900
                         transition-all duration-500 ease-out
                         text-xl font-sans justify-center
                     "
-                        href={`/about`}
-                        rel="noopener noreferrer">
-                        お問い合わせ
-                    </Link>
+                        href={`https://docs.google.com/forms/d/e/1FAIpQLSdYMzA85KFDx2Qr_sigjKBAPAqlRoZB4KA8tkHbuchZQuL_9w/viewform?usp=sf_link`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        お問い合わせ <span className="text-sm"><FontAwesomeIcon icon={faArrowUpRightFromSquare} /></span>
+                    </a>
                     <Link className="
                         p-2
                         inline-block w-full bg-gray-600 hover:bg-gray-200/0 
