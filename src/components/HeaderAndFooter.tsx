@@ -1,4 +1,5 @@
 'use client'
+import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useState } from "react";
 import {
@@ -12,16 +13,52 @@ import {
 } from '@chakra-ui/react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faArrowUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
+import {ShareSearchResultModal} from "../features/app/shareModal/ShareSearchResultModal";
+import {getSearchTargetStr} from '../features/common/utils/SearchParamCheck';
 
 export default function HeaderAndFooter() {
 
+    //メニュー開閉
     const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+
+    //検索結果画面共有ボタン
+    let isSearchPage: boolean = false;
+    let search: string[] = [];
+    let shareStr: string = '';
+    let sharePass: string = '';
+    if(usePathname()==='/search/'){
+        isSearchPage = true;
+        const searchParams = useSearchParams();
+        search = searchParams.get('q')?.split(' ')||[];
+        switch (searchParams.get('tab')) {
+            case 'song':
+                shareStr = getSearchTargetStr(search)===''?'曲検索結果':getSearchTargetStr(search)+'の曲一覧';
+                sharePass = `search/?q=${search.join('+')}&tab=song`;
+                break;
+            case 'album':
+                shareStr = getSearchTargetStr(search)===''?'アルバム検索結果':getSearchTargetStr(search)+'のアルバム一覧';
+                sharePass = `search/?q=${search.join('+')}&tab=album`;
+                break;
+            default:
+                sharePass = `search/?q=${search.join('+')}`;
+                break;
+        }
+    }
+
+
     
     return (
         <>
         <div className="w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-            <p className="z-50  py-2 fixed left-0 top-0 flex flex-row w-full items-center  justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit">  
-                
+            <div className="z-50  py-2 fixed left-0 top-0 flex flex-row w-full items-center  justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit">  
+            <div className="absolute right-2">
+                {isSearchPage? 
+                    <ShareSearchResultModal 
+                    title={shareStr}
+                    pass={sharePass}
+                    />
+                    :<></>}
+            </div>
             <button className="absolute left-2 fill-gray-500" onClick={()=>setIsDrawerOpen(true)}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" ></path></svg>
             </button>
@@ -96,16 +133,18 @@ export default function HeaderAndFooter() {
                 </DrawerFooter>
                 </DrawerContent>
             </Drawer>
+
             <code className="font-mono font-bold">
                 <Link
                     className =""
                     href={`/`}
                     rel="noopener noreferrer"
                 >
-                <img src="/search315_logo.svg" width="200" height="200" alt="ホームアイコン" />
+                <img className="tablet:w-[200px] w-[150px] h-[50px]" src="/search315_logo.svg" width="200" height="200" alt="ホームアイコン" />
                 </Link>
             </code>
-            </p>
+
+            </div>
         </div>
         </>
         );
