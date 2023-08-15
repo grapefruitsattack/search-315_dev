@@ -46,7 +46,7 @@ export type SongMaster = {
 export type MvInfo = {
   songId: string;
   mvType: string;
-  youtubeId: string;
+  url: string;
   songName: string;
 };
 
