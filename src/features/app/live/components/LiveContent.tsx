@@ -39,7 +39,7 @@ export default function LiveContent({ result }: { result: LiveMaster }) {
 
     return(
         <article className="pt-32 pb-96 px-12 lg:px-24 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
-        <section className="mb-2 bg-gradient-to-r from-pink-400 rounded">
+        <section className="mb-2 bg-gradient-to-r from-pink-400 tablet:from-0% mobileM:from-20% from-30% rounded">
             <div 
                 className="
                     flex items-center w-full ml-2
