@@ -1,7 +1,9 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
+import { redirect } from 'next/navigation'
 import type { SongMaster, SongInfo, Tabs } from '../../../../data/types';
 import getTotalPage from '../../../common/utils/GetTotalPage';
+import {isValidSearchQParam} from '../../../common/utils/SearchParamCheck';
 import SearchSongForSingingInfoId from '../../../common/utils/SearchSongForSingingInfoId';
 import CommonPage from "../../../../components/CommonPage";
 import SongBlock from "../../../common/components/SongBlock";
@@ -18,8 +20,11 @@ import songInfoDesc from '../../../../data/songInfoDesc.json';
 
 export default function SearchPageSong({ }: {}) {
     const searchParams = useSearchParams();
-    const search :string[] | undefined = searchParams.get('q')?.split(' ');
-   
+    const search :string[] = searchParams.get('q')?.split(' ')||[];
+    if(isValidSearchQParam(search)===false){
+      redirect(`/search/?q=JUP01&tab=song`);
+    }
+
     const page :number = Number(searchParams.get('page')) || 1;
     const order :string = searchParams.get('order') || 'desc';
     const subscExists :number = Number(searchParams.get('subsc')) || 0;

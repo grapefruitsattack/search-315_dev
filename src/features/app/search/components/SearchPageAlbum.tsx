@@ -1,7 +1,9 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
+import { redirect } from 'next/navigation'
 import type { Albums } from '../../../../data/types';
 import SearchAlbumForSingingInfoId from '../../../common/utils/SearchAlbumForSingingInfoId';
+import {isValidSearchQParam} from '../../../common/utils/SearchParamCheck';
 import songInfoAsc from '../../../../data/songInfoAsc.json';
 import songInfoDesc from '../../../../data/songInfoDesc.json';
 import getTotalPage from '../../../common/utils/GetTotalPage';
@@ -15,7 +17,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 export default function SearchPageAlbum({ }: {}) {
     //パラメータ
     const searchParams = useSearchParams();
-    const search :string[] | undefined = searchParams.get('q')?.split(' ');
+    const search :string[] = searchParams.get('q')?.split(' ')||[];
+    if(isValidSearchQParam(search)===false){
+      redirect(`/search/?q=JUP01&tab=album`);
+    }
     const page :number = Number(searchParams.get('page')) || 1;
     const order :string = searchParams.get('order') || 'desc';
     const subscExists :number = Number(searchParams.get('subsc')) || 0;
