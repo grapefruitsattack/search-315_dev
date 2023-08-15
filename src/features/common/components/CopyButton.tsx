@@ -39,6 +39,7 @@ export default function CopyButton (
             hover:bg-green-500 hover:text-green-100 
             transition-all duration-500 ease-out 
             fill-green-500 hover:fill-green-100 
+            h-full w-full
             '
             onClick={() => copyTextToClipboard(copyText)}
             whileTap={{ scale: 0.9 }}

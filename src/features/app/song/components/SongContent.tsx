@@ -92,9 +92,8 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
 
             {/* ボタン */}
             <div className='
-                grid grid-cols-2 pt-4 gap-y-[9px] 
-                lg:w-1/2 h-[80px] 
-                grid-rows-[38px]
+                grid grid-cols-2 mt-4 gap-y-[5px] 
+                lg:w-1/2 
             '>
                 {/* Youtube */}
                 {result.youtubeId===''
@@ -106,7 +105,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                         
                     `}
                 >
-                    <a className="w-full h-full"
+                    <a className=""
                     href={`https://youtu.be/${result.youtubeId}`}
                     target="_blank" rel="noopener noreferrer">
                         <motion.button
@@ -122,7 +121,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                             whileTap={{ scale: 0.97 }}
                             transition={{ duration: 0.05 }}
                         >
-                            <div className='flex flex-wrap justify-center items-center font-sans font-black'>
+                            <div className='flex flex-wrap justify-center items-center font-sans font-black my-1'>
                                 {'YouTube'}<FontAwesomeIcon className="pl-0.5" icon={faArrowUpRightFromSquare} />
                             </div>
                         </motion.button>
@@ -154,7 +153,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                         whileTap={{ scale: 0.97 }}
                         transition={{ duration: 0.05 }}
                     >
-                        <div className='flex flex-wrap justify-center items-center font-sans font-black'>
+                        <div className='flex flex-wrap justify-center items-center font-sans font-black my-1'>
                             {'YouTube Music'}<FontAwesomeIcon className="pl-0.5" icon={faArrowUpRightFromSquare} />
                         </div>
                     </motion.button>
@@ -166,8 +165,8 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                         lg:w-auto inline-block row-span-1 lg:pr-2 pr-1
                     `}
                 >
-                    <ShareYoutubeModal 
-                        youtubeUrl ={`https://youtu.be/`+ result.youtubeId}
+                <ShareYoutubeModal 
+                        youtubeUrl ={result.youtubeId===''?'':`https://youtu.be/`+ result.youtubeId}
                         title={result.songTitle} 
                         artistName={result.displayArtist}
                         pass={'song/'+result.songId}
