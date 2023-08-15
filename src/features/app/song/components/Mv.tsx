@@ -29,14 +29,14 @@ export default function Mv({ mvInfos }: { mvInfos: MvInfo[] }) {
         </div>
         <div className="flex flex-col gap-4">
             {mvInfos.map((info, index) => (
-                <div>
+                <div
+                    key={index} >
                     <div 
                         key={index} 
                         className='flex flex-wrap justify-start items-center font-sans font-black lg:text-base text-sm'>
                                 {info.songName}
                     </div>
                     <a 
-                        key={index} 
                         className=""
                         href={info.url}
                       target="_blank" rel="noopener noreferrer">
