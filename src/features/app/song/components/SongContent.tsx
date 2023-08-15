@@ -121,7 +121,10 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                             whileTap={{ scale: 0.97 }}
                             transition={{ duration: 0.05 }}
                         >
-                            <div className='flex flex-wrap justify-center items-center font-sans font-black my-1'>
+                            <div className='
+                                flex flex-wrap justify-center items-center font-sans font-black 
+                                mobileM:my-1 my-2
+                            '>
                                 {'YouTube'}<FontAwesomeIcon className="pl-0.5" icon={faArrowUpRightFromSquare} />
                             </div>
                         </motion.button>
@@ -153,7 +156,10 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                         whileTap={{ scale: 0.97 }}
                         transition={{ duration: 0.05 }}
                     >
-                        <div className='flex flex-wrap justify-center items-center font-sans font-black my-1'>
+                        <div className='
+                            flex flex-wrap justify-center items-center font-sans font-black 
+                            mobileM:my-1 my-2
+                        '>
                             {'YouTube Music'}<FontAwesomeIcon className="pl-0.5" icon={faArrowUpRightFromSquare} />
                         </div>
                     </motion.button>
