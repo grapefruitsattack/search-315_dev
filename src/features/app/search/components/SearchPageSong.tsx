@@ -5,14 +5,10 @@ import type { SongMaster, SongInfo, Tabs } from '../../../../data/types';
 import getTotalPage from '../../../common/utils/GetTotalPage';
 import {isValidSearchQParam} from '../../../common/utils/SearchParamCheck';
 import SearchSongForSingingInfoId from '../../../common/utils/SearchSongForSingingInfoId';
-import CommonPage from "../../../../components/CommonPage";
 import SongBlock from "../../../common/components/SongBlock";
 import Pagination from "../../../../components/Pagination";
-import TabComponent from "../../../../components/TabComponent";
 import { motion } from 'framer-motion'
 import { AnimatePresence } from "framer-motion";
-import DisplayTypeSwitch from "./DisplayTypeSwitch";
-import DisplayTypeToggle from "./DisplayTypeToggle";
 import SortSelect from "./SortSelect";
 import FilterSelect from "./FilterSelect";
 import songInfoAsc from '../../../../data/songInfoAsc.json';

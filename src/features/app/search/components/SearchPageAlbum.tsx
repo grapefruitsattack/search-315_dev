@@ -9,7 +9,6 @@ import songInfoDesc from '../../../../data/songInfoDesc.json';
 import getTotalPage from '../../../common/utils/GetTotalPage';
 import AlbumBlock from "../../../common/components/AlbumBlock";
 import Pagination from "../../../../components/Pagination";
-import DisplayTypeToggle from "./DisplayTypeToggle";
 import SortSelect from "./SortSelect";
 import FilterSelect from "./FilterSelect";
 import { motion, AnimatePresence } from 'framer-motion'
@@ -59,7 +58,7 @@ export default function SearchPageAlbum({ }: {}) {
 
       <AnimatePresence initial={false} mode="wait">
       <motion.div
-          key={page + order  + `${subscExists}${colleFlg}${searchParams.get('q') === null?'':searchParams.get('q')}` }
+        key={page + order  + `${subscExists}${colleFlg}${searchParams.get('q') === null?'':searchParams.get('q')}` }
         initial={{ opacity: 0 }} // 初期状態
         animate={{ opacity: 1 }} // マウント時
         exit={{ opacity: 0 }}    // アンマウント時
