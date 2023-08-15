@@ -22,13 +22,13 @@ export default function HeaderAndFooter() {
     const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
     //検索結果画面共有ボタン
+    const searchParams = useSearchParams();
     let isSearchPage: boolean = false;
     let search: string[] = [];
     let shareStr: string = '';
     let sharePass: string = '';
     if(usePathname()==='/search/'){
         isSearchPage = true;
-        const searchParams = useSearchParams();
         search = searchParams.get('q')?.split(' ')||[];
         switch (searchParams.get('tab')) {
             case 'song':
