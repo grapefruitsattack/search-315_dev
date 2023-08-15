@@ -160,7 +160,7 @@ export default function AlbumBlock(
             </div>
 
             <div className='inline-block relative w-full'>
-              <Tooltip className = '' placement='top' label='アルバム名をコピーしました' isOpen = {tooltipOn}>
+              <Tooltip className = 'hidden tablet:block' placement='top' label='アルバム名をコピーしました' isOpen = {tooltipOn}>
                 <motion.button className='rounded-lg border-2 border-green-500 
                     text-green-500 text-sm font-sans leading-tight
                     hover:bg-green-500 hover:text-green-100 
@@ -237,7 +237,7 @@ export default function AlbumBlock(
             </div>
 
             <div className='inline-block relative w-full'>
-              <Tooltip className = '' placement='top' label='アルバム名をコピーしました' isOpen = {tooltipOn}>
+              <Tooltip className = 'block tablet:hidden' placement='top' label='アルバム名をコピーしました' isOpen = {tooltipOn}>
                 <motion.button className='rounded-lg border-2 border-green-500 
                     text-green-500 text-sm font-sans leading-tight
                     hover:bg-green-500 hover:text-green-100 
