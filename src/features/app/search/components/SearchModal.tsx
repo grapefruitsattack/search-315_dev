@@ -71,13 +71,13 @@ export const SearchModal: React.VFC = () => {
     
     return (
         <>
-        <label className={`flex items-center cursor-pointer select-none h-max 
-            hover:drop-shadow-xl 
-            transition-all duration-500 ease-out`}>
+        <div className={`flex items-center h-max `}>
         <div className="flex w-[85vw] justify-center m-auto">
-            <div 
+            <label 
                 className='
-                flex p-0.5 bg-gradient-to-r from-indigo-300 to-emerald-300 items-center
+                flex p-0.5 bg-gradient-to-r from-indigo-300 to-emerald-300 items-center 
+                hover:drop-shadow-xl cursor-pointer select-none
+                transition-all duration-500 ease-out
                 '
             >
                 <div
@@ -117,7 +117,7 @@ export const SearchModal: React.VFC = () => {
                     <path d="M21 21l-6 -6"></path>
                     </svg>
                 </button>
-            </div>
+            </label>
         </div>
      <Modal 
       isOpen={isOpen} onClose={onClose}
@@ -381,7 +381,7 @@ export const SearchModal: React.VFC = () => {
        </ModalHeader>
        </ModalContent>
      </Modal>
-        </label>
+        </div>
         </>
     );
 };
