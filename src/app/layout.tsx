@@ -10,6 +10,17 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'サーチサイコー',
+  icons: {
+      icon: '/favicons/favicon.ico',
+      shortcut: '/favicons/favicon.ico',
+      apple: '/favicons/apple-touch-icon.png',
+      other: [
+        {rel: 'mask-icon', url: '/favicons/safari-pinned-tab.svg'},
+        {rel: 'apple-touch-icon-precomposed', url: '/apple-touch-icon-precomposed.png'},
+      ]
+    },
+  manifest: "/favicons/site.webmanifest",
+  themeColor: '#ffffff',
 }
 
 export default function RootLayout({
