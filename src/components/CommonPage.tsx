@@ -27,7 +27,7 @@ const CommonPage = ({ children }: Props ,{ Component, pageProps, router }: AppPr
         <HeaderAndFooter />
         <>{children}</>
         <Link 
-          className="flex justify-center underline text-gray-600"
+          className="flex pb-2 justify-center underline text-gray-600 mobileL:text-base mobileM:text-sm text-xs"
           href={`/about`}
           rel="noopener noreferrer"
         >このサイトについて・プライバシーポリシー・免責事項</Link>
