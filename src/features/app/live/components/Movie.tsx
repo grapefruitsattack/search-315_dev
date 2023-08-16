@@ -1,8 +1,6 @@
 'use client'
 import type { LiveMovie } from '../../../../data/types';
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faArrowUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
 
 export default function Movie({ results }: { results: LiveMovie[] }) {
 
@@ -41,7 +39,9 @@ export default function Movie({ results }: { results: LiveMovie[] }) {
                       >
                         <div className='flex flex-wrap justify-center items-center font-sans font-black'>
                             {result.typeName}
-                            <FontAwesomeIcon className="pl-0.5" icon={faArrowUpRightFromSquare} />
+                            <span className="">
+                            <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                            </span>
                         </div>
                         </motion.button>
                     </a>

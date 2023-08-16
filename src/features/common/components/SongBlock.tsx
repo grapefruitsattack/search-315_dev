@@ -9,8 +9,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {Tooltip} from "@chakra-ui/react";
 import Link from 'next/link';
 import GetArtWorkSrc from '../utils/GetArtWorkSrc';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faArrowUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
 
 export default function SongBlock(
   { albumId,trackNo,results,existsButton }: { albumId: string, trackNo: number, results: SongMaster, existsButton: boolean}
@@ -133,10 +131,11 @@ export default function SongBlock(
             target="_blank" rel="noopener noreferrer">
             <motion.button
                     className='rounded-lg border-2 border-red-500 w-full h-full
-                      text-red-500 
+                      text-red-500 hover:text-red-100 
+                      fill-red-500 hover:fill-red-100 
                       text-xs mobileM:text-base lg:text-sm
                        font-sans leading-tight
-                      hover:bg-red-500 hover:text-red-100 
+                      hover:bg-red-500
                       transition-all duration-500 ease-out
                       fill-red-500 hover:fill-red-100 
                       '
@@ -147,7 +146,10 @@ export default function SongBlock(
                     transition={{ duration: 0.05 }}
             >
               <div className='flex flex-wrap justify-center items-center font-sans font-black'>
-                {'YouTube'}<FontAwesomeIcon className="pl-0.5" icon={faArrowUpRightFromSquare} />
+                {'YouTube'}
+                <span className="">
+                <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                </span>
                 </div>
               </motion.button>
               </a>

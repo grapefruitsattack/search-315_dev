@@ -6,8 +6,6 @@ import GetArtWorkSrc from '../utils/GetArtWorkSrc';
 import {ShareYoutubeModal} from "../../app/shareModal/ShareYoutubeModal";
 import {Tooltip} from "@chakra-ui/react";
 import Link from 'next/link';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faArrowUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
 
 export default function AlbumBlock(
   { results, existsButton }: { results: Albums, existsButton: boolean}
@@ -125,9 +123,12 @@ export default function AlbumBlock(
                   href={`https://youtube.com/playlist?list=${results.youtubeId}`}
                 target="_blank" rel="noopener noreferrer">
                 <motion.button
-                  className='rounded-lg border-2 border-red-500
-                    text-red-500 font-sans leading-tight
-                    hover:bg-red-500 hover:text-red-100 
+                  className='rounded-lg 
+                    font-sans leading-tight
+                    text-red-500 hover:text-red-100 
+                    border-2 border-red-500
+                    hover:bg-red-500
+                    fill-red-500 hover:fill-red-100 
                     transition-all duration-500 ease-out
                     text-xs mobileL:text-sm tablet:text-base
                     min-h-[30px] w-full  bottom-0
@@ -140,7 +141,10 @@ export default function AlbumBlock(
                   transition={{ duration: 0.05 }}
                   >
                   <div className='flex flex-wrap justify-center items-center font-sans font-black '>
-                    {'YouTube'}<FontAwesomeIcon className="pl-0.5" icon={faArrowUpRightFromSquare} />
+                    {'YouTube'}
+                    <span className="">
+                    <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                    </span>
                     </div>
                   </motion.button>
                   </a>
@@ -202,9 +206,11 @@ export default function AlbumBlock(
                   href={`https://youtube.com/playlist?list=${results.youtubeId}`}
                 target="_blank" rel="noopener noreferrer">
                 <motion.button
-                  className='rounded-lg border-2 border-red-500
-                    text-red-500 font-sans leading-tight
-                    hover:bg-red-500 hover:text-red-100 
+                  className='rounded-lg font-sans leading-tight
+                    text-red-500 hover:text-red-100 
+                    border-2 border-red-500
+                    hover:bg-red-500
+                    fill-red-500 hover:fill-red-100 
                     transition-all duration-500 ease-out
                     text-xs mobileL:text-sm tablet:text-base
                     min-h-[30px] w-full  bottom-0
@@ -217,7 +223,10 @@ export default function AlbumBlock(
                   transition={{ duration: 0.05 }}
                   >
                   <div className='flex flex-wrap justify-center items-center font-sans font-black '>
-                    {'YouTube'}<FontAwesomeIcon className="pl-0.5" icon={faArrowUpRightFromSquare} />
+                    {'YouTube'}
+                    <span className="">
+                    <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                    </span>
                     </div>
                   </motion.button>
                   </a>
