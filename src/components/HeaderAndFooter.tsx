@@ -30,16 +30,20 @@ export default function HeaderAndFooter() {
     if(usePathname()==='/search/'){
         isSearchPage = true;
         search = searchParams.get('q')?.split(' ')||[];
+        const searchTargetStr: string = getSearchTargetStr(search);
+        console.log(searchParams.get('tab'))
         switch (searchParams.get('tab')) {
-            case 'song':
-                shareStr = getSearchTargetStr(search)===''?'曲検索結果':getSearchTargetStr(search)+'の曲一覧';
+            case 'song' :
+            case null :
+                shareStr = searchTargetStr===''?'曲検索結果':searchTargetStr+'の曲一覧';
                 sharePass = `search/?q=${search.join('+')}&tab=song`;
                 break;
             case 'album':
-                shareStr = getSearchTargetStr(search)===''?'アルバム検索結果':getSearchTargetStr(search)+'のアルバム一覧';
+                shareStr = searchTargetStr===''?'アルバム検索結果':searchTargetStr+'のアルバム一覧';
                 sharePass = `search/?q=${search.join('+')}&tab=album`;
                 break;
             default:
+                shareStr = '検索結果';
                 sharePass = `search/?q=${search.join('+')}`;
                 break;
         }
