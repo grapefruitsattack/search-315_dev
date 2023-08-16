@@ -147,7 +147,7 @@ export default function Home() {
         <IdolBlock id="CFP02" />
         <Link
           style={ {"--c": '#6664C6'} as ItemCSS}
-          href={{ pathname: '/search', query: {q: 'CFP03' }}}
+          href={{ pathname: '/search', query: {q: 'CFP03', colle: 1 }}}
           className={`group lg:h-min-[71px] h-min-[64.67px] `+ ` ` + borderHover.idol}
         >
         <motion.button
