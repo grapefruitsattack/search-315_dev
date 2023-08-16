@@ -13,7 +13,7 @@ export default function AboutPage({ }: { }) {
         <p className=" pb-4">
             当サイトは「アイドルマスターSideM」の楽曲情報を中心に情報をまとめているサイトです。<br/>
             運営は個人によってなされており、「アイドルマスターSideM」公式とは一切関係ございません。<br/>
-            ご利用にあたっては、このページの「このサイトについて」「プライバシーポリシー」「免責事項」の記載をよくご確認ください。
+            ご利用にあたっては、このページの「このサイトについて」「プライバシーポリシー」「免責事項」項目の記載をよくご確認ください。
         </p>
         <h2 className="text-2xl pb-2 font-bold">著作権</h2>
         <p className=" pb-4">
@@ -21,6 +21,83 @@ export default function AboutPage({ }: { }) {
         </p>
         <p className=" pb-8">
             当サイトは著作権や肖像権の侵害を目的としたものではありません。著作権や肖像権に関して問題がございましたら、お問い合わせフォームよりご連絡ください。迅速に対応いたします。
+        </p>
+        <h2 className="text-2xl pb-4 font-bold">クレジット</h2>
+        <p className="text-xl pb-2">
+            シェア時利用サービス
+        </p>
+        <p className=" pb-2">
+            <a className="underline" href={`https://donshare.net/`} target="_blank" rel="noopener noreferrer">
+                donshare
+                <span className="">
+                <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                </span>
+            </a>
+        </p>
+        <p className=" pb-4">
+            <a className="underline" href={`https://misskeyshare.link/`} target="_blank" rel="noopener noreferrer">
+                Misskey Share
+                <span className="">
+                <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                </span>
+            </a>
+        </p>
+        <p className="text-xl pb-2">
+            シェアボタン使用ロゴ
+        </p>
+        <p className=" pb-2">
+            Twitter： 
+            <a className="underline" href={`https://about.twitter.com/ja/who-we-are/brand-toolkit`} target="_blank" rel="noopener noreferrer">
+                公式ブランドツールキット 
+                <span className="">
+                <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                </span>
+            </a>
+        </p>
+        <p className=" pb-2">
+            Mastodon： 
+            <a className="underline" href={`https://about.twitter.com/ja/who-we-are/brand-toolkit`} target="_blank" rel="noopener noreferrer">
+                公式 Brand Toolkit 
+                <span className="">
+                <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                </span>
+            </a>
+        </p>
+        <p className=" pb-4">
+            Misskey： 
+            <a className="underline" href={`https://misskey-hub.net/appendix/assets.html`} target="_blank" rel="noopener noreferrer">
+                公式アセットロゴ 
+                <span className="">
+                <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                </span>
+            </a>
+            （
+            <a className="underline" href={`https://creativecommons.org/licenses/by-nc-sa/4.0/`} target="_blank" rel="noopener noreferrer">
+                CC BY-NC-SA 
+                <span className="">
+                <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                </span>
+            </a>
+            ）
+        </p>
+        <p className="text-xl pb-2">
+            その他のアイコン
+        </p>
+        <p className=" pb-4">
+            <a className="underline" href={`https://remixicon.com/`} target="_blank" rel="noopener noreferrer">
+            Remix Icon 
+                <span className="">
+                <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                </span>
+            </a>
+            （
+            <a className="underline" href={`https://github.com/Remix-Design/remixicon/blob/master/License`} target="_blank" rel="noopener noreferrer">
+            Apache License
+            <span className="">
+            <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+            </span>
+            </a>
+            ）
         </p>
         </section>
         <section className="pb-20">
