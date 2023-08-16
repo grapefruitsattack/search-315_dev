@@ -7,6 +7,7 @@ const mvTypeNames: {
     mvName: string;
 }[]=[
     {mvType:'LOS',mvName:'エムステMV'}
+    ,{mvType:'ANIME_OP',mvName:'TVアニメOP'}
     ,{mvType:'GS_3D',mvName:'サイスタ3Dライブ'}
     ,{mvType:'GS_1stAnniv',mvName:'サイスタ1周年PV'}
     ,{mvType:'GS_3D_ALL',mvName:'サイスタ3Dライブまとめ'}
