@@ -26,6 +26,9 @@ export default function HeaderAndFooter() {
     let shareStr: string = '';
     let sharePass: string = '';
     if(usePathname()==='/search/'){
+        const order :string = searchParams.get('order') || 'desc';
+        const subscExists :number = Number(searchParams.get('subsc')) || 0;
+        const colleFlg :number = Number(searchParams.get('colle')) || 0;
         isSearchPage = true;
         search = searchParams.get('q')?.split(' ')||[];
         const searchTargetStr: string = getSearchTargetStr(search);
@@ -34,11 +37,11 @@ export default function HeaderAndFooter() {
             case 'song' :
             case null :
                 shareStr = searchTargetStr===''?'曲検索結果':searchTargetStr+'の曲一覧';
-                sharePass = `search/?q=${search.join('+')}&tab=song`;
+                sharePass = `search/?q=${search.join('+')}&tab=song&order=${order}&colle=${colleFlg}&subsc=${subscExists}`;
                 break;
             case 'album':
                 shareStr = searchTargetStr===''?'アルバム検索結果':searchTargetStr+'のアルバム一覧';
-                sharePass = `search/?q=${search.join('+')}&tab=album`;
+                sharePass = `search/?q=${search.join('+')}&tab=album&order=${order}&colle=${colleFlg}&subsc=${subscExists}`;
                 break;
             default:
                 shareStr = '検索結果';
