@@ -61,43 +61,19 @@ export default function ShareModuleContent(
             />
             </a>
         </div>
-        {/* フェイスブック */}
-        {/* <div>
-            <a
-                className="flex 
-                items-center justify-center
-                hover:bg-[#1877f2] 
-                fill-[#1877f2] hover:fill-white 
-                text-[#1877f2] hover:text-white font-sans
-                w-auto h-10
-                rounded-full
-                border border-[#1877f2]/30 
-                shadow-md
-                hover:shadow-xl hover:shadow-[#1877f2]/50 
-                cursor-pointer
-                transition-all duration-500 ease-out
-                "
-                href={shareURLFacebook}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-
-                <p className="text-sm mr-2 ml-0.5">facebook</p>
-            </a>
-        </div> */}
         {/* マストドン */}
         <div className="flex flex-col items-center w-18">
-            <a className="flex font-sans text-sm text-[#6f5dfd] justify-center">Mastodon</a>
+            <a className="flex font-sans text-sm text-[#6364FF] justify-center">Mastodon</a>
             <a
                 className="w-12 h-12 
-                hover:bg-[#6f5dfd]/20
-                fill-[#6f5dfd] hover:fill-white 
+                hover:bg-[#6364FF]/20
+                fill-[#6364FF] hover:fill-white 
                 text-[#5749ca] hover:text-white font-sans
                 rounded-full flex 
                 items-center justify-center
-                border border-[#6f5dfd]/30 hover:border-white
+                border border-[#6364FF]/30 hover:border-white
                 shadow-md
-                hover:shadow-xl hover:shadow-[#6f5dfd]/50 
+                hover:shadow-xl hover:shadow-[#6364FF]/50 
                 cursor-pointer
                 transition-all duration-500 ease-out
                 "
