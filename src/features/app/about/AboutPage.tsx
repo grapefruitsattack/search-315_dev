@@ -129,7 +129,23 @@ export default function AboutPage({ }: { }) {
         <h2 className="text-2xl pb-2 font-bold">サイト運営について</h2>
         <p className=" pb-8">
             当サイトは個人運営のため、運営者の個人的事情により、突然の更新停止および運用終了となることがございます。<br/>
-            また、公式から類似のサービスの提供がなされた場合には、速やかに該当箇所の閉鎖もしくはサイト全体の閉鎖の措置を取らせていただきます。<br/>
+            また、公式から類似のサービスの提供がなされた場合には、速やかに類似箇所の閉鎖もしくはサイト全体の閉鎖の措置を取らせていただきます。<br/>
+        </p>
+        </section>
+        <section className="pb-20" >
+        <h1 className="text-3xl pb-4 font-bold">連絡先</h1>
+        <p className=" pb-2">
+            メールアドレス：2000chome@gmail.com
+        </p>
+        <p className=" pb-8">
+            <a className="underline" 
+                href={`https://docs.google.com/forms/d/e/1FAIpQLSdYMzA85KFDx2Qr_sigjKBAPAqlRoZB4KA8tkHbuchZQuL_9w/viewform?usp=sf_link`}
+                target="_blank" rel="noopener noreferrer">
+            お問い合わせフォーム
+                <span className="">
+                <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                </span>
+            </a>
         </p>
         </section>
         </article>
