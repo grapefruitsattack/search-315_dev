@@ -22,7 +22,16 @@ export const metadata: Metadata = {
   manifest: "/favicons/site.webmanifest",
   themeColor: '#ffffff',
   openGraph: {
-    images: ['https://search315.com/favicons/apple-touch-icon.png']
+    title: 'サーチサイコー',
+    description: 'description',
+    url: 'https://search315.com',
+    siteName: 'サーチサイコー',
+    images: [{
+      url: 'https://search315.com/favicons/apple-touch-icon.png',
+      width: '180',
+      height: '180'
+    }],
+    type: 'website'
   }
 }
 
