@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   themeColor: '#ffffff',
   openGraph: {
     title: 'サーチサイコー',
-    description: 'description',
+    description: 'SideM非公式検索ツール',
     url: 'https://search315.com',
     siteName: 'サーチサイコー',
     images: [{
