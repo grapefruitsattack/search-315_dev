@@ -158,7 +158,7 @@ export default function AlbumContent({ album, }: { album: Albums}) {
                     `}
                 >
                 <ShareYoutubeModal 
-                        youtubeUrl={`https://youtube.com/playlist?list=`+ album.youtubeId}
+                        youtubeUrl={album.youtubeId===''?'':`https://youtube.com/playlist?list=`+ album.youtubeId}
                         title={album.albumTitleFull} 
                         artistName={album.displayArtist}
                         pass={'album/'+album.albumId}

@@ -119,7 +119,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     px-2 py-5
     my-auto
     /* hover:border-gray-50/50 */
-    hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30;
   }
   .unit-hover{
     @apply 

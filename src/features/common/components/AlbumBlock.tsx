@@ -155,7 +155,7 @@ export default function AlbumBlock(
             <div className='inline-block relative w-full'>
               <div className='h-[30px] w-full absolute bottom-0'>
                 <ShareYoutubeModal 
-                  youtubeUrl={`https://youtube.com/playlist?list=`+ results.youtubeId}
+                  youtubeUrl={results.youtubeId===''?'':`https://youtube.com/playlist?list=`+ results.youtubeId}
                   title={results.albumTitleFull} 
                   artistName={results.displayArtist}
                   pass={'album/'+results.albumId}
@@ -237,7 +237,7 @@ export default function AlbumBlock(
             <div className='inline-block relative w-full'>
               <div className='h-[30px] w-full absolute bottom-0'>
                 <ShareYoutubeModal 
-                  youtubeUrl={`https://youtube.com/playlist?list=`+ results.youtubeId}
+                  youtubeUrl={results.youtubeId===''?'':`https://youtube.com/playlist?list=`+ results.youtubeId}
                   title={results.albumTitleFull} 
                   artistName={results.displayArtist}
                   pass={'album/'+results.albumId}

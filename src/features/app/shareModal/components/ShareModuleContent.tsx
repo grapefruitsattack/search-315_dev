@@ -123,7 +123,7 @@ export default function ShareModuleContent(
           {/* <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" /> */}
             <div className="max-w-2xl mx-auto">
 
-                <label className="block text-sm font-sans text-gray-900 dark:text-gray-400">
+                <label className="block text-sm font-sans text-gray-900">
                     シェアテキストを編集
                 </label>
 
