@@ -36,11 +36,11 @@ export default function HeaderAndFooter() {
         switch (searchParams.get('tab')) {
             case 'song' :
             case null :
-                shareStr = searchTargetStr===''?'曲検索結果':searchTargetStr+'の曲一覧';
+                shareStr = searchTargetStr===''?'曲検索結果':'「'+searchTargetStr+'」曲一覧';
                 sharePass = `search/?q=${search.join('+')}&tab=song&order=${order}&colle=${colleFlg}&subsc=${subscExists}`;
                 break;
             case 'album':
-                shareStr = searchTargetStr===''?'アルバム検索結果':searchTargetStr+'のアルバム一覧';
+                shareStr = searchTargetStr===''?'アルバム検索結果':'「'+searchTargetStr+'」アルバム一覧';
                 sharePass = `search/?q=${search.join('+')}&tab=album&order=${order}&colle=${colleFlg}&subsc=${subscExists}`;
                 break;
             default:
