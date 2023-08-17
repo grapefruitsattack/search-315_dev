@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   manifest: "/favicons/site.webmanifest",
   themeColor: '#ffffff',
   openGraph: {
-    images: ['/favicons/apple-touch-icon.png']
+    images: ['https://search315.com/favicons/apple-touch-icon.png']
   }
 }
 
