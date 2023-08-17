@@ -9,6 +9,7 @@ import ScriptGoogleAnalytics from "../features/management/ScriptGoogleAnalytics"
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://search315.com'),
   title: 'サーチサイコー',
   icons: {
       icon: '/favicons/favicon.ico',
@@ -16,11 +17,13 @@ export const metadata: Metadata = {
       apple: '/favicons/apple-touch-icon.png',
       other: [
         {rel: 'mask-icon', url: '/favicons/safari-pinned-tab.svg'},
-        {rel: 'apple-touch-icon-precomposed', url: '/apple-touch-icon-precomposed.png'},
       ]
     },
   manifest: "/favicons/site.webmanifest",
   themeColor: '#ffffff',
+  openGraph: {
+    images: ['/favicons/apple-touch-icon.png']
+  }
 }
 
 export default function RootLayout({
