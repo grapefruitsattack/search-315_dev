@@ -7,8 +7,14 @@ import AlbumBlock from "../../../common/components/AlbumBlock";
 export default function AlbumSeries({ albumId, seriesId }: { albumId: string, seriesId: string }) {
 
     const results : Albums[] | undefined 
-        = albumMaster.filter(data => data.albumId !== albumId && data.sereisId === seriesId);
-    const resultsSort : Albums[] | undefined 
+        = albumMaster.filter(data => data.albumId !== albumId && data.sereisId === seriesId)||[];
+
+    // シリーズに自分しかいない場合は表示しない
+    if(results.length <= 1) {
+        return(<></>)
+    }
+
+    const resultsSort : Albums[]
         = results.filter(data => data.youtubeId !== '').concat(results.filter(data => data.youtubeId === ''));
 
     const [isOpen, setISopen] = useState(false);
