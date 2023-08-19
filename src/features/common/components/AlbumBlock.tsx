@@ -41,6 +41,10 @@ export default function AlbumBlock(
             mobileM:min-w-[70px] 
             mobileL:min-w-[100px] 
           '>
+          <Link
+            className =""
+            href={`/album/` + results.albumId}
+          >
             {imgSrc===''
               ?
               <img 
@@ -65,6 +69,7 @@ export default function AlbumBlock(
                 alt="アートワーク"
               />
               }
+          </Link>
           </div>
         <div 
           className ={`flex flex-col w-full
