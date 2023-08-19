@@ -1,8 +1,10 @@
 [
     { "productId": "1ST_CS",  "youtubeId": "86hha0bdd-8",  "type": "digest",  "typeName": "ライブ本編"}, 
-    { "productId": "1ST_CS",  "youtubeId": "IXBugDZA7Bk",  "type": "cm",  "typeName": "CM"}, 
+    { "productId": "1ST_CS",  "youtubeId": "cllEYfDCrdU",  "type": "cm",  "typeName": "CM"}, 
+    { "productId": "1ST_CS",  "youtubeId": "uCXqC8wW3Bw",  "type": "6uni_CM",  "typeName": "6ユニットCM"}, 
     { "productId": "1ST_SS",  "youtubeId": "86hha0bdd-8",  "type": "digest",  "typeName": "ライブ本編"}, 
-    { "productId": "1ST_SS",  "youtubeId": "IXBugDZA7Bk",  "type": "cm",  "typeName": "CM"}, 
+    { "productId": "1ST_SS",  "youtubeId": "cllEYfDCrdU",  "type": "cm",  "typeName": "CM"}, 
+    { "productId": "1ST_SS",  "youtubeId": "uCXqC8wW3Bw",  "type": "6uni_CM",  "typeName": "6ユニットCM"}, 
     { "productId": "1ST_MM",  "youtubeId": "86hha0bdd-8",  "type": "digest",  "typeName": "ライブ本編"}, 
     { "productId": "1ST_MM",  "youtubeId": "IXBugDZA7Bk",  "type": "cm",  "typeName": "CM"}, 
     { "productId": "2ST_CS",  "youtubeId": "qARaS1MWfhE",  "type": "digest",  "typeName": "ライブ本編"}, 
