@@ -6,6 +6,8 @@ import AlbumBlock from "../../../common/components/AlbumBlock";
 
 export default function AlbumSeries({ albumId, seriesId }: { albumId: string, seriesId: string }) {
 
+    const [isOpen, setISopen] = useState(false);
+
     const results : Albums[] | undefined 
         = albumMaster.filter(data => data.albumId !== albumId && data.sereisId === seriesId)||[];
 
@@ -16,8 +18,6 @@ export default function AlbumSeries({ albumId, seriesId }: { albumId: string, se
 
     const resultsSort : Albums[]
         = results.filter(data => data.youtubeId !== '').concat(results.filter(data => data.youtubeId === ''));
-
-    const [isOpen, setISopen] = useState(false);
 
     return(
         <>
