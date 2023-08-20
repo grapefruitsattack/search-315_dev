@@ -24,7 +24,7 @@ export default function LiveContent({ result }: { result: LiveMaster }) {
     //映像
     const moviesDup : LiveMovie[]
         = LiveMovies.filter(data => 
-            products.some(productData=>data.productId === productData.productId)
+            products.some(productData=>data.productId === productData.productId || data.livePerId === productData.livePerId)
         )||[];
     const movies: LiveMovie[] = moviesDup.filter((data,index,self)=>{
         const youtubeIdList = self.map(item => item.youtubeId);
