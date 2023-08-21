@@ -10,6 +10,7 @@ export type Albums = {
   displayArtist: string;
   releasePage: string;
   youtubeId: string;
+  trialYoutubeId: string;
 };
 
 export type SingingMaster = {
