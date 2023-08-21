@@ -21,10 +21,34 @@ export default function QaPage({ }: { }) {
             に記載しています。ご利用にあたってはこちらもご確認いただけますと幸いです。
             
         </p>
-        <h2 className="text-2xl pb-2 font-bold">リンクされてる動画って無断転載じゃないの？</h2>
-        <p className=" pb-8">
+        <h2 className="text-2xl pb-2 font-bold">リンクされてる動画って無断転載動画じゃないの？</h2>
+        <p className=" pb-2">
             公式から配信されている動画です。<br/>
-            音楽サブスク配信サービス「Youtube Music」で配信されている楽曲は。「YouTube」でも視聴が可能なため、そちらをリンクしています。リンクの作成には細心の注意を払っていますが、万が一非公式の動画へのリンクがなされている場合はお問い合わせフォーム等から運営者へご連絡いただけますと幸いです。
+            音楽サブスク配信サービス「Youtube Music」で配信されると、YouTube上で「アートトラック」というジャケット画像の表示された動画が自動生成される仕組みになっており、当サイトではそちらをリンクしています。<br/>
+            なお、リンクの作成には細心の注意を払っていますが、万が一非公式の動画へのリンクがなされている場合はお問い合わせフォーム等から運営者へご連絡いただけますと幸いです。
+        </p>
+        <p className=" pb-1">
+            参考リンク：
+        </p>
+        <p className=" pb-1">
+            <a className="underline" 
+                href={`https://support.google.com/youtube/answer/6007071?hl=ja`}
+                target="_blank" rel="noopener noreferrer">
+                アートトラックとは - YouTubeヘルプ
+                <span className="">
+                <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                </span>
+            </a>
+        </p>
+        <p className=" pb-8">
+            <a className="underline" 
+                href={`https://support.tunecore.co.jp/hc/ja/articles/360058762912-%E8%87%AA%E5%88%86%E3%81%AE%E6%A5%BD%E6%9B%B2%E3%81%8C%E5%8B%9D%E6%89%8B%E3%81%AB-YouTube-%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%AD%E3%83%BC%E3%83%89%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B-`}
+                target="_blank" rel="noopener noreferrer">
+                自分の楽曲が勝手に YouTube にアップロードされている？ – TuneCore Japan ヘルプセンター
+                <span className="">
+                <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                </span>
+            </a>
         </p>
         <h2 className="text-2xl pb-2 font-bold">このサイトのスクショをSNSや自分のサイトに載せても大丈夫？</h2>
         <p className=" pb-8">
