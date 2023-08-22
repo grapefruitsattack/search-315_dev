@@ -76,10 +76,32 @@ export default function QaPage({ }: { }) {
             今後、舞台版の展開について大きく状況が変わることがない限り、このような判断とさせていただきます。<br/>
             もし舞台版（サイステ）の楽曲対応についてのお問い合わせやご要望をいただいても、お応えすることはできません。ご了承ください。
         </p>
-        <h2 className="text-2xl pb-2 font-bold">このサイトについてのお知らせはどこで見れる？</h2>
+        <h2 className="text-2xl pb-2 font-bold">このサイトのSNSアカウントはある？</h2>
+        <p className=" pb-1">
+            以下のアカウントをご確認ください。Mastodon、Misskey等Fediverse対応SNSの各サーバーからフォロー可能です。<br/>
+        </p>
+        <p className=" pb-4">
+            <a className="underline" 
+                href={`https://misskey.2000cho.me/@search315`}
+                target="_blank" rel="noopener noreferrer">
+                @search315@misskey.2000cho.me（Misskey個人サーバー）
+                <span className="">
+                <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                </span>
+            </a>
+        </p>
+        <p className=" pb-1">
+            または、以下の個人Twitterアカウントでもアナウンスを行う予定です。ですがあくまで個人アカウントのため、当サイトのお知らせは前者のアカウントをメインで使用する予定です。<br/>
+        </p>
         <p className=" pb-8">
-            以下のSNSをご確認ください。<br/>
-            ＠～
+            <a className="underline" 
+                href={`https://twitter.com/2000chome`}
+                target="_blank" rel="noopener noreferrer">
+                @2000chome
+                <span className="">
+                <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
+                </span>
+            </a>
         </p>
         <h2 className="text-2xl pb-2 font-bold">連絡を取りたい（情報の間違いを見つけた、要望を送りたい）</h2>
         <p className=" pb-2">
