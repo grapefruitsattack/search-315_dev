@@ -42,7 +42,7 @@ export const ShareYoutubeModal = (
         </div>
         </motion.button >
      <Modal 
-      isOpen={isOpen} onClose={onClose}
+        isOpen={isOpen} onClose={onClose}
      >
        <ModalOverlay />
        <ModalContent minW="50vw" w="calc(100vw - 20px - 2rem)">

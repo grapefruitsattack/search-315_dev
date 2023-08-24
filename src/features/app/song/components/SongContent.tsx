@@ -6,6 +6,7 @@ import GetArtWorkSrc from '../../../common/utils/GetArtWorkSrc';
 import GetMv from '../../../common/utils/GetMv';
 import SearchLiveBySongId from '../../../common/utils/SearchLive';
 import CopyButton from "../../../common/components/CopyButton";
+import SubscButton from "../../../common/components/SubscButton";
 import {ShareYoutubeModal} from "../../../app/shareModal/ShareYoutubeModal";
 import OtherVersion from './OtherVersion'
 import Mv from './Mv'
@@ -141,33 +142,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                         lg:w-auto inline-block row-span-1 
                     `}
                 >
-                    <a className="w-full h-full"
-                    href={`https://music.youtube.com/watch?v=${result.youtubeId}`}
-                    target="_blank" rel="noopener noreferrer">
-                    <motion.button
-                        className='rounded-lg border-2 border-orange-500 w-full h-full
-                        text-orange-500 font-sans leading-tight
-                        hover:bg-orange-500 hover:text-orange-100 
-                        transition-all duration-500 ease-out
-                        fill-orange-500 hover:fill-orange-100 
-                        text-xs mobileM:text-base lg:text-lg
-                        '
-                        type="button"
-                        aria-controls="contents"
-                        whileTap={{ scale: 0.97 }}
-                        transition={{ duration: 0.05 }}
-                    >
-                        <div className='
-                            flex flex-wrap justify-center items-center font-sans font-black 
-                            mobileM:my-1 my-2
-                        '>
-                            {'YouTube Music'}
-                            <span className="">
-                            <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
-                            </span>
-                        </div>
-                    </motion.button>
-                    </a>
+                    <SubscButton songId={result.songId} albumId="" youtubeId={result.youtubeId}/>
                 </div>    
                 }
                 <div 

@@ -44,6 +44,18 @@ export type SongMaster = {
   releaseDate: string;
 };
 
+export type SubscUrls = {
+  id: string;
+  title: string;
+  youtubeId: string;
+  spotifyUrl: string;
+  appleMusicUrl: string;
+  amazonMusicUrl: string;
+  lineMusicUrl: string;
+  awaUrl: string;
+  towerRecordsMusic: string;
+};
+
 export type MvInfo = {
   songId: string;
   mvType: string;
