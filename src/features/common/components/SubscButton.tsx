@@ -86,11 +86,12 @@ export default function SubscButton(
     </motion.button>
     </a>
     <motion.button
-        className='rounded-r-lg border-2 bg-orange-500 border-orange-500 w-full h-[43px] fill-white flex justify-center'
+        className='rounded-r-lg border-2 bg-orange-500 border-orange-500 w-full h-[43px] fill-white flex justify-center items-center'
         onClick={onOpen}
     >
-        <div >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34"><path d="M12 16L6 10H18L12 16Z"></path></svg>
+        <div className='' >
+
+        <svg className='w-[30px] h-[30px] tablet:w-[40px] tablet:h-[40px]' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30"><path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path></svg>
         </div>
     </motion.button>
 

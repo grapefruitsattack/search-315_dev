@@ -11,10 +11,6 @@ const useBuildId = () => {
         };
     
     const querySelector = document.querySelector("#__NEXT_DATA__");
-    console.log(querySelector===null
-        ?''
-        :querySelector.textContent||''
-    )
 
     const buildId = JSON.parse(
         querySelector===null
