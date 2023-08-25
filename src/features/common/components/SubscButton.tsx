@@ -120,12 +120,14 @@ export default function SubscButton(
         </div>
         </ModalHeader>
         <ModalBody>
-          <div className='grid gap-2 pb-2'>
+          <div className='grid gap-2 pb-2 tablet:text-xl mobileL:text-base text-sm'>
             {/* Amazon Music */}
             <a 
               className={`${subscUrl===undefined||subscUrl.amazonMusicUrl===''?'hidden':''}
                 w-full inline-block drop-shadow rounded
-                py-2 px-4 bg-[#41CDD8] text-black font-bold
+                py-2 px-4 bg-[#41CDD8] text-black font-bold fill-blue-900
+                hover:bg-black hover:text-[#41CDD8] hover:fill-[#41CDD8]
+                transition-all duration-500 ease-out
                `}
               href={subscUrl?.amazonMusicUrl}
               target="_blank" rel="noopener noreferrer"
@@ -135,7 +137,7 @@ export default function SubscButton(
               }}>
                 <p>
                   Amazon Music
-                  <span className="fill-blue-900">
+                  <span className="">
                   <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg>
                   </span>
                 </p>
@@ -145,6 +147,8 @@ export default function SubscButton(
               className={`
                 w-full inline-block drop-shadow rounded
                 py-2 px-4 bg-red-500 text-white fill-white font-bold
+                hover:bg-white hover:text-red-500 hover:fill-red-500
+                transition-all duration-500 ease-out
                `}
               href={getYoutubeUrl(songId,albumId,youtubeId)}
               target="_blank" rel="noopener noreferrer"
@@ -164,6 +168,8 @@ export default function SubscButton(
               className={`${subscUrl===undefined||subscUrl.lineMusicUrl===''?'hidden':''}
                 w-full inline-block drop-shadow rounded
                 py-2 px-4 bg-[#09D16B] text-white fill-white font-bold
+                hover:bg-white hover:text-[#09D16B] hover:fill-[#09D16B]
+                transition-all duration-500 ease-out
                `}
               href={subscUrl?.lineMusicUrl}
               target="_blank" rel="noopener noreferrer"
@@ -183,6 +189,8 @@ export default function SubscButton(
               className={`${subscUrl===undefined||subscUrl.appleMusicUrl===''?'hidden':''}
                 w-full inline-block drop-shadow rounded
                 py-2 px-4 bg-[#FB445C] text-white fill-white font-bold
+                hover:bg-white hover:text-[#FB445C] hover:fill-[#FB445C]
+                transition-all duration-500 ease-out
                `}
               href={subscUrl?.appleMusicUrl}
               target="_blank" rel="noopener noreferrer"
@@ -201,7 +209,9 @@ export default function SubscButton(
             <a 
               className={`${subscUrl===undefined||subscUrl.spotifyUrl===''?'hidden':''}
                 w-full inline-block drop-shadow rounded
-                py-2 px-4 bg-[#24CF5F] text-white fill-white font-bold
+                py-2 px-4 bg-[#24CF5F] text-black fill-black font-bold
+                hover:bg-black hover:text-[#24CF5F] hover:fill-[#24CF5F]
+                transition-all duration-500 ease-out
                `}
               href={subscUrl?.spotifyUrl}
               target="_blank" rel="noopener noreferrer"
@@ -221,6 +231,8 @@ export default function SubscButton(
               className={`${subscUrl===undefined||subscUrl.awaUrl===''?'hidden':''}
                 w-full inline-block drop-shadow rounded
                 py-2 px-4 bg-black text-white fill-white font-bold
+                hover:bg-white hover:text-black hover:fill-black
+                transition-all duration-500 ease-out
                `}
               href={subscUrl?.awaUrl}
               target="_blank" rel="noopener noreferrer"
@@ -240,6 +252,8 @@ export default function SubscButton(
               className={`${subscUrl===undefined||subscUrl.towerRecordsMusic===''?'hidden':''}
                 w-full inline-block drop-shadow rounded
                 py-2 px-4 bg-[#FDD000] text-red-600 fill-red-600 font-bold
+                hover:bg-white 
+                transition-all duration-500 ease-out
                `}
               href={subscUrl?.towerRecordsMusic}
               target="_blank" rel="noopener noreferrer"
