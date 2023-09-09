@@ -11,11 +11,6 @@ export default function AlbumSeries({ albumId, seriesId }: { albumId: string, se
     const results : Albums[] | undefined 
         = albumMaster.filter(data => data.albumId !== albumId && data.sereisId === seriesId)||[];
 
-    // シリーズに自分しかいない場合は表示しない
-    if(results.length <= 1) {
-        return(<></>)
-    }
-
     const resultsSort : Albums[]
         = results.filter(data => data.youtubeId !== '').concat(results.filter(data => data.youtubeId === ''));
 
