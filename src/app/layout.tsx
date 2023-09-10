@@ -11,6 +11,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   metadataBase: new URL('https://search315.com'),
   title: 'サーチサイコー',
+  description: '「アイドルマスターSideM」楽曲等の情報検索ツール。（非公式ファンサイト）',
   icons: {
       icon: '/favicons/favicon.ico',
       shortcut: '/favicons/favicon.ico',
