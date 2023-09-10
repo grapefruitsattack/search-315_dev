@@ -2,7 +2,7 @@
 import type { SongMaster, Albums } from '../../../data/types';
 import songMasters from '../../../data/songMaster.json';
 import albumMasters from '../../../data/albumMaster.json';
-import {YoutubeModal} from "../../../components/YoutubeModal";
+import {YoutubeModal} from "./YoutubeModal";
 import {ShareYoutubeModal} from "../../app/shareModal/ShareYoutubeModal";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";

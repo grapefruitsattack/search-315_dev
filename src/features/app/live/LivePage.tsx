@@ -1,6 +1,6 @@
 'use client'
 import liveMaster from '../../../data/liveMaster.json';
-import CommonPage from "../../../components/CommonPage";
+import CommonPage from "../../common/components/CommonPage";
 import LiveContent from "./components/LiveContent";
 import type { SongMaster,LiveMaster } from '../../../data/types';
 

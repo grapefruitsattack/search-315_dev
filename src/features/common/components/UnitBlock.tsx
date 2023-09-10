@@ -1,6 +1,5 @@
 
-import singingMaster from '../data/singingMaster.json';
-import borderHover from '../app/border-hover.module.css';
+import singingMaster from '../../../data/singingMaster.json';
 import Link from 'next/link';
 import { motion } from "framer-motion";
 

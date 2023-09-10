@@ -13,7 +13,7 @@ import {
   ModalHeader,
   useDisclosure, 
  } from "@chakra-ui/react";
-import { YoutubeModal } from '@/components/YoutubeModal';
+import { YoutubeModal } from '@/features/common/components/YoutubeModal';
 
  const subscServiceNames: {
   id: string;

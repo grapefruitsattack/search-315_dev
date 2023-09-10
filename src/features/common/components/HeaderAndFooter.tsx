@@ -11,8 +11,8 @@ import {
     DrawerContent,
     DrawerCloseButton,Button ,Input, MenuButton
 } from '@chakra-ui/react'
-import {ShareSearchResultModal} from "../features/app/shareModal/ShareSearchResultModal";
-import {getSearchTargetStr} from '../features/common/utils/SearchParamCheck';
+import {ShareSearchResultModal} from "../../app/shareModal/ShareSearchResultModal";
+import {getSearchTargetStr} from '../utils/SearchParamCheck';
 
 export default function HeaderAndFooter() {
 

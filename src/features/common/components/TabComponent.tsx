@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from "react";
-import type { Tabs } from '../data/types';
+import type { Tabs } from '../../../data/types';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from "framer-motion";
 

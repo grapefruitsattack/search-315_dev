@@ -4,7 +4,7 @@ import HeaderAndFooter from "./HeaderAndFooter";
 import { AppProps } from "next/app";
 import { useRouter } from "next/navigation"
 import React from "react";
-import useBuildId from "../features/common/utils/useBuildId"
+import useBuildId from "../utils/useBuildId"
 import Link from 'next/link';
 
 

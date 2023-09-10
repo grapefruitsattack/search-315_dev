@@ -1,10 +1,10 @@
 "use client"
-import CommonPage from "../components/CommonPage";
-import HeaderAndFooter from "../components/HeaderAndFooter";
+import CommonPage from "../features/common/components/CommonPage";
+import HeaderAndFooter from "../features/common/components/HeaderAndFooter";
 import singingMaster from '../data/singingMaster.json';
-import IdolBlock from "../components/IdolBlock";
-import UnitBlock from "../components/UnitBlock";
-import borderHover from './border-hover.module.css'
+import IdolBlock from "../features/common/components/IdolBlock";
+import UnitBlock from "../features/common/components/UnitBlock";
+import borderHover from '../features/common/css/border-hover.module.css'
 import { motion,AnimatePresence } from 'framer-motion'
 import Link from "next/link";
 

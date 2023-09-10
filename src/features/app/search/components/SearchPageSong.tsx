@@ -6,7 +6,7 @@ import getTotalPage from '../../../common/utils/GetTotalPage';
 import {isValidSearchQParam} from '../../../common/utils/SearchParamCheck';
 import SearchSongForSingingInfoId from '../../../common/utils/SearchSongForSingingInfoId';
 import SongBlock from "../../../common/components/SongBlock";
-import Pagination from "../../../../components/Pagination";
+import Pagination from "../../../common/components/Pagination";
 import { motion } from 'framer-motion'
 import { AnimatePresence } from "framer-motion";
 import SortSelect from "./SortSelect";

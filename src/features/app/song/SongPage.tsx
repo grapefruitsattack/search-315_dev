@@ -1,5 +1,5 @@
 'use client'
-import CommonPage from "../../../components/CommonPage";
+import CommonPage from "../../common/components/CommonPage";
 import songMaster from '../../../data/songMaster.json';
 import albumMaster from '../../../data/albumMaster.json';
 import type { SongMaster,Albums } from '../../../data/types';

@@ -8,7 +8,7 @@ import songInfoAsc from '../../../../data/songInfoAsc.json';
 import songInfoDesc from '../../../../data/songInfoDesc.json';
 import getTotalPage from '../../../common/utils/GetTotalPage';
 import AlbumBlock from "../../../common/components/AlbumBlock";
-import Pagination from "../../../../components/Pagination";
+import Pagination from "../../../common/components/Pagination";
 import SortSelect from "./SortSelect";
 import FilterSelect from "./FilterSelect";
 import { motion, AnimatePresence } from 'framer-motion'

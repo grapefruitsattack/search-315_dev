@@ -1,6 +1,6 @@
 
-import singingMaster from '../data/singingMaster.json';
-import borderHover from '../app/border-hover.module.css';
+import singingMaster from '../../../data/singingMaster.json';
+import borderHover from '../css/border-hover.module.css';
 import Link from 'next/link';
 import { motion, AnimatePresence } from "framer-motion";
 

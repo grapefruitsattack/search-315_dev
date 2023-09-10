@@ -1,8 +1,8 @@
 'use client'
 import type { SongMaster, SongInfo } from '../../../data/types';
-import CommonPage from "../../../components/CommonPage";
+import CommonPage from "../../common/components/CommonPage";
 import SongBlock from "../../common/components/SongBlock";
-import Pagination from "../../../components/Pagination";
+import Pagination from "../../common/components/Pagination";
 import { useSearchParams  } from 'next/navigation'
 //import GetTotalPage from '../../utils/GetTotalPage';
 import { motion } from 'framer-motion'

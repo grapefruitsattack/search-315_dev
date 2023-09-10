@@ -1,5 +1,5 @@
 'use client'
-import CommonPage from "../../../components/CommonPage";
+import CommonPage from "../../common/components/CommonPage";
 
 export default function AboutPage({ }: { }) {
 
