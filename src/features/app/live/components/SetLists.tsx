@@ -12,9 +12,26 @@ export default function SetLists({ livePerId }: { livePerId: string }) {
         = liveSetLists.filter(data => data.livePerId === livePerId) || [];
     const results : (SongMaster | undefined)[] 
         = liveSetListsResults.map((data)=>{
-            return songMaster.find(song=>song.songId === data.songId);
-        });
+            //7th横浜用暫定対応
+                return data.songId==''
+                ?{
+                    trackNo: 0,
+                    albumId: '',
+                    songId: '',
+                    songTitle: data.name,
+                    displayArtist: '',
+                    commonSong: '',
+                    youtubeId: '',
+                    trialYoutubeId: '',
+                    execFlg: 0,
+                    colleFlg: 0,
+                    isSoloColle: 0,
+                    isUnitColle: 0,
+                    releaseDate: ''
+                }
+                :songMaster.find(song=>song.songId === data.songId);
 
+        });
     const [isOpen, setISopen] = useState(false);
 
     return(
@@ -44,6 +61,28 @@ export default function SetLists({ livePerId }: { livePerId: string }) {
         {results.map((result, index) => 
             result === undefined
             ?(<></>)
+            //7th横浜用暫定対応
+            :result.songId === ''
+            ?(
+                <div
+                key={index} 
+                className ="
+                  inline-block
+                  w-fit
+                  text-base p-0.5
+                  rounded-md
+                  leading-tight
+                  font-sans
+                  row-span-1 col-span-2 
+                  rounded-md px-1 pt-1 
+                  from-cyan-100/30 to-violet-200/30
+                  text-zinc-800
+                ">
+                <span>
+                {result.songTitle}
+                </span>
+                </div>
+            )
             :(
                 <Link
                 key={index} 
