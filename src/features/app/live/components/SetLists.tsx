@@ -91,7 +91,7 @@ export default function SetLists({ livePerId }: { livePerId: string }) {
                 </span>
                 <span 
                     className = {`
-                    ${result.displayArtist===''?'hidden':'text-sm font-light'}`}>
+                    ${result.displayArtist===''?'hidden':'text-cyan-800/90'}`}>
                 {' - '}{result.displayArtist}
                 </span>
                 </div>
@@ -128,7 +128,7 @@ export default function SetLists({ livePerId }: { livePerId: string }) {
                 </Link>
                     <span 
                         className = {`
-                        ${result.displayArtist===''?'hidden':'font-light'}`}>
+                        ${result.displayArtist===''?'hidden':'text-cyan-800/90'}`}>
                     {' - '}{result.displayArtist}
                     </span>
                 </div>
