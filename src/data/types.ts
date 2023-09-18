@@ -81,6 +81,7 @@ export type LiveSetLists = {
   songId: string;
   coverFlg: string;
   name: string;
+  displayArtist: string;
 };
 
 export type LiveProduct = {

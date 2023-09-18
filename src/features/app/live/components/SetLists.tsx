@@ -13,23 +13,31 @@ export default function SetLists({ livePerId }: { livePerId: string }) {
     const results : (SongMaster | undefined)[] 
         = liveSetListsResults.map((data)=>{
             //7th横浜用暫定対応
-                return data.songId==''
-                ?{
-                    trackNo: 0,
-                    albumId: '',
-                    songId: '',
-                    songTitle: data.name,
-                    displayArtist: '',
-                    commonSong: '',
-                    youtubeId: '',
-                    trialYoutubeId: '',
-                    execFlg: 0,
-                    colleFlg: 0,
-                    isSoloColle: 0,
-                    isUnitColle: 0,
-                    releaseDate: ''
-                }
-                :songMaster.find(song=>song.songId === data.songId);
+                if(data.songId==''){
+                    return{
+                        trackNo: 0,
+                        albumId: '',
+                        songId: '',
+                        songTitle: data.name,
+                        displayArtist: data.displayArtist,
+                        commonSong: '',
+                        youtubeId: '',
+                        trialYoutubeId: '',
+                        execFlg: 0,
+                        colleFlg: 0,
+                        isSoloColle: 0,
+                        isUnitColle: 0,
+                        releaseDate: ''
+                    }
+                }else{
+                    const songInfo: SongMaster | undefined = songMaster.find(song=>song.songId === data.songId);
+                    return songInfo===undefined
+                    ?undefined
+                    :{...songInfo,
+                        songTitle: data.name,
+                        displayArtist: data.displayArtist
+                    }
+                };
 
         });
     const [isOpen, setISopen] = useState(false);
@@ -68,7 +76,7 @@ export default function SetLists({ livePerId }: { livePerId: string }) {
                 key={index} 
                 className ="
                   inline-block
-                  w-fit
+                  w-fit 
                   text-base p-0.5
                   rounded-md
                   leading-tight
@@ -81,21 +89,31 @@ export default function SetLists({ livePerId }: { livePerId: string }) {
                 <span>
                 {result.songTitle}
                 </span>
+                <span 
+                    className = {`
+                    ${result.displayArtist===''?'hidden':'text-sm font-light'}`}>
+                {' - '}{result.displayArtist}
+                </span>
                 </div>
             )
             :(
-                <Link
-                key={index} 
+                <div
+                key={index}
                 className ="
                   inline-block
+                  leading-tight
+                  row-span-1 col-span-2 
+                  px-1 pt-1
                   w-fit
                   text-base p-0.5
+                  font-sans
+                  text-zinc-800
+                " >
+                <Link
+                className ="
                   rounded-md
                   underline
-                  leading-tight
                   font-sans
-                  row-span-1 col-span-2 
-                  rounded-md px-1 pt-1 
                   from-cyan-100/30 to-violet-200/30
                   text-zinc-800
                   hover:bg-gradient-to-tl
@@ -108,6 +126,12 @@ export default function SetLists({ livePerId }: { livePerId: string }) {
                     {result.songTitle}
                     </span>
                 </Link>
+                    <span 
+                        className = {`
+                        ${result.displayArtist===''?'hidden':'font-light'}`}>
+                    {' - '}{result.displayArtist}
+                    </span>
+                </div>
             )
         )}
         </div>
