@@ -150,6 +150,16 @@ export default function HeaderAndFooter() {
                         rel="noopener noreferrer">
                         TOPに戻る
                     </Link>
+                    <Link className="
+                        p-2
+                        inline-block w-full hover:bg-gray-200 text-blue-900
+                        transition-all duration-500 ease-out
+                        text-xl font-sans justify-center
+                    "
+                        href={`/315setlist/editor`}
+                        rel="noopener noreferrer">
+                        test
+                    </Link>
                 </DrawerBody>
 
                 <DrawerFooter>
