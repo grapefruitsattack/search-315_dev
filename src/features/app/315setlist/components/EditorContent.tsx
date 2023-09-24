@@ -1,5 +1,5 @@
 'use client'
-import {SelectDataModal} from "./SelectDataModal";
+import SelectDataModal from "./SelectData/SelectDataModal";
 
 export default function EditorContent({ }: { }) {
 

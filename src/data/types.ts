@@ -18,6 +18,8 @@ export type SingingMaster = {
   personFlg: number;
   singingInfoName: string;
   singingInfoReadingName: string;
+  singingInfoRomajiName: string;
+  abbrName: string;
 };
 
 export type SongInfo = {
