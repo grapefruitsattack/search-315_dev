@@ -7,13 +7,13 @@
 { "sereisId": "AD",  "sereisName": "アニメ円盤特典CD"}, 
 { "sereisId": "3A",  "sereisName": "3rd ANNIVERSARY DISC"}, 
 { "sereisId": "WT",  "sereisName": "WORLD TRE@SURE"}, 
-{ "sereisId": "WM",  "sereisName": "WakeMini! MUSIC COLLECTION"}, 
+{ "sereisId": "WM",  "sereisName": "WakeMini! MUSIC COLLECTION（属性曲）"}, 
 { "sereisId": "SH",  "sereisName": "ストラグルハート 特装版CD"}, 
 { "sereisId": "4A",  "sereisName": "4th ANNIVERSARY DISC"}, 
 { "sereisId": "5A",  "sereisName": "5th ANNIVERSARY DISC"}, 
 { "sereisId": "NS",  "sereisName": "NEW STAGE EPISODE"}, 
 { "sereisId": "GS",  "sereisName": "GROWING SIGN@L"}, 
-{ "sereisId": "PF",  "sereisName": "PASSION@TE FORMATION"}, 
+{ "sereisId": "PF",  "sereisName": "PASSION@TE FORMATION（属性曲）"}, 
 { "sereisId": "49E",  "sereisName": "49 ELEMENTS"}, 
 { "sereisId": "FC",  "sereisName": "F@NTASTIC COMBINATION"}
 ]

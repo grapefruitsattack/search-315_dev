@@ -1,6 +1,11 @@
 'use client'
 import { useState, useEffect } from "react";
 import {SearchParams} from '../../class/SearchParams';
+import {SearchSongsFor315SetList} from '../../utils/SearchSongsFor315SetList';
+import PplSelectContents from './PplSelectContents';
+import SearchResult from './SearchResult';
+import songInfoDesc from '../../../../../data/songInfoDesc.json';
+import songInfoAsc from '../../../../../data/songInfoAsc.json';
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Modal,
@@ -10,7 +15,6 @@ import {
   ModalHeader,
   useDisclosure, 
  } from "@chakra-ui/react";
- import PplSelectContents from './PplSelectContents';
 
 
 export default function SelectDataModal ({}:{}) {
@@ -21,10 +25,9 @@ export default function SelectDataModal ({}:{}) {
 
     function changePplState(pplState: string[]){
       setSearchParams({...searchParams,singingInfos:pplState});
-      console.log(searchParams.singingInfos)
     };
 
-    //モーダル開閉処理
+    //モーダル開閉　ブラウザバック設定
     function openModal() {
       //ダミー履歴を挿入
       history.pushState(null, '', null);
@@ -34,21 +37,27 @@ export default function SelectDataModal ({}:{}) {
     function closeModal() {
       window.removeEventListener("popstate", onClose);
       history.back();
+      if(isDisplayedResult){
+        window.removeEventListener("popstate", setIsDisplayedResultFalse);
+        history.back();
+      }
       onClose();
     };
     
-    //検索結果切替処理
+    //検索結果切替　ブラウザバック設定
     function setIsDisplayedResultFalse(){
+      window.addEventListener('popstate', onClose, false);
       setIsDisplayedResult(false);
-    }
+    };
     function displaySearchResult() {
+      //ブラウザバック時のモーダル削除を消去
+      window.removeEventListener("popstate", onClose);
       //ダミー履歴を挿入
       history.pushState(null, '', null);
       window.addEventListener('popstate', setIsDisplayedResultFalse, false);
       setIsDisplayedResult(true);
     };
     function hiddenSearchResult() {
-      window.removeEventListener("popstate", setIsDisplayedResultFalse);
       history.back();
       setIsDisplayedResult(false);
     };
@@ -90,19 +99,30 @@ export default function SelectDataModal ({}:{}) {
         </ModalHeader>
         <ModalBody>
           <section className={`${isDisplayedResult?'hidden':''}`}>
-          {searchParams.singingInfos.length===0?'':'seletcted'}
+          {SearchSongsFor315SetList(searchParams,songInfoDesc).length}
           <PplSelectContents changeSearchParams={changePplState}/>
           </section>
           <section className={`${isDisplayedResult?'':'hidden'}`}>
-          {searchParams.singingInfos.join(',')}
+          <SearchResult searchParams={searchParams}/>
           </section>
         </ModalBody>
         <ModalHeader>
           <button
-            className="bg-gray-300 hover:bg-gray-500 cursor-pointer hover:text-gray-300 font-sans text-gray-500 w-8 h-8 flex items-center justify-center rounded-full"
+            className={`
+              bg-gray-300 hover:bg-gray-500 cursor-pointer hover:text-gray-300 font-sans text-gray-500 w-8 h-8 flex items-center justify-center rounded-full
+              ${isDisplayedResult?' hidden':' '}
+              `}
             onClick={displaySearchResult}
           >
             検索</button>
+          <button
+            className={`
+              bg-gray-300 hover:bg-gray-500 cursor-pointer hover:text-gray-300 font-sans text-gray-500 w-8 h-8 flex items-center justify-center rounded-full
+              ${isDisplayedResult?'':' hidden'}
+              `}
+            onClick={hiddenSearchResult}
+          >
+            戻る</button>
         </ModalHeader>
         </ModalContent>
         </Modal>

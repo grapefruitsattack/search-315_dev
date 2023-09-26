@@ -1,20 +1,17 @@
-import { ReadonlyURLSearchParams } from 'next/navigation';
-import type { SongMaster,Albums,MvInfo,LiveMaster } from '../../../../data/types';
+import { SetListSong } from './SetListSong';
 
 export class SetListData {
-    trackNo: number;
-    albumId: string;
-    songId: string;
-    songTitle: string;
-    displayArtist: string;
-    releaseDate: string;
+    title: string;
+    description: string;
+    author: string;
+    setListSongs: SetListSong[];
+    url: string;
 
-    constructor(songMaster : SongMaster) {
-        this.trackNo = songMaster.trackNo;
-        this.albumId = songMaster.albumId;
-        this.songId = songMaster.songId;
-        this.songTitle = songMaster.songTitle;
-        this.displayArtist = songMaster.displayArtist;
-        this.releaseDate = songMaster.releaseDate;
+    constructor() {
+        this.title = '';
+        this.description = '';
+        this.author = '';
+        this.setListSongs = [];
+        this.url = '';
     };
 }

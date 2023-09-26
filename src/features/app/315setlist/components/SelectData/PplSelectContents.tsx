@@ -1,8 +1,5 @@
 'use client'
 import { useState, useReducer, ChangeEvent, isValidElement, Dispatch, useEffect, SetStateAction } from "react";
-import {SearchParams} from '../../class/SearchParams';
-import UnitCheckbox from './UnitCheckbox';
-import PplCheckbox from './PplCheckbox';
 import singingMaster from '../../../../../data/singingMaster.json';
 import albumSeriesMaster from '../../../../../data/singingMaster.json';
 
@@ -52,48 +49,48 @@ export default function PplSelectContents ({changeSearchParams}:{ changeSearchPa
     return (
     <>
 
-    <div className='grid grid-cols-1 lg:grid-cols-2  gap-2'>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-JUP00'>
+    <div className='grid grid-cols-1 lg:grid-cols-2 gap-2'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-JUP00'>
         <PplCheckboxLabel idolId='JUP00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='JUP01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='JUP02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='JUP03' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-DRS00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-DRS00'>
         <PplCheckboxLabel idolId='DRS00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='DRS01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='DRS02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='DRS03' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-ALT00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-ALT00'>
         <PplCheckboxLabel idolId='ALT00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='ALT01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='ALT02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-BEI00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-BEI00'>
         <PplCheckboxLabel idolId='BEI00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='BEI01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='BEI02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='BEI03' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-DBL00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-DBL00'>
         <PplCheckboxLabel idolId='DBL00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='DBL01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='DBL02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-FRM00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-FRM00'>
         <PplCheckboxLabel idolId='FRM00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='FRM01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='FRM02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='FRM03' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-SAI00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-SAI00'>
         <PplCheckboxLabel idolId='SAI00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='SAI01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='SAI02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='SAI03' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-HIJ00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-HIJ00'>
         <PplCheckboxLabel idolId='HIJ00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='HIJ01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='HIJ02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
@@ -101,12 +98,12 @@ export default function PplSelectContents ({changeSearchParams}:{ changeSearchPa
         <PplCheckboxLabel idolId='HIJ04' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='HIJ05' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-SSK00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-SSK00'>
         <PplCheckboxLabel idolId='SSK00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='SSK01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='SSK02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-CFP00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-CFP00'>
         <PplCheckboxLabel idolId='CFP00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='CFP01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='CFP02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
@@ -114,37 +111,37 @@ export default function PplSelectContents ({changeSearchParams}:{ changeSearchPa
         <PplCheckboxLabel idolId='CFP04' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='CFP05' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-MFM00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-MFM00'>
         <PplCheckboxLabel idolId='MFM00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='MFM01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='MFM02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='MFM03' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-SEM00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-SEM00'>
         <PplCheckboxLabel idolId='SEM00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='SEM01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='SEM02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='SEM03' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-KGD00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-KGD00'>
         <PplCheckboxLabel idolId='KGD00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='KGD01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='KGD02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='KGD03' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-FLG00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-FLG00'>
         <PplCheckboxLabel idolId='FLG00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='FLG01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='FLG02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='FLG03' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-LGN00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-LGN00'>
         <PplCheckboxLabel idolId='LGN00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='LGN01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='LGN02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='LGN03' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
     </div>
-    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-2 border-CLF00'>
+    <div className='flex flex-wrap p-1 gap-3 justify-center items-center border-t-[3px] border-l-4 border-CLF00'>
         <PplCheckboxLabel idolId='CLF00' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='CLF01' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>
         <PplCheckboxLabel idolId='CLF02' pplState={pplState} setPplState={setPplState} changeSearchParams={changeSearchParams}/>

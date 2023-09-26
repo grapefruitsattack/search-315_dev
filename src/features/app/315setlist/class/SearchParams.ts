@@ -6,7 +6,7 @@ export class SearchParams {
   albums: string[];
 
   constructor() {
-      this.subsc = '0';
+      this.subsc = '1';
       this.colle = '1';
       this.singingInfos=[];
       this.albums=[];
