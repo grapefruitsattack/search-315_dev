@@ -44,6 +44,9 @@ export type SongMaster = {
   isSoloColle: number;
   isUnitColle: number;
   releaseDate: string;
+  AlbumSereisId: string;
+  albumTitleFull: string;
+  albumTitle: string;
 };
 
 export type SubscUrls = {
