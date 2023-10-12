@@ -123,5 +123,8 @@
     { "songId": "GS02_1",  "mvType": "GS_PROM",  "url": "https://youtu.be/hKZgtekOyPo",  "songName": "We're the one"}, 
     { "songId": "GS01_2",  "mvType": "GS_PROM",  "url": "https://youtu.be/mEf_rhX2LLA",  "songName": "DRIVE A LIVE"}, 
     { "songId": "GS01_3",  "mvType": "GS_PROM",  "url": "https://youtu.be/dk1sDChaaN0",  "songName": "Beyond The Dream"}, 
-    { "songId": "GS01_1",  "mvType": "GS_PROM",  "url": "https://youtu.be/ugu3wGnDCzg",  "songName": "Growing Smiles！"}
+    { "songId": "GS01_1",  "mvType": "GS_PROM",  "url": "https://youtu.be/ugu3wGnDCzg",  "songName": "Growing Smiles！"}, 
+    { "songId": "GS01_2",  "mvType": "DANCE",  "url": "https://youtu.be/9ogiP0NDzW8",  "songName": "DRIVE A LIVE"}, 
+    { "songId": "GS01_4",  "mvType": "DANCE",  "url": "https://youtu.be/l4vIPuElPZU",  "songName": "NEXT STAGE！"}, 
+    { "songId": "8ST01_1",  "mvType": "DANCE",  "url": "https://youtu.be/2-A0kyeAmro",  "songName": "Hands & Claps!"}
     ]
