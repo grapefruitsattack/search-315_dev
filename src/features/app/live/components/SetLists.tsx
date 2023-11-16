@@ -40,7 +40,7 @@ export default function SetLists({ livePerId }: { livePerId: string }) {
                 };
 
         });
-    const [isOpen, setISopen] = useState(false);
+    const [isOpen, setISopen] = useState(true);
 
     return(
     <>
