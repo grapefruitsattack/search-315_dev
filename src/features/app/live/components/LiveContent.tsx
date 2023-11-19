@@ -11,11 +11,13 @@ import SetLists from './SetLists'
 export default function LiveContent({ result }: { result: LiveMaster }) {
 
     //開催日
-    const perDateStr: string 
-        = new Date(
-            Number(result.perDate.substring(0,4))
-            ,Number(result.perDate.substring(4,6))-1
-            ,Number(result.perDate.substring(6,8))).toLocaleDateString();
+    const perDateArray: string[] = result.perDate.split(',').map(str=>{
+        return new Date(
+            Number(str.substring(0,4))
+            ,Number(str.substring(4,6))-1
+            ,Number(str.substring(6,8))).toLocaleDateString()
+    });
+    const perDateStr: string = perDateArray.join('、');
 
     //製品情報
     const products : LiveProduct[]

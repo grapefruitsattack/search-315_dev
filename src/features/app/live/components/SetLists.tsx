@@ -12,7 +12,7 @@ export default function SetLists({ livePerId }: { livePerId: string }) {
         = liveSetLists.filter(data => data.livePerId === livePerId) || [];
     const results : (SongMaster | undefined)[] 
         = liveSetListsResults.map((data)=>{
-            //7th横浜用暫定対応
+            //7th横浜バトルミックス、8thライライメイシ用暫定対応
                 if(data.songId==''){
                     return{
                         trackNo: 0,
@@ -29,7 +29,7 @@ export default function SetLists({ livePerId }: { livePerId: string }) {
                         isUnitColle: 0,
                         releaseDate: ''
                     }
-                }else{
+                }else if(data.trackNo!==0){
                     const songInfo: SongMaster | undefined = songMaster.find(song=>song.songId === data.songId);
                     return songInfo===undefined
                     ?undefined
