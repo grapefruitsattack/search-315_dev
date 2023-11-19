@@ -49,5 +49,7 @@
 { "productId": "8TH",  "productName": "THE IDOLM@STER SideM 8th STAGE ～ALL H@NDS TOGETHER～ LIVE Blu-ray",  "livePerId": "8TH_CMH",  "releasePage": "https://www.lantis.jp/sidem/releaseinfo/release_LABX-8723.html",  "releaseDate": "20240710"}, 
 { "productId": "8TH",  "productName": "THE IDOLM@STER SideM 8th STAGE ～ALL H@NDS TOGETHER～ LIVE Blu-ray",  "livePerId": "8TH_COH",  "releasePage": "https://www.lantis.jp/sidem/releaseinfo/release_LABX-8723.html",  "releaseDate": "20240710"}, 
 { "productId": "FCL_BP",  "productName": "315 Production presents F＠NTASTIC COMBINATION LIVE ～BRAINPOWER!!～ LIVE Blu-ray",  "livePerId": "FCL_BP_K",  "releasePage": "https://idolmaster-official.jp/news/01_10090",  "releaseDate": "20240410"}, 
-{ "productId": "FCL_BP",  "productName": "315 Production presents F＠NTASTIC COMBINATION LIVE ～BRAINPOWER!!～ LIVE Blu-ray",  "livePerId": "FCL_BP_M",  "releasePage": "https://idolmaster-official.jp/news/01_10090",  "releaseDate": "20240410"}
-    ]
+{ "productId": "FCL_BP",  "productName": "315 Production presents F＠NTASTIC COMBINATION LIVE ～BRAINPOWER!!～ LIVE Blu-ray",  "livePerId": "FCL_BP_M",  "releasePage": "https://idolmaster-official.jp/news/01_10090",  "releaseDate": "20240410"},
+{ "productId": "FCL_CT",  "productName": "315 Production presents F＠NTASTIC COMBINATION LIVE ～CONNECTME!!!!～ LIVE Blu-ray",  "livePerId": "FCL_CT_HC",  "releasePage": "https://idolmaster-official.jp/news/01_10099",  "releaseDate": "20240410"}, 
+{ "productId": "FCL_CT",  "productName": "315 Production presents F＠NTASTIC COMBINATION LIVE ～CONNECTME!!!!～ LIVE Blu-ray",  "livePerId": "FCL_CT_DA",  "releasePage": "https://idolmaster-official.jp/news/01_10099",  "releaseDate": "20240410"}
+]
