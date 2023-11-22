@@ -18,6 +18,8 @@ export type SingingMaster = {
   personFlg: number;
   singingInfoName: string;
   singingInfoReadingName: string;
+  singingInfoRomajiName: string;
+  abbrName: string;
 };
 
 export type SongInfo = {
@@ -42,6 +44,9 @@ export type SongMaster = {
   isSoloColle: number;
   isUnitColle: number;
   releaseDate: string;
+  AlbumSereisId: string;
+  albumTitleFull: string;
+  albumTitle: string;
 };
 
 export type SubscUrls = {

@@ -1,4 +1,3 @@
-import type { SingingMaster } from '../../../data/types';
 import singingMaster from '../../../data/singingMaster.json';
 
 export function isValidSearchQParam(searchQParam: string[]): boolean
