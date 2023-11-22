@@ -13,6 +13,7 @@ const mvTypeNames: {
     ,{mvType:'GS_3D_ALL',mvName:'サイスタ3Dライブまとめ'}
     ,{mvType:'GS_PROM',mvName:'サイスタ紹介プレイリスト'}
     ,{mvType:'DANCE',mvName:'振り付け講座'}
+    ,{mvType:'FC_MV',mvName:'公開MV'}
 ]
 
 export default function Mv({ mvInfos }: { mvInfos: MvInfo[] }) {

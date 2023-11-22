@@ -126,5 +126,8 @@
     { "songId": "GS01_1",  "mvType": "GS_PROM",  "url": "https://youtu.be/ugu3wGnDCzg",  "songName": "Growing Smiles！"}, 
     { "songId": "GS01_2",  "mvType": "DANCE",  "url": "https://youtu.be/9ogiP0NDzW8",  "songName": "DRIVE A LIVE"}, 
     { "songId": "GS01_4",  "mvType": "DANCE",  "url": "https://youtu.be/l4vIPuElPZU",  "songName": "NEXT STAGE！"}, 
-    { "songId": "8ST01_1",  "mvType": "DANCE",  "url": "https://youtu.be/2-A0kyeAmro",  "songName": "Hands & Claps!"}
+    { "songId": "8ST01_1",  "mvType": "DANCE",  "url": "https://youtu.be/2-A0kyeAmro",  "songName": "Hands & Claps!"},
+{ "songId": "FC01_1",  "mvType": "FC_MV",  "url": "https://youtu.be/TsChAgAV2ro",  "songName": "Dramatic Anthem"}, 
+{ "songId": "FC03_1",  "mvType": "FC_MV",  "url": "https://youtu.be/zG8iCG0BPF4",  "songName": "組曲 -to All Ages Concerto-"}, 
+{ "songId": "FC05_1",  "mvType": "FC_MV",  "url": "https://youtu.be/gwjm6kqrE0k",  "songName": "Secret Light"}
     ]

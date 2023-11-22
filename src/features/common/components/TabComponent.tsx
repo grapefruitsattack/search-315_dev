@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from "react";
+import Link from 'next/link';
 import type { Tabs } from '../../../data/types';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from "framer-motion";
@@ -29,19 +30,21 @@ export default function TabComponent  ({ tabs }: { tabs: Tabs[] }) {
 
     const [activeTab, setActiveTab] = useState(initTab);
 
+    let urlParams: {[key: string]: string}= {};
+    params.forEach(function(value: string, key: string) {
+      urlParams[key] = value;
+    });
 
 	return (
     
     <>
     <div className="flex space-x-1 w-[85vw] justify-start m-auto">
           {tabs.map((tab,index) => (
-            <button
+              <Link 
+                href={{ pathname: currentPath, query: {...urlParams, ['tab']: tab.id} }}
               key={tab.id}
               onClick={() => {
                 setActiveTab(tab);
-                params.set('tab',tab.id);
-                params.delete('page');
-                router.push(currentPath + '?'  + params.toString());
               }}
               className={`font-sans text-base lg:text-xl ${
                   activeTab.id === tab.id 
@@ -84,7 +87,7 @@ export default function TabComponent  ({ tabs }: { tabs: Tabs[] }) {
                 </div>
               
               </div>
-            </button>
+            </Link>
           ))}
         </div>
         <AnimatePresence mode="wait">
