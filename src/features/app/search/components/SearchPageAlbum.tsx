@@ -5,7 +5,6 @@ import type { Albums } from '../../../../data/types';
 import SearchAlbumForSingingInfoId from '../../../common/utils/SearchAlbumForSingingInfoId';
 import {isValidSearchQParam} from '../../../common/utils/SearchParamCheck';
 import songInfoAsc from '../../../../data/songInfoAsc.json';
-import songInfoDesc from '../../../../data/songInfoDesc.json';
 import getTotalPage from '../../../common/utils/GetTotalPage';
 import AlbumBlock from "../../../common/components/AlbumBlock";
 import Pagination from "../../../common/components/Pagination";
@@ -24,6 +23,8 @@ export default function SearchPageAlbum({ }: {}) {
     const order :string = searchParams.get('order') || 'desc';
     const subscExists :number = Number(searchParams.get('subsc')) || 0;
     const colleFlg :number = Number(searchParams.get('colle')) || 0;
+
+    const songInfoDesc = songInfoAsc.slice().reverse();
 
     const results: Albums[] 
     = SearchAlbumForSingingInfoId(search||[]

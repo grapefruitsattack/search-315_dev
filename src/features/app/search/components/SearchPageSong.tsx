@@ -12,7 +12,6 @@ import { AnimatePresence } from "framer-motion";
 import SortSelect from "./SortSelect";
 import FilterSelect from "./FilterSelect";
 import songInfoAsc from '../../../../data/songInfoAsc.json';
-import songInfoDesc from '../../../../data/songInfoDesc.json';
 
 export default function SearchPageSong({ }: {}) {
     const searchParams = useSearchParams();
@@ -25,6 +24,8 @@ export default function SearchPageSong({ }: {}) {
     const order :string = searchParams.get('order') || 'desc';
     const subscExists :number = Number(searchParams.get('subsc')) || 0;
     const colleFlg :number = Number(searchParams.get('colle')) || 0;
+
+    const songInfoDesc = songInfoAsc.slice().reverse();
 
     const results: SongMaster[] 
       = SearchSongForSingingInfoId(search||[]
