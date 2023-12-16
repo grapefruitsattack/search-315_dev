@@ -139,7 +139,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                 :
                 <div 
                     className={`
-                        lg:w-auto inline-block row-span-1 
+                        lg:w-auto inline-block row-span-1 h-[44px]
                     `}
                 >
                     <SubscButton songId={result.songId} albumId="" youtubeId={result.youtubeId}/>

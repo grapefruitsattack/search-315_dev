@@ -13,6 +13,7 @@ import {
   ModalHeader,
   useDisclosure, 
  } from "@chakra-ui/react";
+ import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { YoutubeModal } from '@/features/common/components/YoutubeModal';
 
  const subscServiceNames: {
@@ -34,6 +35,10 @@ const STORAGE_SUBSC_SERVICE = 'subscService';
 export default function SubscButton(
     { songId, albumId, youtubeId }: { songId: string, albumId: string, youtubeId: string}
   ) {
+    //リロード用準備
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
+    const router = useRouter();
     //ローカルストレージ
     const [subscService, setSubscService] = useSubscService('youtube');
     //モーダル
@@ -54,12 +59,12 @@ export default function SubscButton(
 
 
     return(
-    <div className="grid grid-cols-[4fr_2fr] divide-x">
+    <div className="grid grid-cols-[4fr_2fr] divide-x w-full h-full">
     <a className="w-full h-full"
     href={href===''?getYoutubeUrl(songId,albumId,youtubeId):href}
     target="_blank" rel="noopener noreferrer">
     <motion.button
-        className='rounded-l-lg border-t-2 border-l-2 border-b-2 border-orange-500 w-full h-[43px]
+        className='rounded-l-lg border-t-2 border-l-2 border-b-2 border-orange-500 w-full h-full
         text-orange-500 font-sans leading-tight
         hover:bg-orange-500 hover:text-orange-100 
         transition-all duration-500 ease-out
@@ -86,12 +91,12 @@ export default function SubscButton(
     </motion.button>
     </a>
     <motion.button
-        className='rounded-r-lg border-2 bg-orange-500 border-orange-500 w-full h-[43px] fill-white flex justify-center items-center'
+        className='rounded-r-lg border-2 bg-orange-500 border-orange-500 w-full h-full fill-white flex justify-center items-center'
         onClick={onOpen}
     >
         <div className='' >
 
-        <svg className='w-[30px] h-[30px] tablet:w-[40px] tablet:h-[40px]' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30"><path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path></svg>
+        <svg className='w-[30px] h-[20px] tablet:w-[40px] tablet:h-[30px]' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30"><path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path></svg>
         </div>
     </motion.button>
 
@@ -132,6 +137,9 @@ export default function SubscButton(
               href={subscUrl?.amazonMusicUrl}
               target="_blank" rel="noopener noreferrer"
               onClick={()=>{
+                setTimeout(()=>{
+                  window.location.reload();
+                },100);
                 setSubscService('amazon');
                 onClose();
               }}>
@@ -153,6 +161,9 @@ export default function SubscButton(
               href={getYoutubeUrl(songId,albumId,youtubeId)}
               target="_blank" rel="noopener noreferrer"
               onClick={()=>{
+                setTimeout(()=>{
+                  window.location.reload();
+                },100);
                 setSubscService('youtube');
                 onClose();
               }}>
@@ -174,6 +185,9 @@ export default function SubscButton(
               href={subscUrl?.lineMusicUrl}
               target="_blank" rel="noopener noreferrer"
               onClick={()=>{
+                setTimeout(()=>{
+                  window.location.reload();
+                },100);
                 setSubscService('line');
                 onClose();
               }}>
@@ -195,6 +209,9 @@ export default function SubscButton(
               href={subscUrl?.appleMusicUrl}
               target="_blank" rel="noopener noreferrer"
               onClick={()=>{
+                setTimeout(()=>{
+                  window.location.reload();
+                },100);
                 setSubscService('apple');
                 onClose();
               }}>
@@ -216,6 +233,9 @@ export default function SubscButton(
               href={subscUrl?.spotifyUrl}
               target="_blank" rel="noopener noreferrer"
               onClick={()=>{
+                setTimeout(()=>{
+                  window.location.reload();
+                },100);
                 setSubscService('spotify');
                 onClose();
               }}>
@@ -237,6 +257,9 @@ export default function SubscButton(
               href={subscUrl?.awaUrl}
               target="_blank" rel="noopener noreferrer"
               onClick={()=>{
+                setTimeout(()=>{
+                  window.location.reload();
+                },100);
                 setSubscService('awa');
                 onClose();
               }}>
@@ -258,6 +281,9 @@ export default function SubscButton(
               href={subscUrl?.towerRecordsMusic}
               target="_blank" rel="noopener noreferrer"
               onClick={()=>{
+                setTimeout(()=>{
+                  window.location.reload();
+                },100);
                 setSubscService('towerrecord');
                 onClose();
               }}>
