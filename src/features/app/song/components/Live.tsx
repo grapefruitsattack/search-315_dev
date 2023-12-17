@@ -4,7 +4,7 @@ import type { SongMaster,Albums,MvInfo,LiveMaster } from '../../../../data/types
 
 export default function Live({ results }: { results: LiveMaster[] }) {
 
-    const [isOpen, setISopen] = useState(false);
+    const [isOpen, setISopen] = useState(results.length < 15);
 
     return(
         <>

@@ -11,7 +11,7 @@ export default function OtherVersion({ id ,commonSongId }: { id: string, commonS
     const resultSort : SongMaster[] | undefined 
         = result.filter(data => data.youtubeId !== '').concat(result.filter(data => data.youtubeId === ''));
 
-    const [isOpen, setISopen] = useState(false);
+    const [isOpen, setISopen] = useState(result.length < 10);
 
     return(
             <>
