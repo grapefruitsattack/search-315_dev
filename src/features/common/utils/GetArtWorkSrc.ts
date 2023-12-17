@@ -3,6 +3,7 @@ const dummySeriesId:string[]
     = [
         'AD'
         ,'SH'
+        ,'PM'
         ,''
     ];
 
