@@ -127,7 +127,7 @@ export default function SongBlock(
       {song?.youtubeId===''
             ?<div className = 'inline-block col-span-3'></div>
             :
-            <div className = 'flex  col-span-3 h-[36px]'>
+            <div className = 'flex col-span-3 h-[36px]'>
             <SubscButton songId={song?.songId} albumId="" youtubeId={song?.youtubeId}/>
             </div>
       }
@@ -160,7 +160,18 @@ export default function SongBlock(
       </motion.button>
       </Tooltip>
       </div>
-      :<></>
+      :
+      <div className="">
+      {song?.youtubeId===''
+            ?<div className = 'hidden'></div>
+            :
+            <div className="grid grid-cols-5 h-[36px]">
+            <div className = 'flex col-span-5 h-[36px] max-w-[280px]'>
+            <SubscButton songId={song?.songId} albumId="" youtubeId={song?.youtubeId}/>
+            </div>
+            </div>
+      }
+      </div>
       }
 
 
