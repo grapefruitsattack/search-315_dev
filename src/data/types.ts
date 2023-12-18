@@ -19,7 +19,8 @@ export type SingingMaster = {
   singingInfoName: string;
   singingInfoReadingName: string;
   singingInfoRomajiName: string;
-  abbrName: string;
+  color: string;
+  url: string;
 };
 
 export type SongInfo = {
@@ -113,4 +114,9 @@ export type Tabs = {
   color: string;
   disabled: boolean;
   content: JSX.Element;
+};
+
+export type LivePerformer = {
+  livePerId: string;
+  singingInfoId: string;
 };
