@@ -59,9 +59,9 @@ export default function UnitPage({ id }: { id: string  }) {
     <article className="pt-32 pb-96 px-12 lg:px-24 bg-white lg:max-w-[1500px] lg:m-auto font-sans">
       <div className={`
       relative 
-      after:content-[' '] after:absolute after:right-[-10px] after:bottom-[-25%] w-fit
+      after:content-[' '] after:absolute after:right-[-10px] after:bottom-[-15%] w-fit
       mb-8
-      after:bg-[#`+colorStr+`] after:w-full after:h-[35%] after:z-10`}>
+      after:bg-[#`+colorStr+`] after:w-full after:h-[25%] after:z-10`}>
       <p className={`
        tablet:text-5xl tablet:first-letter:text-7xl mobileM:text-5xl mobileM:first-letter:text-6xl text-4xl first-letter:text-5xl
        font-semibold bg-clip-text text-transparent bg-clip-text  bg-black
@@ -72,12 +72,12 @@ export default function UnitPage({ id }: { id: string  }) {
       </div>
       {/* 詳細 */}
       <div className='
-          grid grid-cols-2 mt-4 gap-y-[5px] 
+          grid grid-cols-1 mt-4 gap-y-[5px] 
           lg:w-1/2 
       '>
         <div 
             className={`
-                lg:w-auto inline-block row-span-1 lg:pr-2 pr-1
+                lg:w-auto inline-block row-span-1 lg:pr-2 pr-1 h-8
             `}
         >
         <ShareSearch315Modal 
@@ -138,7 +138,7 @@ export default function UnitPage({ id }: { id: string  }) {
       >
           {'ソロ曲'}
       </div>
-      <section className='mb-8 lg:min-h-[180px] min-h-[170px] rounded-lg bg-gradient-to-r from-indigo-50 to-emerald-50 overflow-x-scroll overflow-y-hidden flex flex-row flex-nowrap gap-x-2 items-center'>
+      <section className='mb-8 lg:min-h-[180px] min-h-[170px] rounded-lg bg-gradient-to-r from-indigo-50 to-emerald-50 overflow-x-scroll overflow-y-hidden flex flex-row flex-nowrap gap-x-2 pt-4 pb-4 items-start'>
       {soloSongs.length===0 
             ? <div>結果なし</div>
             :soloSongs.map((result, index) => (
@@ -160,7 +160,7 @@ export default function UnitPage({ id }: { id: string  }) {
       >
           {'個人参加曲'}
       </div>
-      <section className='mb-8 lg:min-h-[180px] min-h-[170px] rounded-lg bg-gradient-to-r from-indigo-50 to-emerald-50 overflow-x-scroll overflow-y-hidden flex flex-row flex-nowrap gap-x-2 items-center'>
+      <section className='mb-8 lg:min-h-[180px] min-h-[170px] rounded-lg bg-gradient-to-r from-indigo-50 to-emerald-50 overflow-x-scroll overflow-y-hidden flex flex-row flex-nowrap gap-x-2 pt-4 pb-4 items-start'>
       {collaboSongs.length===0 
             ? <div>結果なし</div>
             :collaboSongs.map((result, index) => (
@@ -183,7 +183,7 @@ export default function UnitPage({ id }: { id: string  }) {
       >
           {'ソロVer'}
       </div>
-      <section className='mb-8 lg:min-h-[180px] min-h-[170px] rounded-lg bg-gradient-to-r from-indigo-50 to-emerald-50 overflow-x-scroll overflow-y-hidden flex flex-row flex-nowrap gap-x-2 items-center'>
+      <section className='mb-8 lg:min-h-[180px] min-h-[170px] rounded-lg bg-gradient-to-r from-indigo-50 to-emerald-50 overflow-x-scroll overflow-y-hidden flex flex-row flex-nowrap gap-x-2 pt-4 pb-4 items-start'>
       {soloColleSongs.length===0 
             ? <div>結果なし</div>
             :soloColleSongs.map((result, index) => (
