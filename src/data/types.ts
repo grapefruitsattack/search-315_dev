@@ -80,6 +80,7 @@ export type LiveMaster = {
   perName: string;
   perDate: string;
   officialPage: string;
+  type: string;
 };
 
 export type LiveSetLists = {

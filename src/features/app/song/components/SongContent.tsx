@@ -17,7 +17,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
     //MV情報
     const mv : MvInfo[] = GetMv(result);
     //ライブ情報
-    const live : LiveMaster[] = SearchLiveBySongId(result);
+    const live : LiveMaster[] = SearchLiveBySongId(result).slice().reverse();;
     //アートワーク
     const imgSrc: string = GetArtWorkSrc(albumResult.sereisId||'',result.isSoloColle,result.isUnitColle);
     //リリース日

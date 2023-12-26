@@ -16,7 +16,7 @@ export default function IdolBlock({ id }: { id: string }) {
     return (
         <Link
           style={style}
-          href={{ pathname: '/search', query: {q: id, colle: 1}}}
+          href={{ pathname: '/idol/'+id }}
           // className={`group idol-block border-`+id}
           className={`group ` + borderHover.idol}
         >

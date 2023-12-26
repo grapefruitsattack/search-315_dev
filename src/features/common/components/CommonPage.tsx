@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 import React from "react";
 import useBuildId from "../utils/useBuildId"
 import Link from 'next/link';
+import ParticlesComponent from './particles';
 
 
 const CommonPage = ({ children }: Props ,{ Component, pageProps, router }: AppProps)=> {
@@ -26,6 +27,7 @@ const CommonPage = ({ children }: Props ,{ Component, pageProps, router }: AppPr
     <main className=" min-h-screen">
         <HeaderAndFooter />
         <>{children}</>
+        <ParticlesComponent/>
         <Link 
           className="flex pb-2 justify-center underline text-gray-600 mobileL:text-base mobileM:text-sm text-xs"
           href={`/about`}
