@@ -62,7 +62,7 @@ export default function AlbumContent({ album, }: { album: Albums}) {
                 />
                 <img
                 className={currentSnowParam.snowIsValid==='0'||album.colleFlg===1
-                    ?'hidden':` absolute left-[42px] top-[161px] lg:left-[90px] lg:top-[161px] h-auto w-full w-[130px] `}
+                    ?'hidden':` absolute left-[42px] top-[161px] lg:left-[90px] lg:top-[161px] w-[130px] `}
                 src={snowImgSrc}
                 alt="snow"
                 />
