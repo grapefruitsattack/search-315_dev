@@ -27,6 +27,15 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
             ,Number(result.releaseDate.substring(4,6))-1
             ,Number(result.releaseDate.substring(6,8))).toLocaleDateString();
 
+    
+    //雪を積もらせる
+    //ローカルストレージ
+    const jsonStr = localStorage.getItem('snowParam');
+    const currentSnowParam: {snowIsValid: string, noticeCheckedYear: string} 
+        = jsonStr===null?{snowIsValid:'1',noticeCheckedYear:''}:JSON.parse(jsonStr);
+    const snowImgSrc: string ='/snow/artworksnow'+String(Math.floor(Math.random() * 3)+1)+'.png';
+
+
     return(
         <article className="pt-32 pb-96 px-12 lg:px-24 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
         <section className="mb-2 bg-gradient-to-r from-cyan-500/70 tablet:from-0% from-20% rounded">
@@ -62,6 +71,12 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                     className={`object-cover object-center lg:h-[120px] lg:w-[120px] h-auto w-full max-w-[400px] aspect-square rounded-lg`}
                     src={`/artwork/${imgSrc}.png`}
                     alt="アートワーク"
+                    />
+                    <img
+                    className={currentSnowParam.snowIsValid==='0'||result.colleFlg===1
+                        ?'hidden':` absolute left-[42px] top-[161px] lg:left-[90px] lg:top-[161px] h-auto w-full w-[130px] `}
+                    src={snowImgSrc}
+                    alt="snow"
                     />
                 </div>
                 {/* 情報 */}

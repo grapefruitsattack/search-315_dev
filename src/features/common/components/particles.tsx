@@ -14,7 +14,7 @@ const ParticlesComponent = () => {
   const jsonStr = localStorage.getItem(STORAGE_SNOW_PARAM);
   const currentSnowParam: {snowIsValid: string, noticeCheckedYear: string} 
     = jsonStr===null?{snowIsValid:'1',noticeCheckedYear:''}:JSON.parse(jsonStr);
-    console.log(currentSnowParam)
+  
 
   const particlesInit = useCallback(async (engine:any) => {
       await loadFull(engine);
