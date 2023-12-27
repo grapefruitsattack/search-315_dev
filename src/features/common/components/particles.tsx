@@ -1,9 +1,21 @@
+'use client'
 import type { Container, Engine, ISourceOptions } from 'tsparticles-engine'
 import {Particles} from 'react-tsparticles'
 import { loadFull } from "tsparticles"
 import { useCallback } from 'react'
+import {useSnowParam} from '../hooks/useSnowParam'
+
+const STORAGE_SNOW_PARAM = 'snowParam';
 
 const ParticlesComponent = () => {
+  
+  //ローカルストレージ
+  const [snowParam, setSnowParam] = useSnowParam({snowIsValid:'',noticeCheckedYear:''});
+  const jsonStr = localStorage.getItem(STORAGE_SNOW_PARAM);
+  const currentSnowParam: {snowIsValid: string, noticeCheckedYear: string} 
+    = jsonStr===null?{snowIsValid:'1',noticeCheckedYear:''}:JSON.parse(jsonStr);
+  
+
   const particlesInit = useCallback(async (engine:any) => {
       await loadFull(engine);
     }, []);
@@ -385,7 +397,7 @@ const ParticlesComponent = () => {
 
   return (
     <Particles
-      className=''    
+      className={`${currentSnowParam.snowIsValid==='1'?'':'hidden'}`}    
       id="particles"
       init={particlesInit}
       options={options}

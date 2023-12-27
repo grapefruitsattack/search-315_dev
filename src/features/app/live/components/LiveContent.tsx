@@ -7,6 +7,7 @@ import CopyButton from "../../../common/components/CopyButton";
 import Products from './Products'
 import Movie from './Movie'
 import SetLists from './SetLists'
+import Performer from './Performer'
 
 export default function LiveContent({ result }: { result: LiveMaster }) {
 
@@ -39,7 +40,7 @@ export default function LiveContent({ result }: { result: LiveMaster }) {
 
     return(
         <article className="pt-32 pb-96 px-12 lg:px-24 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
-        <section className="mb-2 bg-gradient-to-r from-pink-400 tablet:from-0% mobileM:from-20% from-30% rounded">
+        <section className="mb-2 bg-gradient-to-r from-pink-400 tablet:from-0% mobileM:from-80% from-90% rounded">
             <div 
                 className="
                     flex items-center w-full ml-2
@@ -140,6 +141,10 @@ export default function LiveContent({ result }: { result: LiveMaster }) {
         {/* セットリスト */}
         <section className="mt-10">
             <SetLists livePerId={result.livePerId} type={result.type}/>
+        </section>
+        {/* 出演者 */}
+        <section className="mt-10">
+            <Performer livePerId={result.livePerId}/>
         </section>
 
         </article>

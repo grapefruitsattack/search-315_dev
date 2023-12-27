@@ -145,28 +145,7 @@ export default function Home() {
         <UnitBlock id="CFP00" />
         <IdolBlock id="CFP01" />
         <IdolBlock id="CFP02" />
-        <Link
-          style={ {"--c": '#6664C6'} as ItemCSS}
-          href={{ pathname: '/search', query: {q: 'CFP03', colle: 1 }}}
-          className={`group lg:h-min-[71px] h-min-[64.67px] `+ ` ` + borderHover.idol}
-        >
-        <motion.button
-          className='w-full h-full '
-          whileHover={{
-            scale: 1.05,
-            transition: { duration: 1 },
-          }}
-          >
-        <span className={``}>
-        <p className={`transform lg:transform-lg text-base md:text-3xl text-gray-800 font-sans m-0 max-w-[30ch]`}>
-              {''}{singingMaster.find(data => data.singingInfoId === "CFP03")?.singingInfoName}
-          </p>
-          <p className={`max-w-[30ch] font-semibold text-xs lg:text-sm opacity-70 text-`+"CFP03"}>
-          {singingMaster.find(data => data.singingInfoId === "CFP03")?.singingInfoRomajiName}
-          </p>
-            </span>
-        </motion.button>
-        </Link>
+        <IdolBlock id="CFP03" />
         <div className="hidden lg:inline-block"></div>
         <IdolBlock id="CFP04" />
         <IdolBlock id="CFP05" />

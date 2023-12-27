@@ -10,6 +10,7 @@ import SongBlock from "../../common/components/SongBlock";
 import CommonPage from "../../common/components/CommonPage";
 import IdolBlock from "../../common/components/IdolBlock";
 import {ShareSearch315Modal} from "../shareModal/ShareSearch315Modal";
+import Link from "next/link";
 
 interface ItemCSS extends React.CSSProperties{
   '--c':string
@@ -28,6 +29,7 @@ export default function IdolPage({ id }: { id: string }) {
   const unitmember: string[] 
     = singingMaster.filter(data=>data.personFlg===1 && data.singingInfoId.substring(0, 3)===id.substring(0, 3))
     .map(data=>data.singingInfoId);
+  const qStr: string = unitmember.join(' ');
 
   //ユニット曲取得
   const unitSongInfos: string[] = songInfoAsc.filter(data => data.singingInfoId === id && data.type === 'u').map(data=>data.songId);
@@ -68,7 +70,7 @@ export default function IdolPage({ id }: { id: string }) {
       relative 
       after:content-[' '] after:absolute after:right-[-10px] after:bottom-[-20%] w-fit
       mb-8
-      after:bg-[#`+colorStr+`] after:w-full after:h-[35%] after:z-10`}>
+      after:bg-[#`+colorStr+`] after:w-full after:h-[35%] after:z-0`}>
       <p className={`
        tablet:text-5xl text-5xl
        font-semibold 
@@ -81,7 +83,7 @@ export default function IdolPage({ id }: { id: string }) {
       {/* 詳細 */}
       <div className='
           grid grid-cols-1 mt-4 gap-y-[5px] 
-          lg:w-1/2 
+          lg:w-1/2 pb-4
       '>
         <div 
             className={`
@@ -127,7 +129,7 @@ export default function IdolPage({ id }: { id: string }) {
           "
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-          <path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H18C18 18.6863 15.3137 16 12 16C8.68629 16 6 18.6863 6 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z" fill="currentColor"></path></svg>
+          <path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H18C18 18.6863 15.3137 16 12 16C8.68629 16 6 18.6863 6 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z" fill="rgba(55,94,126,1)"></path></svg>
           {'ユニットメンバー'}
       </div>
       <section className='mt-2 pb-8 grid text-center align-middle grid-cols-2 lg:mb-0 lg:grid-cols-3 gap-3 max-w-[900px]'>
@@ -147,6 +149,7 @@ export default function IdolPage({ id }: { id: string }) {
               after:h-[0.5px] after:grow after:bg-slate-900/50 after:ml-[1rem] 
           "
       >
+          <svg className="fill-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 13.5351V3H20V5H14V17C14 19.2091 12.2091 21 10 21C7.79086 21 6 19.2091 6 17C6 14.7909 7.79086 13 10 13C10.7286 13 11.4117 13.1948 12 13.5351ZM10 19C11.1046 19 12 18.1046 12 17C12 15.8954 11.1046 15 10 15C8.89543 15 8 15.8954 8 17C8 18.1046 8.89543 19 10 19Z"></path></svg>
           {'ユニット曲'}
       </div>
       <section className='mb-8 lg:min-h-[180px] min-h-[170px] rounded-lg bg-gradient-to-r from-indigo-50 to-emerald-50 overflow-x-scroll overflow-y-hidden flex flex-row flex-nowrap gap-x-2 pt-4 pb-4 items-start'>
@@ -169,6 +172,7 @@ export default function IdolPage({ id }: { id: string }) {
               after:h-[0.5px] after:grow after:bg-slate-900/50 after:ml-[1rem] 
           "
       >
+          <svg className="fill-teal-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 13.5351V3H20V5H14V17C14 19.2091 12.2091 21 10 21C7.79086 21 6 19.2091 6 17C6 14.7909 7.79086 13 10 13C10.7286 13 11.4117 13.1948 12 13.5351ZM10 19C11.1046 19 12 18.1046 12 17C12 15.8954 11.1046 15 10 15C8.89543 15 8 15.8954 8 17C8 18.1046 8.89543 19 10 19Z"></path></svg>
           {'ユニット合同曲'}
       </div>
       <section className='mb-8 lg:min-h-[180px] min-h-[170px] rounded-lg bg-gradient-to-r from-indigo-50 to-emerald-50 overflow-x-scroll overflow-y-hidden flex flex-row flex-nowrap gap-x-2 pt-4 pb-4 items-start'>
@@ -193,6 +197,7 @@ export default function IdolPage({ id }: { id: string }) {
               after:h-[0.5px] after:grow after:bg-slate-900/50 after:ml-[1rem] 
           "
       >
+          <svg className="fill-lime-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 13.5351V3H20V5H14V17C14 19.2091 12.2091 21 10 21C7.79086 21 6 19.2091 6 17C6 14.7909 7.79086 13 10 13C10.7286 13 11.4117 13.1948 12 13.5351ZM10 19C11.1046 19 12 18.1046 12 17C12 15.8954 11.1046 15 10 15C8.89543 15 8 15.8954 8 17C8 18.1046 8.89543 19 10 19Z"></path></svg>
           {'カバー曲'}
       </div>
             }
@@ -219,6 +224,7 @@ export default function IdolPage({ id }: { id: string }) {
               after:h-[0.5px] after:grow after:bg-slate-900/50 after:ml-[1rem] 
           "
       >
+      <svg className="fill-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 13.5351V3H20V5H14V17C14 19.2091 12.2091 21 10 21C7.79086 21 6 19.2091 6 17C6 14.7909 7.79086 13 10 13C10.7286 13 11.4117 13.1948 12 13.5351ZM10 19C11.1046 19 12 18.1046 12 17C12 15.8954 11.1046 15 10 15C8.89543 15 8 15.8954 8 17C8 18.1046 8.89543 19 10 19Z"></path></svg>
           {'ユニットVer'}
       </div>
       <section className='mb-8 lg:min-h-[180px] min-h-[170px] rounded-lg bg-gradient-to-r from-indigo-50 to-emerald-50 overflow-x-scroll overflow-y-hidden flex flex-row flex-nowrap gap-x-2 pt-4 pb-4 items-start'>
@@ -270,7 +276,7 @@ export default function IdolPage({ id }: { id: string }) {
           </div>
       </a>
       </div>
-  <section className={`
+  <section className={`mb-24
       ${isLiveOpen?'lg:grid flex flex-col':'lg:grid hidden'}            
   `}>
   {/* 注釈　スマホ版 */}
@@ -325,7 +331,45 @@ export default function IdolPage({ id }: { id: string }) {
   ))}
   </div>
   </section>
-
+  {/* 検索 */}
+  <section>
+        <div className="flex w-[85vw] justify-center m-auto">
+            <Link 
+          href={{ pathname: '/search', query: {q: qStr, colle: 1}}}
+          className='
+                flex p-0.5 bg-gradient-to-r from-indigo-300 to-emerald-300 items-center 
+                hover:drop-shadow-xl cursor-pointer select-none
+                transition-all duration-500 ease-out
+                '
+            >
+                <div
+                    className='flex flex-row
+                        bg-gradient-to-r from-indigo-50 to-emerald-50 
+                        border-2 border-white
+                        text-teal-700
+                        font-sans lg:text-base text-sm
+                        p-1 items-center w-[70vw] justify-center 
+                    '
+                >
+                    <div
+                        className='
+                             pr-2
+                            truncate
+                        '
+                    >
+                      <span className="font-bold">
+                      {unitName}
+                      </span>
+                      <span className="">
+                      {'の他の楽曲を見つける'}
+                      </span>
+                    </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path d="M11 2C15.968 2 20 6.032 20 11C20 15.968 15.968 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2ZM11 18C14.8675 18 18 14.8675 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18ZM19.4853 18.0711L22.3137 20.8995L20.8995 22.3137L18.0711 19.4853L19.4853 18.0711Z" fill="currentColor"></path></svg>
+               
+                </div>
+            </Link>
+        </div>
+  </section>
     </article>
 
     </CommonPage>
