@@ -74,7 +74,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                     />
                     <img
                     className={currentSnowParam.snowIsValid==='0'||result.colleFlg===1
-                        ?'hidden':` absolute left-[42px] top-[161px] lg:left-[90px] lg:top-[161px] h-auto w-full w-[130px] `}
+                        ?'hidden':` absolute left-[42px] top-[161px] lg:left-[90px] lg:top-[161px] h-auto w-[130px] `}
                     src={snowImgSrc}
                     alt="snow"
                     />
