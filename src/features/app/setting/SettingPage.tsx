@@ -8,29 +8,31 @@ export default function SettingPage({ }: { }) {
   //ローカルストレージ
   const [snowParam, setSnowParam] = useSnowParam({snowIsValid:'',noticeCheckedYear:''});
 
-  const imgsrc:string = snowParam.snowIsValid==='1'?'/parts/toggle_on.png':'/parts/toggle_off.png' ;
+  const imgsrc:string = snowParam.snowIsValid==='1'?'/parts/toggle_on.png':'/parts/toggle_off.png';
+  const snowImgSrc: string ='/snow/togglesnow'+String(Math.floor(Math.random() * 2)+1)+'.png';
 
     return (
         <CommonPage>
         <article className="pt-32 pb-48 px-12 lg:px-24 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
         <section className="pb-20">
-        <h2 className="text-xl pb-2 font-bold">雪を降らせる</h2>
-
-        <Button
-            className="relative"
-            onClick={()=>setSnowParam(
-                {snowIsValid:snowParam.snowIsValid==='0'?'1':'0',noticeCheckedYear:''}
-                )}
-        >
-            <Img className="h-[30px] " src={imgsrc}></Img>
-            {/* <Img className="h-[14px] absolute left-[12px] top-[1px]" src={'/snow/togglesnow.png'}></Img> */}
-        </Button>
-
-
+        <h1 className="text-3xl pb-8 font-bold">設定</h1>
+        <p className="tablet:text-lg text-sm pb-2 pl-4 flex">
+          <span>
+          <button
+              className="relative w-fit"
+              onClick={()=>setSnowParam(
+                  {snowIsValid:snowParam.snowIsValid==='0'?'1':'0',noticeCheckedYear:''}
+                  )}
+          >
+              <Img className="tablet:h-[30px] h-[22px] " src={imgsrc}></Img>
+              <Img className={snowParam.snowIsValid==='0'
+                ?'hidden'
+                :`tablet:h-[18px] h-[14px] absolute left-[1px] tablet:top-[-6px] top-[-5px]`} src={snowImgSrc}></Img>
+          </button>
+          </span>
+          <span className="item-center pl-2">画面に雪を降らせる</span>
+        </p>
         </section>
-
-
-
         </article>
         </CommonPage>
       );
