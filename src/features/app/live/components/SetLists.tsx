@@ -29,7 +29,8 @@ export default function SetLists({ livePerId, type }: { livePerId: string, type:
                         releaseDate: '',
                         AlbumSereisId:'',
                         albumTitleFull:'',
-                        albumTitle:''
+                        albumTitle:'',
+                        description:'',
                     }
                 }else if(data.trackNo!==0){
                     const songInfo: SongMaster | undefined = songMaster.find(song=>song.songId === data.songId);
