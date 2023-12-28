@@ -62,7 +62,7 @@ export default function AlbumContent({ album, }: { album: Albums}) {
                 />
                 <img
                 className={currentSnowParam.snowIsValid==='0'||album.colleFlg===1
-                    ?'hidden':` absolute left-[42px] top-[161px] lg:left-[90px] lg:top-[161px] w-[130px] `}
+                    ?'hidden':` absolute left-[42px] top-[159px] lg:left-[90px] lg:top-[159px] w-[130px] `}
                 src={snowImgSrc}
                 alt="snow"
                 />
@@ -161,10 +161,13 @@ export default function AlbumContent({ album, }: { album: Albums}) {
                 />
             </div>
 
-            <div  className="w-fit
-                pt-12 lg:text-base text-sm font-sans break-all
-                "
-            >
+            <div className={album.description===''?'hidden':`
+                w-fit pt-6 lg:text-base text-sm font-sans font-semibold
+            `}>{'※'}{album.description}
+            </div>
+            <div className="
+                w-fit pt-3 lg:text-base text-sm font-sans break-all
+            ">
                 <p>リリースページ：
                     <a 
                     className ="

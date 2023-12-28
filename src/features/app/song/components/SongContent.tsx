@@ -33,7 +33,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
     const jsonStr = localStorage.getItem('snowParam');
     const currentSnowParam: {snowIsValid: string, noticeCheckedYear: string} 
         = jsonStr===null?{snowIsValid:'1',noticeCheckedYear:''}:JSON.parse(jsonStr);
-    const snowImgSrc: string ='/snow/artworksnow'+String(Math.floor(Math.random() * 3)+1)+'.png';
+    const snowImgSrc: string ='/snow/artworksnow'+String(Math.floor(Math.random() * 4)+1)+'.png';
 
 
     return(
@@ -74,7 +74,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                     />
                     <img
                     className={currentSnowParam.snowIsValid==='0'||result.colleFlg===1
-                        ?'hidden':` absolute left-[42px] top-[161px] lg:left-[90px] lg:top-[161px] h-auto w-[130px] `}
+                        ?'hidden':` absolute left-[42px] top-[159px] lg:left-[90px] lg:top-[159px] h-auto w-[130px] `}
                     src={snowImgSrc}
                     alt="snow"
                     />
@@ -181,23 +181,22 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
                 />
             </div>
 
-            <div  className="w-fit
-                pt-12 lg:text-base text-sm font-sans break-all
-                "
-            >
+            <div className={result.description===''?'hidden':`
+                w-fit pt-6 lg:text-base text-sm font-sans font-semibold
+            `}>{'※'}{result.description}
+            </div>
+            <div className="
+                w-fit pt-3 lg:text-base text-sm font-sans break-all
+            ">
                 <p>リリースページ：
                     <a 
                     className ="
-                    underline 
-                    text-slate-400
-                    hover:text-sky-300 
-                    fill-slate-500
-                    hover:fill-sky-500 
+                    underline text-slate-400 hover:text-sky-300 fill-slate-500 hover:fill-sky-500 
                     "
                     href={albumResult.releasePage}
                     target="_blank"
                     rel="noopener noreferrer"
-                    >
+                >
                         <span>
                         {albumResult.releasePage} 
                         <span className="pl-0.5">
