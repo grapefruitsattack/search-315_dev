@@ -11,6 +11,7 @@ export type Albums = {
   releasePage: string;
   youtubeId: string;
   trialYoutubeId: string;
+  description: string;
 };
 
 export type SingingMaster = {
@@ -49,6 +50,7 @@ export type SongMaster = {
   AlbumSereisId: string;
   albumTitleFull: string;
   albumTitle: string;
+  description: string;
 };
 
 export type SubscUrls = {
