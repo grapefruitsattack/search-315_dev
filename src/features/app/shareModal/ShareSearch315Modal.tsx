@@ -13,7 +13,7 @@ import {
 
 
 export const ShareSearch315Modal = (
-  { title, pass }: { title: string, pass: string }
+  { text, pass }: { text: string, pass: string }
 ) => {
     //モーダル
 
@@ -75,7 +75,7 @@ export const ShareSearch315Modal = (
 
         <div className=''>
         <ShareModuleContent 
-              text={`「${title}」 |  サーチサイコー\n#SideM #search315`} 
+              text={text} 
               url={`https://search315.com/`+ pass+'/'}/>
       </div>
       </div>
