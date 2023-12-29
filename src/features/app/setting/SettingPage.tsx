@@ -31,7 +31,7 @@ export default function SettingPage({ }: { }) {
                 :`tablet:h-[18px] h-[14px] absolute left-[1px] tablet:top-[-6px] top-[-5px]`} src={snowImgSrc}></Img>
           </button>
           </span>
-          <span className="item-center pl-2">画面に雪の降る演出</span>
+          <span className="item-center pl-2">画面に雪が降る演出</span>
         </p>
         </section>
         </article>
