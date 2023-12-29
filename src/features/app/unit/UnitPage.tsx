@@ -91,7 +91,7 @@ export default function IdolPage({ id }: { id: string }) {
             `}
         >
         <ShareSearch315Modal 
-                title={unitName} 
+                text={`「${unitName}」の楽曲情報・サブスク配信状況をチェック！ |  サーチサイコー\n#SideM #search315`} 
                 pass={'unit/'+id}
             />
         </div>

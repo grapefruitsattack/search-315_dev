@@ -82,7 +82,7 @@ export default function UnitPage({ id }: { id: string  }) {
             `}
         >
         <ShareSearch315Modal 
-                title={idolName} 
+                text={`「${idolName}」の楽曲情報・サブスク配信状況をチェック！ |  サーチサイコー\n#SideM #search315`} 
                 pass={'idol/'+id}
             />
         </div>
