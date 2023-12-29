@@ -140,13 +140,23 @@ export default function HeaderAndFooter() {
                         </span>
                     </a>
                     <Link className="
+                        p-2 font-semibold
+                        inline-block w-full hover:bg-gray-200 text-blue-600
+                        transition-all duration-500 ease-out
+                        text-xl font-sans justify-center
+                    "
+                        href={`/setting`}
+                        rel="noopener noreferrer">
+                        設定
+                    </Link>
+                    <Link className="
                         p-2
                         inline-block w-full bg-gray-600 hover:bg-gray-200/0 
                         text-white hover:text-gray-600
                         transition-all duration-500 ease-out
                         text-xl font-sans justify-center
                     "
-                        href={`/about`}
+                        href={`/`}
                         rel="noopener noreferrer">
                         TOPに戻る
                     </Link>
