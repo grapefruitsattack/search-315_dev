@@ -306,7 +306,7 @@ export default function UnitPage({ id }: { id: string  }) {
         </section>
   {/* 検索 */}
   <section>
-        <div className="flex w-[85vw] justify-center m-auto">
+        <div className="flex justify-center m-auto">
             <Link 
           href={{ pathname: '/search', query: {q: id, colle: 1}}}
           className='
@@ -324,14 +324,9 @@ export default function UnitPage({ id }: { id: string  }) {
                         p-1 items-center w-[70vw] justify-center 
                     '
                 >
-                    <div
-                        className='
-                             pr-2
-                            truncate
-                        '
-                    >
+                    <div className='pr-2'>
                       <span className="font-bold">
-                      {idolName}
+                      {id==='CFP03'?'アスラン＝BBⅡ世':idolName}
                       </span>
                       <span className="">
                       {'の他の楽曲を見つける'}

@@ -33,7 +33,7 @@ export default function SongContent({ result, albumResult }: { result: SongMaste
     const jsonStr = localStorage.getItem('snowParam');
     const currentSnowParam: {snowIsValid: string, noticeCheckedYear: string} 
         = jsonStr===null?{snowIsValid:'1',noticeCheckedYear:''}:JSON.parse(jsonStr);
-    const snowImgSrc: string ='/snow/artworksnow'+String(Math.floor(Math.random() * 4)+1)+'.png';
+    const snowImgSrc: string ='/snow/artworksnow'+String(Math.floor(Math.random() * 3)+1)+'.png';
 
 
     return(
