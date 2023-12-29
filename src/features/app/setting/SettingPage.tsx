@@ -15,7 +15,8 @@ export default function SettingPage({ }: { }) {
         <CommonPage>
         <article className="pt-32 pb-48 px-12 lg:px-24 bg-white lg:max-w-[1500px] lg:m-auto font-mono">
         <section className="pb-20">
-        <h1 className="text-3xl pb-8 font-bold">設定</h1>
+        <h1 className="text-3xl font-bold">設定</h1>
+        <p className="pb-8 pl-4 text-sm">※設定はブラウザごとに保持されます。</p>
         <p className="tablet:text-lg text-sm pb-2 pl-4 flex">
           <span>
           <button
@@ -30,7 +31,7 @@ export default function SettingPage({ }: { }) {
                 :`tablet:h-[18px] h-[14px] absolute left-[1px] tablet:top-[-6px] top-[-5px]`} src={snowImgSrc}></Img>
           </button>
           </span>
-          <span className="item-center pl-2">画面に雪を降らせる</span>
+          <span className="item-center pl-2">画面に雪の降る演出</span>
         </p>
         </section>
         </article>
