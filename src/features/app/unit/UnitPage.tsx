@@ -333,7 +333,7 @@ export default function IdolPage({ id }: { id: string }) {
   </section>
   {/* 検索 */}
   <section>
-        <div className="flex w-[85vw] justify-center m-auto">
+        <div className="flex justify-center m-auto">
             <Link 
           href={{ pathname: '/search', query: {q: qStr, colle: 1}}}
           className='
@@ -347,16 +347,10 @@ export default function IdolPage({ id }: { id: string }) {
                         bg-gradient-to-r from-indigo-50 to-emerald-50 
                         border-2 border-white
                         text-teal-700
-                        font-sans lg:text-base text-sm
-                        p-1 items-center w-[70vw] justify-center 
-                    '
+                        font-sans tablet:text-base text-sm
+                        p-1 items-center w-[70vw] justify-center'
                 >
-                    <div
-                        className='
-                             pr-2
-                            truncate
-                        '
-                    >
+                    <div className='pr-2'>
                       <span className="font-bold">
                       {unitName}
                       </span>
